@@ -1,0 +1,42 @@
+<div id ="sidebar">
+
+		<%= render(:partial => "shared/sidebar")%>
+
+
+</div>
+
+
+<div id ="mainContent">
+  <h1>Payday Loans</h1> 
+	<div class = "content">
+  	<p>Payday loans can get cash into your checking account in 24 hours. These loans are designed for short-term, emergency funding but can be relatively expensive so make sure you 	understand all fees and other options before accepting a payday loan.</p>
+		<p>Payday loans do not require credit checks and the application process is quick and easy. To qualify for a payday loan you must be employed, have direct deposit and have a 	checking account. The application process takes 5-10 minutes and approval is often instant. The money can usually be deposited into your checking account by the next business day. 	Repayment of the loan is due in full including the borrowed amount plus fees on your next payday.</p>
+		<p>Payday loan lenders vary based on where they are licensed, their reputation and their costs. The Payday Hound reviews online lenders and ranks them using a five star rating that evaluates lender trust, costs and licensing. This ranking includes our Sniff test which evaluates lenders based on where they are licensed and trust factors like the presence of a privacy policy. Below is a full list of the <%= pluralize(@lenders.size, 'lender') %> we review.</p> 
+	</div>
+	<p>Use loan finder to the left to lender best for you.</p>
+    
+  	<table class="listing" summary="full lender list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Company Name</th>
+      <th>Description</th>
+      <th>Rating</th>
+      <th>Sniff</th>
+      <th>Lender Type</th>      
+      <th>Cost</th>
+      <th>APR</th>
+    </tr>
+    <% @ranked.each do |l| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= l.id %></td>
+      <td><%= l.name %></td>
+      <td><%= l.first_comment %></td>
+      <td><%= l.ranking.truncate %></td>
+      <td><%= l.sniff.sniff_desc %></td>
+      <td><%= l.lender_type %></td>      
+      <td><%= l.cost %></td>
+      <td><%= l.apr %></td>
+    </tr>
+    <% end %>
+  	</table>  
+</div>  
