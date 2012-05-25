@@ -6,6 +6,7 @@ class LendersController < ApplicationController
   
   def index
 	  @lenders = Lender.not_lender_type("match").by_top_rank
+    @page = "0001" #sets page for tracking
   end
   
   def criteria
@@ -13,6 +14,7 @@ class LendersController < ApplicationController
   end
   	
   def filter
+    @page = "0002" #sets page for tracking
     @criteria =  Lender.new
     @criteria.sniff_id = params[:lender][:sniff_id]
     @criteria.ranking = params[:lender][:ranking]
