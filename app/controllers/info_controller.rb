@@ -2,6 +2,12 @@ class InfoController < ApplicationController
  	
 	layout 'public'
 	
+  before_filter :set_tracking
+  
+  def index
+    about
+    render('about')
+  end
   def jobs
   end
 
