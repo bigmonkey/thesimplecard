@@ -11,26 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519042540) do
+ActiveRecord::Schema.define(:version => 20120525030015) do
 
   create_table "lenders", :force => true do |t|
     t.integer  "sniff_id"
-    t.string   "name"
-    t.string   "url_code"
-    t.string   "link"
-    t.string   "lender_type"
+    t.string   "name",              :limit => 45,                               :default => ""
+    t.string   "lender_type",       :limit => 45
     t.string   "image_file"
-    t.decimal  "ranking",                        :precision => 3, :scale => 1
+    t.decimal  "ranking",                         :precision => 3, :scale => 1
     t.string   "first_comment"
     t.string   "second_comment"
     t.string   "third_comment"
     t.string   "since",             :limit => 4
-    t.string   "governing_law"
+    t.string   "governing_law",     :limit => 45,                               :default => ""
     t.boolean  "BBB_accredit"
     t.string   "BBB_score",         :limit => 4
     t.integer  "BBB_complaints"
     t.integer  "BBB_unresponded"
-    t.string   "max_loan"
+    t.string   "max_loan",          :limit => 45,                               :default => ""
     t.boolean  "spanish"
     t.boolean  "state_lic"
     t.boolean  "privacy_policy"
@@ -42,14 +40,14 @@ ActiveRecord::Schema.define(:version => 20120519042540) do
     t.boolean  "rent_mort_amt"
     t.boolean  "time_w_employer"
     t.boolean  "reference"
-    t.decimal  "loan_amt",                       :precision => 6, :scale => 2
-    t.decimal  "payments",                       :precision => 4, :scale => 1
-    t.decimal  "pmt_freq_in_days",               :precision => 5, :scale => 1
-    t.decimal  "pmt_amt",                        :precision => 7, :scale => 2
-    t.decimal  "cost",                           :precision => 7, :scale => 2
-    t.decimal  "apr",                            :precision => 3, :scale => 2
-    t.datetime "created_at",                                                   :null => false
-    t.datetime "updated_at",                                                   :null => false
+    t.decimal  "loan_amt",                        :precision => 6, :scale => 2
+    t.decimal  "payments",                        :precision => 4, :scale => 1
+    t.decimal  "pmt_freq_in_days",                :precision => 5, :scale => 1
+    t.decimal  "pmt_amt",                         :precision => 7, :scale => 2
+    t.decimal  "cost",                            :precision => 7, :scale => 2
+    t.decimal  "apr",                             :precision => 3, :scale => 2
+    t.datetime "created_at",                                                                    :null => false
+    t.datetime "updated_at",                                                                    :null => false
   end
 
   add_index "lenders", ["sniff_id"], :name => "index_lenders_on_sniff_id"
@@ -61,11 +59,36 @@ ActiveRecord::Schema.define(:version => 20120519042540) do
 
   add_index "lenders_states", ["lender_id", "state_id"], :name => "index_lenders_states_on_lender_id_and_state_id"
 
+  create_table "pages", :force => true do |t|
+    t.string   "page_name",  :limit => 50
+    t.string   "page_code",  :limit => 4
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "pages", ["page_code"], :name => "index_pages_on_page_code", :unique => true
+
+  create_table "partners", :force => true do |t|
+    t.string   "lender_link"
+    t.string   "lender_tail", :limit => 25
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
   create_table "sniffs", :force => true do |t|
     t.string   "sniff_desc", :limit => 5
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
+
+  create_table "sources", :force => true do |t|
+    t.string   "src_code",   :limit => 4
+    t.string   "src_desc",   :limit => 50
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "sources", ["src_code"], :name => "index_sources_on_src_code", :unique => true
 
   create_table "states", :force => true do |t|
     t.string   "state_abbr", :limit => 2

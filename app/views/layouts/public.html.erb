@@ -16,10 +16,15 @@
 	<%= stylesheet_link_tag    "application", :media => "all" %>
   	<%= javascript_include_tag "application" %>
   	<%= csrf_meta_tags %>
+   	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 </head>
+
 <body>
-	<div id = "wrapper">
-	<header>
+
+<div id = "wrapper">
+	<header id="mainHeader">
 		<div id="logo"><%= link_to(image_tag("thepaydayhound-logo.jpg", :alt => "logo" ), {:controller => 'lenders', :action => 'index'})%></div>
 		<div id="socialmediaicons">
 			<%= link_to(image_tag("rss.png", :alt => "RSS Feed" ), "http://www.thepaydayhound.com/feed", :title => "The Payday Hound Feed") %>
@@ -28,41 +33,32 @@
 			<%= link_to(image_tag("googleplus.png", :alt => "Google +" ), "https://plus.google.com/114318301384219988110", :title => "The Payday Hound Google Page") %>
  		</div>
 		<nav>
-			<ul id="menu" >
-				<li class="menu-link"><%= link_to("Home", {:controller => 'home', :action => 'index'}) %></li>
-				<li class="menu-link"><%= link_to("Payday Loans", {:controller => 'lenders', :action => 'index'}) %></li>
-				<li class="menu-link"><a href="http://www.thepaydayhound.com/resources" >Resources</a></li>
+			<ul>
+				<li><%= link_to("Home", {:controller => 'home', :action => 'index'}) %></li>
+				<li><%= link_to("Payday Loans", {:controller => 'lenders', :action => 'index'}) %></li>
+				<li><a href="http://www.thepaydayhound.com/resources" >Resources</a></li>
 			</ul>			
 		</nav>
 	</header>
 	
-	<div id="wrap"> <!-- everything between header and footer -->
-
-
-
-
-
-
-
-
-
-
+<!-- everything between header and footer -->
 
 <%= yield %>
-    </div> <!-- wrap everything between header and footer -->
-	<div id = "footer">
-		<div id ="footer-links">
-			    <%= link_to("About Us", {:controller => 'info', :action => 'about'}) %>
-			    <%= link_to("Contact Us", {:controller => 'info', :action => 'contact'}) %>
-			    <%= link_to("Jobs", {:controller => 'info', :action => 'jobs'}) %>
-			    <%= link_to("Press", {:controller => 'info', :action => 'press'}) %>			    			    
-			    <%= link_to("Privacy Policy", {:controller => 'info', :action => 'privacy'}) %>			    			    
-			    <%= link_to("Terms of Use", {:controller => 'info', :action => 'terms'}) %>			    			    
-		</div>
-		<div class="copyright">Copyright © 2012 The Payday Hound. All rights reserved.</div>
-		<div class="clear"></div>
-		<div class="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
-  </div>
+ 
+<!-- wrap everything between header and footer -->
+
+	<footer>
+		<ul>
+			 <li><%= link_to("About Us", {:controller => 'info', :action => 'about'}) %> | </li>
+			 <li><%= link_to("Contact Us", {:controller => 'info', :action => 'contact'}) %> | </li>
+			 <li><%= link_to("Jobs", {:controller => 'info', :action => 'jobs'}) %> | </li>
+			 <li><%= link_to("Press", {:controller => 'info', :action => 'press'}) %> | </li>    			    
+			 <li><%= link_to("Privacy Policy", {:controller => 'info', :action => 'privacy'}) %> | </li>    
+			 <li><%= link_to("Terms of Use", {:controller => 'info', :action => 'terms'}) %></li> 	    
+		</ul>
+		<div id="copyright">Copyright © 2012 The Payday Hound. All rights reserved.</div>
+		<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
+    </footer>
   </div>  	
 </body>
 </html>

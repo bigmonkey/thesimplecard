@@ -1,4 +1,7 @@
 Pdh::Application.routes.draw do
+
+  get "partners/go"
+
   get "info/jobs"
 
   get "info/press"

@@ -12,9 +12,324 @@
  *= require_tree .
 */
 
-#wrapper {
-	background: #ddd;
-    margin: 0 auto;
-    width: 980px;
-	border: 1px #000;
+/*limited reset*/
+html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, q, figure, canvas, video, th, td, tr {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align:baseline;
+	font: inherit;
 }
+
+/*html5 display rule*/
+address, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section, summary {
+	display: block;
+}
+
+/*all*/
+
+body {
+	background: #ddd;
+	font-family: helvetica, arial, san-serif;
+	color: #444;
+}
+
+#wrapper {
+	width: 980px;
+	background: #fff;
+    margin: 0 auto;
+}
+
+h1, h2 {
+	color: #0e8b4d;
+	font-weight: bold;
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+h4 {
+	color: #666666;
+    font-size: 0.6em;
+    font-style: italic;
+    margin: 1px 0 0;
+    }
+
+a, a:link, a:visited {
+	color: #4169e1;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #fba117;
+	text-decoration: none;
+}
+
+#clearboth {
+	clear: both;
+}
+
+/*header*/
+
+#mainHeader {
+	height: 85px;
+	margin: 0px 20px 0px 20px;
+	border-bottom: 1px solid #ddd
+}
+
+#logo { 
+	float: left;
+}
+
+#socialmediaicons {
+	float: right;
+	padding: 25px 0px 0px 0px;
+}
+
+nav {
+	clear: right;
+	float: right;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+ 
+ 	nav ul, nav ul li {
+		list-style-type:none;
+		padding: 15px 0px 0px 25px;
+    	text-transform: uppercase;
+	} 
+	
+	nav ul li {
+	display: inline;
+	}
+
+	nav a, nav a:link, nav a:visited {
+	color: #0e8b4d;
+	}
+	
+	nav a:hover, nav a:active {
+	color: #fba117;
+	text-decoration: none;
+	}
+
+/*homepage*/
+
+#thePaydayHound {
+	float: left;
+	width: 650px;
+	height: 150px;
+	margin: 20px 20px 20px 20px;
+	border: 1.5px solid #A6C273;
+	border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border-radius: 7px 7px 7px 7px;
+	box-shadow: 2px 2px 5px 0px #ddd;
+    -moz-box-shadow: 2px 2px 5px 0px #ddd;
+    -webkit-box-shadow: 2px 2px 5px 0px #ddd;
+    background: #efcd9;
+    background: linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
+    background: -moz-linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
+    background: -webkit-linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
+}
+
+	#thePaydayHound h1 {
+	font-size: 1.5em;
+	}
+
+	#pdhSummary {
+    border-right: 2px solid #85B4C8;
+    float: left;
+    margin: 15px;
+    padding: 3px 15px 20px;
+    width: 55%;
+	}
+
+	#pdhSummary ul, #pdhSummary ul li {
+	font-size: 0.85em;
+    margin: 10px 0 0;
+    padding-left: 25px;
+    text-indent: -20px;
+	}
+
+	#homeQuotes {
+	text-align: right;
+	margin: 25px 30px;
+	}
+
+	.industryQuote {
+    font-size: 0.7em;
+    font-weight: bold;
+    margin: 20px 0 0;
+	}
+
+	.industryQuoteCite {
+	font-size: 0.6em;
+    font-style: italic;
+    margin: 0px 10px 0px 0px;
+    text-align: right;
+	}
+
+#rankingReviews {
+	float: right;
+    margin: 40px 55px 0px;
+    padding: 0;
+}
+
+	.rank_row {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+	}
+
+	.rankingReviewsTypeGo {
+    float: left;
+    margin: 0;
+    padding: 5px;
+    text-align: right;
+	}
+	
+	.rankingReviewsTypeGo a:hover {
+  	background-position: -38px 0px;
+	}
+
+	.rankingReviewsButton {
+    background: url("http://www.thepaydayhound.com/wp-content/uploads/2012/05/gobutton-flat.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 21px;
+    width: 38px;
+}
+
+	.rankingReviewsType {
+    float: left;
+    margin: 0;
+    padding: 7px 0 5px 10px;
+    text-align: left;
+    font-size: 0.8em;
+	}	
+
+	#homeWhyPDH {
+	clear: both;
+	border-top: 1px solid #999999;
+	text-align: center;
+	font-size: 0.7em;
+	padding: 10px 0px 0px 0px;
+	margin: 0px 20px 20px 20px;
+	}
+
+		#homeWhyPDH ul, #homeWhyPDH ul li {
+		list-style-type:none;
+		display: inline;
+		padding: 10px 25px 0px 25px;
+		color: #fff;
+		}
+	
+	#homeWhyPDH a, #homeWhyPDH a:link, #homeWhyPDH a:visited{
+	color: #666;
+	text-decoration: none;
+	}
+	
+	#homeWhyPDH a:hover, #homeWhyPDH a:active {
+	color: #fba117;
+	text-decoration: none;
+	}
+
+#paydayIndustryNews {
+	background-color: #eee;
+    border-style: solid;
+    border-top: 4px solid #999;
+    float: left;
+    margin: 0px 20px 20px 20px;
+    padding: 0;
+    width: 295px;
+}
+
+#paydayIndustryNews h2, #homePDHResearch h2 {
+	color: #666;
+	font-size: 0.8em;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+#paydayIndustryNews h2 {
+	border-bottom: 2px solid #ccc;
+	margin-bottom: 5px;
+}
+
+.homeResourceSummary {
+	font-size: 0.65em;
+    margin: 3px 0 5px;
+    padding: 0;
+}
+
+#homePDHResearch {
+	border-style: solid;
+    border-top: 4px solid #999999;
+    float: right;
+    font-size: inherit;
+    margin: 0px 20px 20px 0px;;
+    padding: 0;
+    width: 620px;
+}
+
+#homePDHResearch .homeResourceSummary {
+	float: left;
+}
+
+.homeResearchContent_lft {
+    float: left;
+    width: 48%;
+    border-top: 2px solid #ccc;
+	padding-top: 5px;
+    }
+
+.homeResearchContent_rt {
+    float: right;
+    width: 48%;
+    border-top: 2px solid #ccc;
+	padding-top: 5px;
+    }
+    
+.homeResearchArticle {
+	float: left;
+    width: 63%;
+    }
+.homeResearchMore {
+	clear: both;
+	font-size: 0.7em;
+    font-style: italic;
+    margin-bottom: 10px;
+	}
+
+/*footer*/
+footer {
+	clear: both;
+	text-align: center;
+	background: #444;
+	font-size: 0.7em;
+	padding: 10px 0px 0px 0px;
+	}
+	
+	footer ul, footer ul li {
+		list-style-type:none;
+		display: inline;
+		color: #fff;
+	}
+	
+	footer a, footer a:link, footer a:visited{
+	color: #fff;
+	} 
+	
+	#copyright {
+	padding: 0px 0px 10px 0px;
+	color: #fff;
+	}
+
+	#disclaimer {
+	background: #ddd;
+	padding: 5px 125px 10px;
+	color: #707070;
+    font-style: italic;
+	}

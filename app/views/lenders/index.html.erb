@@ -15,28 +15,8 @@
 	</div>
 	<p>Use loan finder to the left to lender best for you.</p>
     
-  	<table class="listing" summary="full lender list">
-    <tr class="header">
-      <th>&nbsp;</th>
-      <th>Company Name</th>
-      <th>Description</th>
-      <th>Rating</th>
-      <th>Sniff</th>
-      <th>Lender Type</th>      
-      <th>Cost</th>
-      <th>APR</th>
-    </tr>
-    <% @ranked.each do |l| %>
-    <tr class="<%= cycle('odd', 'even') %>">
-      <td><%= l.id %></td>
-      <td><%= l.name %></td>
-      <td><%= l.first_comment %></td>
-      <td><%= l.ranking.truncate %></td>
-      <td><%= l.sniff.sniff_desc %></td>
-      <td><%= l.lender_type %></td>      
-      <td><%= l.cost %></td>
-      <td><%= l.apr %></td>
-    </tr>
-    <% end %>
-  	</table>  
+
+    <%= render(:partial => "table")%>
+    
+    </table>  
 </div>  
