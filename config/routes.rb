@@ -2,21 +2,9 @@ Pdh::Application.routes.draw do
 
   get "partners/go"
 
-  get "info/jobs"
-
-  get "info/press"
-
-  get "info/about"
-
-  get "info/contact"
-
-  get "info/privacy"
-
-  get "info/terms"
-
-  get "home/index"
-
   match 'payday-loans' => 'lenders#index'
+
+  root :to => "homes#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
