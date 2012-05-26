@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525030015) do
+ActiveRecord::Schema.define(:version => 20120526100039) do
 
   create_table "lenders", :force => true do |t|
     t.integer  "sniff_id"
@@ -59,6 +59,13 @@ ActiveRecord::Schema.define(:version => 20120525030015) do
 
   add_index "lenders_states", ["lender_id", "state_id"], :name => "index_lenders_states_on_lender_id_and_state_id"
 
+  create_table "lenders_term_states", :id => false, :force => true do |t|
+    t.integer "lender_id"
+    t.integer "term_state_id"
+  end
+
+  add_index "lenders_term_states", ["lender_id", "term_state_id"], :name => "index_lenders_term_states_on_lender_id_and_term_state_id"
+
   create_table "pages", :force => true do |t|
     t.string   "page_name",  :limit => 50
     t.string   "page_code",  :limit => 4
@@ -91,6 +98,13 @@ ActiveRecord::Schema.define(:version => 20120525030015) do
   add_index "sources", ["src_code"], :name => "index_sources_on_src_code", :unique => true
 
   create_table "states", :force => true do |t|
+    t.string   "state_abbr", :limit => 2
+    t.string   "state",      :limit => 15
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  create_table "term_states", :force => true do |t|
     t.string   "state_abbr", :limit => 2
     t.string   "state",      :limit => 15
     t.datetime "created_at",               :null => false

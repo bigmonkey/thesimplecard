@@ -4,7 +4,8 @@ class Lender < ActiveRecord::Base
     has_one :partner, {:foreign_key => "id"}
     belongs_to :sniff
     has_and_belongs_to_many :states
-    
+    has_and_belongs_to_many :term_states
+
     scope :by_top_rank, order("lenders.ranking DESC")
     scope :by_low_cost, order("lenders.cost ASC")
     scope :by_low_apr, order("lenders.apr ASC")
