@@ -22,8 +22,8 @@
 </head>
 
 <body>
-
-<div id = "wrapper">
+<div id="container">
+<div id = "mainHeaderOutter">
 	<header id="mainHeader">
 		<div id="logo"><%= link_to(image_tag("thepaydayhound-logo.jpg", :alt => "logo" ), {:controller => 'homes', :action => 'index'})%></div>
 		<div id="socialmediaicons">
@@ -40,13 +40,14 @@
 			</ul>			
 		</nav>
 	</header>
-	
+</div>	
 <!-- everything between header and footer -->
 
 <%= yield %>
  
 <!-- wrap everything between header and footer -->
-
+<div class="clearfooter"></div>
+</div>	
 	<footer>
 		<ul>
 			 <li><%= link_to("About Us", {:controller => 'infos', :action => 'about'}) %> | </li>
@@ -58,7 +59,6 @@
 		</ul>
 		<div id="copyright">Copyright © 2012 The Payday Hound. All rights reserved.</div>
 		<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
-    </footer>
-  </div>  	
+    </footer>   	
 </body>
 </html>

@@ -1,23 +1,26 @@
-<div id ="sidebar">
+<div id="wrapper">
+
+<aside id ="sidebar">
 
 		<%= render(:partial => "shared/sidebar")%>
 
 
-</div>
+</aside>
 
 
-<div id ="mainContent">
+<section id="mainContent">
   <h1>Payday and Installment Loans</h1> 
-	<div class = "content">
   	<p>Payday loans and installment loanscan get cash into your checking account in 24 hours. These loans are designed for short-term, emergency funding but can be relatively expensive so make sure to review to and understand all fees and other options before accepting a payday or installment loan.</p>
-		<p>These loans do not require credit checks and the application process is quick and easy. To qualify you must be employed, have direct deposit and have a checking account. The application process takes 5-10 minutes and approval is often instant. The money can usually be deposited into your checking account by the next business day. Repayment of the loan is due in full including the borrowed amount plus fees on your next payday.</p>
-		<p>Payday loans are due in full the next pay period. Installment loans are paid back over a longer period of time. In general if you can pay your loan back in less than three pay periods renewing a payday loan costs less but if you need more time to pay back your loan an installment loan is better. (See <%= link_to('Payday Loan or Installment Loan', "http://www.thepaydayhound.com/payday-loan-or-installment-loan/") %> for more details).</p>
-		<p>Payday and installment loan lenders vary based on where they are licensed, their reputation and their costs. The Payday Hound reviews online lenders and ranks them using a five star rating that evaluates lender trust, costs and licensing. This ranking includes our Sniff test which evaluates lenders based on where they are licensed and trust factors like the presence of a privacy policy. Below is a full list of the <%= pluralize(@lenders.size, 'lender') %> we review.</p> 
-	</div>
+	<p>These loans do not require credit checks and the application process is quick and easy. To qualify you must be employed, have direct deposit and have a checking account. The application process takes 5-10 minutes and approval is often instant. The money can usually be deposited into your checking account by the next business day. Repayment of the loan is due in full including the borrowed amount plus fees on your next payday.</p>
+	<p>Payday loans are due in full the next pay period. Installment loans are paid back over a longer period of time. In general if you can pay your loan back in less than three pay periods renewing a payday loan costs less but if you need more time to pay back your loan an installment loan is better. (See <%= link_to('Payday Loan or Installment Loan', "http://www.thepaydayhound.com/payday-loan-or-installment-loan/") %> for more details).</p>
+	<p>Payday and installment loan lenders vary based on where they are licensed, their reputation and their costs. The Payday Hound reviews online lenders and ranks them using a five star rating that evaluates lender trust, costs and licensing. This ranking includes our Sniff test which evaluates lenders based on where they are licensed and trust factors like the presence of a privacy policy. Below is a full list of the <%= pluralize(@lenders.size, 'lender') %> we review.</p> 
 	<p>Use the loan finder to the left to find a lender best for you.</p>
     
 
     <%= render(:partial => "table")%>
     
     </table>  
+
+</section>
+
 </div>  

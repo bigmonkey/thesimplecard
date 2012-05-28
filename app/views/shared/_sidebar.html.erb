@@ -4,9 +4,10 @@
 	<%= render(:partial => "shared/criteria")%>
 </div>
 
-<div class = "info">
-	<h2 class= "title">Why The Payday Hound?</h2>
-		<div class= "link"><%= link_to("Why use the Payday Hound?", {:controller => 'infos', :action => 'why'}) %></div>
-		<div class= "link"><%= link_to("How do we make money?", {:controller => 'infos', :action => 'why'}) %></div>
-		<div class= "link"><%= link_to("How do our rankings work?", {:controller => 'infos', :action => 'why'}) %></div>
+<div id = "sidebarWhyPDH">
+	<h2>Why The Payday Hound?</h2>
+		<ul>
+		<li><%= link_to("Why use the Payday Hound?", {:controller => 'infos', :action => 'why'}) %></li>
+		<li><%= link_to("How do we make money?", {:controller => 'infos', :action => 'why'}) %></li>
+		<li><%= link_to("How do our rankings work?", {:controller => 'infos', :action => 'why'}) %></li>
 </div>

@@ -1,12 +1,11 @@
-<h2 class = "">Find a Payday Loan</h2>
+<h2>Find a Payday Loan</h2>
 
-<%= form_for(:lender, :url => {:controller => 'lenders', :action => 'lenders'}) do |f| %>
-<table>
+<%= form_for(:lender, :url => {:controller => 'lenders', :action => 'lenders'}, :html => {:id => "findPaydayForm"}) do |f| %>
   <tr>
     <th><%= f.label(:sniff_id) %></th>
-    <td><%= f.radio_button(:sniff_id, "1") %> Great Only 
-    	<%= f.radio_button(:sniff_id, "2", options = {:checked => true}) %> OK or Better 
-    	<%= f.radio_button(:sniff_id, "3") %>Bad or Better </td>
+    <td><%= f.radio_button(:sniff_id, "1") %> Great
+    	<%= f.radio_button(:sniff_id, "2", options = {:checked => true}) %> OK + 
+    	<%= f.radio_button(:sniff_id, "3") %>Bad +</td>
   </tr>
   <tr>
     <th><%= f.label(:ranking) %></th>
@@ -22,12 +21,11 @@
   </tr>
   <tr>
     <th><%= f.label(:lender_type) %></th>
-    <td><%= f.radio_button(:lender_type, "payday", options = {:checked => true}) %> payday 
-    	<%= f.radio_button(:lender_type, "term") %> installment</td>
-  </tr>
-</table>   
+    <td><%= f.radio_button(:lender_type, "payday", options = {:checked => true}) %> Payday 
+    	<%= f.radio_button(:lender_type, "term") %> Installment</td>
+  </tr>  
   
-<div class="criteria button">
+<div class="formSection">
 	<%= submit_tag("GO") %>
 </div>
 <% end %>

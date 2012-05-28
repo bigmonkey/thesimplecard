@@ -1,12 +1,13 @@
-<div id ="sidebar">
+<div id ="wrapper">
+<aside id ="sidebar">
 
 		<%= render(:partial => "shared/sidebar")%>
 
 
-</div>
+</aside>
 
 
-<div id ="mainContent">
+<section id ="mainContent">
   	<h1><%= @criteria.lender_type == "payday" ? "Payday" : "Installment"%> Lenders</h1>
   	<div class = "content">
 			<p>We found <%= pluralize(@lenders.size, 'lender') %> in <%= @state.state %> who provide <%= @criteria.lender_type == "payday" ? "payday" : "installment" %> loans with a Sniff score of <%= @criteria.sniff.sniff_desc %> and a ranking of <%= pluralize(@criteria.ranking, 'star') %> or better.</p>
@@ -15,4 +16,5 @@
 
     <%= render(:partial => "table")%>
 
+</section>
 </div>
