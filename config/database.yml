@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: simplzl0_pdh
   pool: 5
-  username: simplzl0_conway
-  password: P0ny4588
+  username: simplzl0_read
+  password: pony
   host: localhost
