@@ -13,7 +13,7 @@ class Lender < ActiveRecord::Base
     def self.sniff_level(level)
 		where("sniff_id <= ?", level)
     end
-	
+
     #used in filter to choose by lender type
     def self.lender_type(type)
     	where("lender_type = ?", type)

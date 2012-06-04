@@ -6,4 +6,6 @@ class ApplicationController < ActionController::Base
   def set_tracking
   	!params[:src].nil? ? session[:src] = params[:src] : session[:src] = session[:src]
   end
+
+   
 end

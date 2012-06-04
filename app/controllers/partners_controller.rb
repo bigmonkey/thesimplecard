@@ -37,7 +37,7 @@ class PartnersController < ApplicationController
   def go
   	#If there is an ID go to lender app else return to the hound
   	if params[:id].nil?
-  		redirect_to(:controller => 'home', :action => 'index')
+  		redirect_to(:controller => 'homes', :action => 'index')
   	else
 	  redirect_values
     end
