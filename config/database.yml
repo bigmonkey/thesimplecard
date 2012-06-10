@@ -42,6 +42,6 @@ production:
   reconnect: false
   database: pdh_development
   pool: 5
-  username: conway
-  password: pony
+  username: pdh_read
+  password: pony4588
   host: localhost

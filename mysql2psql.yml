@@ -13,7 +13,7 @@ destination:
   port: 5432
   username: conway
   password: pony
-  database: pdh_development
+  database: pdh
 
 # if tables is given, only the listed tables will be converted.  leave empty to convert all tables.
 #tables:
