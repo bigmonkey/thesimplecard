@@ -30,6 +30,10 @@ end
 
 gem 'jquery-rails'
 
+# to get heroku db:push to work need taps
+gem 'sqlite3'
+gem 'taps'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
