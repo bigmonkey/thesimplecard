@@ -5,7 +5,14 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+# for mysql2 or postgresql uncomment correct gem below
+# gem 'mysql2'
+gem 'pg'
+
+# to use thin webserver
+gem 'thin'
+
+# these two gems are for runing in linux. don't need for windows
 gem 'execjs'
 gem 'therubyracer'
 

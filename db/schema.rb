@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120526100039) do
 
   create_table "lenders", :force => true do |t|
     t.integer  "sniff_id"
-    t.string   "name",              :limit => 45,                               :default => ""
+    t.string   "name",              :limit => 45
     t.string   "lender_type",       :limit => 45
     t.string   "image_file"
     t.decimal  "ranking",                         :precision => 3, :scale => 1
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(:version => 20120526100039) do
     t.string   "second_comment"
     t.string   "third_comment"
     t.string   "since",             :limit => 4
-    t.string   "governing_law",     :limit => 45,                               :default => ""
+    t.string   "governing_law",     :limit => 45
     t.boolean  "BBB_accredit"
     t.string   "BBB_score",         :limit => 4
     t.integer  "BBB_complaints"
     t.integer  "BBB_unresponded"
-    t.string   "max_loan",          :limit => 45,                               :default => ""
+    t.string   "max_loan",          :limit => 45
     t.boolean  "spanish"
     t.boolean  "state_lic"
     t.boolean  "privacy_policy"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(:version => 20120526100039) do
     t.decimal  "pmt_amt",                         :precision => 7, :scale => 2
     t.decimal  "cost",                            :precision => 7, :scale => 2
     t.decimal  "apr",                             :precision => 3, :scale => 2
-    t.datetime "created_at",                                                                    :null => false
-    t.datetime "updated_at",                                                                    :null => false
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
   end
 
   add_index "lenders", ["sniff_id"], :name => "index_lenders_on_sniff_id"

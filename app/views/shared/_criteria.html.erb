@@ -3,17 +3,17 @@
 <%= form_for(:lender, :url => {:controller => 'lenders', :action => 'lenders'}, :html => {:id => "findPaydayForm"}) do |f| %>
   <tr>
     <th><%= f.label(:sniff_id) %></th>
-    <td><%= f.radio_button(:sniff_id, "1") %> Great
-    	<%= f.radio_button(:sniff_id, "2", options = {:checked => true}) %> OK + 
-    	<%= f.radio_button(:sniff_id, "3") %>Bad +</td>
+    <td><%= f.radio_button(:sniff_id, "1") %>Great
+      <%= f.radio_button(:sniff_id, "2", options = {:checked => true}) %>Fair
+    	<%= f.radio_button(:sniff_id, "3") %>Bad</td>
   </tr>
   <tr>
     <th><%= f.label(:ranking) %></th>
-    <td><%= f.radio_button(:ranking, "5") %> 5 Star Only 
-    	<%= f.radio_button(:ranking, "4") %> 4 Star Plus 
-    	<%= f.radio_button(:ranking, "3", options = {:checked => true}) %>3 Star Plus 
-    	<%= f.radio_button(:ranking, "2") %>2 Star Plus 
-    	<%= f.radio_button(:ranking, "1") %>1 Star Plus </td>
+    <td><%= f.radio_button(:ranking, "5") %> 5 Stars 
+    	<%= f.radio_button(:ranking, "4") %> 4 Stars 
+    	<%= f.radio_button(:ranking, "3", options = {:checked => true}) %>3 Star
+    	<%= f.radio_button(:ranking, "2") %>2 Stars 
+    	<%= f.radio_button(:ranking, "1") %>1 Star</td>
   </tr>
   <tr>
     <th><%= label(:state, :state) %></th>
