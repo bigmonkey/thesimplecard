@@ -40,8 +40,8 @@ production:
   adapter: postgresql
   encoding: unicode
   reconnect: false
-  database: pdh
+  database: pdh_development
   pool: 5
-  username: conway_read
-  password: pony4588
+  username: conway
+  password: pony
   host: localhost
