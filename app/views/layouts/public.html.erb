@@ -1,3 +1,5 @@
+<% # This is the main layout used for all public facing views %>
+
 <!DOCTYPE html><!-- HTML 5 -->
 <html dir="ltr" lang="en-US">
 
@@ -5,8 +7,13 @@
 
 	<meta name="robots" content="noindex, nofollow">
 
-  	<title>The Payday Hound: Payday Loan Reviews and Independent Rankings</title>
-	<meta name="description" content="Detailed, fair, independent reviews and rankings of payday and installment loans. The Payday Hound reviews more online payday loans than anyone else we know"/>
+	<% if content_for?(:seotags) %>
+	<%= yield :seotags %>
+	<% else %>
+	<title>The Payday Hound: Payday Loan Reviews and Independent Rankings</title>
+	<meta name="description" content="Detailed, fair, independent reviews and rankings of payday and installment loans. The Payday Hound reviews more online payday loans than anyone else we know."/>
+	<% end %>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="pingback" href="http://www.thepaydayhound.com/xmlrpc.php" />
 	<link rel="canonical" href="http://www.thepaydayhound.com/" />
@@ -22,8 +29,9 @@
 </head>
 
 <body>
+
 <div id="container">
-<div id = "mainHeaderOutter">
+	<div id="mainHeaderOutter">
 	<header id="mainHeader">
 		<div id="logo"><%= link_to(image_tag("thepaydayhound-logo.png", :alt => "logo" ), {:controller => 'homes', :action => 'index'})%></div>
 		<div id="socialmediaicons">
@@ -36,18 +44,18 @@
 			<ul>
 				<li><%= link_to("Home", {:controller => 'homes', :action => 'index'}) %></li>
 				<li><%= link_to("Payday Loans", {:controller => 'lenders', :action => 'index'}) %></li>
+				<li><%= link_to("Installment Loans", {:controller => 'lenders', :action => 'installment'}) %></li>
+				<li><%= link_to("Apply Direct", "http://payday-loan-apply.thepaydayhound.com") %></li>
 				<li><a href="http://www.thepaydayhound.com/resources" >Resources</a></li>
 			</ul>			
 		</nav>
 	</header>
-</div>	
+	</div>
 <!-- everything between header and footer -->
 
 <%= yield %>
- 
-<!-- wrap everything between header and footer -->
-<div class="clearfooter"></div>
-</div>	
+
+<!-- wrap everything between header and footer -->		
 	<footer>
 		<ul>
 			 <li><%= link_to("About Us", {:controller => 'infos', :action => 'about'}) %> | </li>
@@ -58,7 +66,7 @@
 			 <li><%= link_to("Terms of Use", {:controller => 'infos', :action => 'terms'}) %></li> 	    
 		</ul>
 		<div id="copyright">Copyright © 2012 The Payday Hound. All rights reserved.</div>
-		<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
-    </footer>   	
+		 <div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
+    </footer>  	
 </body>
 </html>

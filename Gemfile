@@ -10,7 +10,7 @@ gem 'rails', '3.2.3'
 gem 'pg'
 
 # to use thin webserver
-gem 'thin'
+# gem 'thin'
 
 # these two gems are for runing in linux. don't need for windows
 gem 'execjs'
@@ -31,8 +31,8 @@ end
 gem 'jquery-rails'
 
 # to get heroku db:push to work need taps
-gem 'sqlite3'
-gem 'taps'
+# gem 'sqlite3'
+# gem 'taps'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

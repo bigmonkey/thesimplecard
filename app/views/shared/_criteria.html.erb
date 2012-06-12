@@ -1,32 +1,33 @@
-<h2>Find a Payday Loan</h2>
+<h2>Loan Finder</h2>
 
 <%= form_for(:lender, :url => {:controller => 'lenders', :action => 'lenders'}, :html => {:id => "findPaydayForm"}) do |f| %>
-  <tr>
-    <th><%= f.label(:sniff_id) %></th>
-    <td><%= f.radio_button(:sniff_id, "1") %>Great
+  <div class="formSection">
+    <div class="formLabel"><%= f.label(:sniff_id) %></div>
+    <div class="formLabelDesc">Lender Reputation</div>
+    <div class="formInput"><%= f.radio_button(:sniff_id, "1") %>Great
       <%= f.radio_button(:sniff_id, "2", options = {:checked => true}) %>Fair
-    	<%= f.radio_button(:sniff_id, "3") %>Bad</td>
-  </tr>
-  <tr>
-    <th><%= f.label(:ranking) %></th>
-    <td><%= f.radio_button(:ranking, "5") %> 5 Stars 
-    	<%= f.radio_button(:ranking, "4") %> 4 Stars 
-    	<%= f.radio_button(:ranking, "3", options = {:checked => true}) %>3 Star
-    	<%= f.radio_button(:ranking, "2") %>2 Stars 
-    	<%= f.radio_button(:ranking, "1") %>1 Star</td>
-  </tr>
-  <tr>
-    <th><%= label(:state, :state) %></th>
-    <td><%= select(:state, :id, State.all.collect {|s| [s.state_abbr, s.id]}) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:lender_type) %></th>
-    <td><%= f.radio_button(:lender_type, "payday", options = {:checked => true}) %> Payday 
-    	<%= f.radio_button(:lender_type, "term") %> Installment</td>
-  </tr>  
-  
-<div class="formSection">
-	<%= submit_tag("GO") %>
-</div>
+    	<%= f.radio_button(:sniff_id, "3") %>Bad</div>
+  </div>
+  <div class="formSection">
+    <div class="formLabel"><%= f.label(:ranking) %></div>
+    <div class="formLabelDesc">Sniff and Pricing</div>
+      <div class="formInput">
+      <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "one star")%></p> 
+    	<p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "one star")%></p> 
+    	<p><%= f.radio_button(:ranking, "3", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "one star")%></p>
+    	<p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "one star")%></p> 
+    	<p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "one star")%><p>
+      </div>
+  </div>
+  <div class="formSection">
+    <div class="formLabel"><%= label(:state, :state) %></div>
+    <div class="formInput"><%= select(:state, :id, State.all.collect {|s| [s.state_abbr, s.id]}) %></div>
+  </div>
+  <div class="formSection">
+    <div class="formLabel"><%= f.label(:lender_type) %></div>
+    <div class="formInput"><%= f.radio_button(:lender_type, "payday", options = {:checked => true}) %> Payday 
+    	<%= f.radio_button(:lender_type, "term") %> Installment</div> 
+  </div>
+	<%= submit_tag nil, :class => "findLoanButton" %>
 <% end %>
   

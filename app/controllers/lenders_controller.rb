@@ -6,7 +6,12 @@ class LendersController < ApplicationController
   
   def index
 	  @lenders = Lender.not_lender_type("match").by_top_rank
-    @page = "0001" #sets page for tracking
+    @page = "0001" #sets page for tracking to 'payday-loans-main'
+  end
+
+  def installment
+    @lenders = Lender.not_lender_type("match").by_top_rank
+    @page = "0004" #sets page for tracking to 'installment-loans'
   end
   
   def criteria
@@ -25,11 +30,11 @@ class LendersController < ApplicationController
     if params[:lender][:lender_type] == "term"
       @criteria.lender_type = "term"                  #show the term lenders
       @state = TermState.find(params[:state][:id])    
-      @page = "0003"                                  #sets page for tracking to term-loans-page
+      @page = "0003"                                  #sets page for tracking to 'term-loans-page'
     else
       @criteria.lender_type = "payday"                #show payday even if someone puts into params random term
       @state = State.find(params[:state][:id])
-      @page = "0002"                                  #sets page for tracking to payday-loans-page
+      @page = "0002"                                  #sets page for tracking to 'payday-loans-page'
     end
  
       @select_lenders = @state.lenders

@@ -3,7 +3,7 @@ Pdh::Application.routes.draw do
   get "partners/go"
 
   match 'payday-loans' => 'lenders#index'
-  match 'installment-loans' => 'lenders#index'
+  match 'installment-loans' => 'lenders#installment'
   root :to => "homes#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

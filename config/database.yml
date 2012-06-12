@@ -14,8 +14,10 @@
 # encoding: utf8      unicode
 
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
+#  adapter: postgresql
+#  encoding: unicode
   reconnect: false
   database: pdh_development
   pool: 5

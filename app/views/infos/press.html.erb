@@ -1,5 +1,10 @@
-<div id="wrapper">
+<% # title and description for seo %>
+<% content_for :seotags do %>
+<title>The Payday Hound Press Page: In-depth Reviews and Independent Rankings</title>
+<meta name="description" content="Welcome to The Payday Hound's Press Center, a place for professionals seeking information and the news about The Payday Hound's payday loan services"/>
+<% end %>
 
+<div id="wrapper">
 <aside id ="sidebar">
 
 		<%= render(:partial => "shared/sidebar")%>
@@ -26,5 +31,4 @@
 			<a href="http://www.thepaydayhound.com/wp-content/uploads/2012/05/The-Payday-Hound-Team.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.thepaydayhound.com/wp-content/uploads/2012/05/The-Payday-Hound-Team.pdf']);">The Payday Hound Team</a>
 		
 </section>	
-
 </div>
