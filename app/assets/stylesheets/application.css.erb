@@ -52,10 +52,6 @@ h1, h2 {
 	color: #0E8B4D;
 }
 
-h3 {
-	font-size: 0.8em;
-}
-
 h4 {
 	color: #666666;
     font-size: 0.6em;
@@ -68,7 +64,7 @@ a, a:link, a:visited {
 }
 
 a:hover, a:active {
-	color: #fba117;
+	color: #E58D1F;
 	text-decoration: none;
 }
 
@@ -138,7 +134,7 @@ nav {
 	}
 	
 	nav a:hover, nav a:active {
-	color: #fba117;
+	color: #E58D1F;
 	text-decoration: none;
 	}
 
@@ -201,7 +197,7 @@ nav {
 
 #rankingReviews {
 	float: right;
-    margin: 40px 55px 0px;
+    margin: 25px 55px 0px;
     padding: 0;
 }
 
@@ -236,6 +232,10 @@ nav {
     	padding: 7px 0 5px 10px;
     	text-align: left;
     	font-size: 0.8em;
+	}
+
+	.applyDirecth2 {
+		margin: 5px 0px;
 	}	
 
 	#homeWhyPDH {
@@ -260,7 +260,7 @@ nav {
 	}
 	
 	#homeWhyPDH a:hover, #homeWhyPDH a:active {
-		color: #fba117;
+		color: #E58D1F;
 		text-decoration: none;
 	}
 
@@ -375,7 +375,7 @@ nav {
 }
 
 #sidebar a:hover, #sidebar a:active {
-	color: #fba117;
+	color: #E58D1F;
 	text-decoration: none;
 }
 
@@ -464,29 +464,39 @@ form p {
 	}
 /*MatchingServicesBenefits*/
 	
-	.msBenefits {
-		margin-top: 5px;	
-	}
-	
-	.msBenefitsLeft, .msBenefitsCenter, .msBenefitsRight {
-		color: #0E8B4D;
+	.msBox {
+		background: #eee;
+		margin-top: 5px;
 		font-weight: bold;
-	}
-	
-	.msBenefitsLeft {
-		width: 240px;
-		margin: 0px 0px 0px 50px;
-		float: left;
+		height: 75px;
+		padding: 10px 0px 10px 10px;
+		border-radius: 5px 5px 5px 5px;
+		-moz-border-radius: 5px 5px 5px 5px;
+		-webkit-border-radius: 5px 5px 5px 5px;
 	}
 
-	.msBenefitsCenter {
-		width: 200px;
-		float: left;
+	.msBenefits {
+		padding: 10px 0px 0px;
+
 	}
 	
-	.msBenefitsRight {
-		width: 220px;
+	.msBenefitsLeft, .msBenefitsCenter, .msBenefitsRight, .msBenefitsLast {
+		color: #0E8B4D;
+		font-weight: bold;
+		background: #eee;
 		float: left;
+		margin: 0px 10px;
+	}
+
+	.msBenefitsApply {
+		background: url(<%= asset_path 'applynowbutton.png' %>)  no-repeat scroll 0 0 transparent;
+    	display: block;
+    	height: 30px;
+    	width: 140px;
+	}
+
+	.msBenefitsApply:hover {
+		background-position: -140px 0px;
 	}
 
 /*LenderTableListing*/
@@ -517,11 +527,7 @@ th {
 td {
     padding: 5px;
 	vertical-align: middle;
-	font-size: 0.85em;
-}
-
-.lenderDescription {
-	width: 200px;
+	font-size: 0.9em;
 }
 
 tr {
@@ -529,7 +535,7 @@ tr {
 }
 
 .tableApplyButton {
-	background: url(<%= asset_path 'apply-payday-sm.png' %>)  no-repeat scroll 0 0 transparent;
+	background: url(<%= asset_path 'apply-payday-sm.png' %>)  no-repeat transparent;
     display: block;
     margin: 0px 0px 5px 5px;
     height: 28px;
@@ -540,42 +546,43 @@ tr {
 	background-position: -70px;
 }
 
-.instantDecision {
+td .instantDecision {
 	width: 80px;
+	font-size: 0.95em;
 }
 
 /*SniffRankings*/
 .ratingSpace {
-	margin-top: 30px;
+	margin-top: 23px;
 }
 
 .rank1 {
-	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-1.png' %>) no-repeat center;
-	width: 80px;
+	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-1.png' %>) no-repeat center 17px;
+	width: 100px;
 	height: 16px;
 }
 
 .rank2 {
-	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-2.png' %>) no-repeat center;
-	width: 80px;
+	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-2.png' %>) no-repeat center 17px;
+	width: 100px;
 	height: 16px;
 }
 
 .rank3 {
-	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-3.png' %>) no-repeat center;
-	width: 80px;
+	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-3.png' %>) no-repeat center 17px;
+	width: 100px;
 	height: 16px;
 }
 
 .rank4 {
-	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-4.png' %>) no-repeat center;
-	width: 80px;
+	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-4.png' %>) no-repeat center 17px;
+	width: 100px;
 	height: 16px;
 }
 
 .rank5 {
-	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-5.png' %>) no-repeat center;
-	width: 80px;
+	background:url(<%= asset_path 'rankings/Payday-Loan-Rank-Star-5.png' %>) no-repeat center 17px;
+	width: 100px;
 	height: 16px;
 }
 
@@ -595,16 +602,18 @@ tr {
 		font-weight: bold;
 	}
 
-	#mainContent h2 {
+	#mainContent h3 {
 		font-size: 1em;
-		color: #fba117;
+		color: #444;
 		margin-top: 15px;
+		font-weight: bold;
 	}
 
-	#mainContent h3, .arh {
+	#mainContent h2, .arh {
 		font-size: 1.2em;
-		color: #444;
-		margin-top: 20px;
+		color: #E58D1F;
+		margin-top: 15px;
+		font-weight: bold;
 	}
 	
 	#mainContent ul li, #mainContent ol li {
@@ -650,9 +659,6 @@ footer {
 	margin: 0 auto;
 	width: 980px;
 	border-top: 1px solid #d0d0d0;
-	-moz-box-shadow: 0 2px 3px -2px #ccc;
-	-webkit-box-shadow: 0 2px 3px -2px #ccc;
-	box-shadow: 0 2px 3px -2px #ccc;
 	}
 	
 	footer ul, footer ul li {
@@ -666,7 +672,7 @@ footer {
 	}
 	
 	footer a:hover, a:active {
-	color: #fba117;
+	color: #E58D1F;
 	text-decoration: none;
 	}
 	

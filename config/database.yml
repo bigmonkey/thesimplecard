@@ -14,10 +14,12 @@
 # encoding: utf8      unicode
 
 development:
-  adapter: mysql2
-  encoding: utf8
-#  adapter: postgresql
-#  encoding: unicode
+# uncommnt for window
+#  adapter: mysql2
+#  encoding: utf8
+# uncomment for ubuntu/heroku
+  adapter: postgresql
+  encoding: unicode
   reconnect: false
   database: pdh_development
   pool: 5

@@ -5,16 +5,17 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# for mysql2 or postgresql uncomment correct gem below
+# converting between windows and ubuntu/thin (heroku) set up
+# also need to change database.yml file
+# mysql2 for windows
+# postgresql, execjs, therubyracer, thin for ubuntu
+# uncomment for windows
 # gem 'mysql2'
-gem 'pg'
-
-# to use thin webserver
-# gem 'thin'
-
-# these two gems are for runing in linux. don't need for windows
-gem 'execjs'
-gem 'therubyracer'
+# uncomment for ubuntu/thin
+ gem 'pg'
+ gem 'thin'
+ gem 'execjs'
+ gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.

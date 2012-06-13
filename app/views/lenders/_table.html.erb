@@ -2,17 +2,18 @@
 # used by lenders and index views %>
 
   <h2>ONE APPLICATION, MANY LENDERS</h2>
-  <p class="msBox">Use our one-form application process to apply to multiple lenders at once. It's completely free to our users.
-  <p class="msBenefits">
-    <div class="msBenefitsLeft"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> No Faxing, No Calls</div>
-    <div class="msBenefitsCenter"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Private, Safe, and Secure</div>
-    <div class="msBenefitsRight"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Must be 18+ or olrder</div>
-    <div id="clearboth"></div>
-    <div class="msBenefitsLeft"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Up to $1000 Cash in 24 Hours</div>
-    <div class="msBenefitsCenter"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %>One Simple Form</div>
-    <div class="msBenefitsRight"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> 100% Online</div>         
-  </p>  
-  </p>
+  
+  <div class="msBox">Use our simple form to apply to multiple lenders at once. It's completely free to our users.
+  <div class="msBenefits">
+    <div class="msBenefitsLeft"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> No Faxing, No Calls<br><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Up to $1000 Cash in 24 Hours</div>
+    <div class="msBenefitsCenter"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Private, Safe, and Secure<br><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %>One Simple Form</div>
+    <div class="msBenefitsRight"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Must be 18+ or older<br><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> 100% Online</div>     
+  </div>
+  <div class="msBenefitsLast">
+  <%= link_to("", "http://payday-loan-apply.thepaydayhound.com", :class => "msBenefitsApply") %>
+  </div> 
+  </div>
+  <div id="clearboth"></div>
   <p>Click under each lender's logo for more in-depth reviews.</p>
 
   <table class="listing" summary="full lender list">
@@ -45,4 +46,4 @@
       </td>
     </tr>
     <% end %>
-  </table> 
+  </table>
