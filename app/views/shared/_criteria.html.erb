@@ -33,56 +33,53 @@
     <div class="formLabelDesc">Sniff and Pricing</div>
     <% if @criteria.nil? %>
       <div class="formInput">
-      <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
-    	<p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
-    	<p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
-    	<p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
-    	<p><%= f.radio_button(:ranking, "1", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
+        <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
+      	<p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
+      	<p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
+      	<p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
+      	<p><%= f.radio_button(:ranking, "1", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
       </div>
-      <% else %>
-        <% case @criteria.ranking
-           when 1 %>
-            <div class="formInput">
-            <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
-            <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
-            <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
-            <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
-            <p><%= f.radio_button(:ranking, "1", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
-            </div>
-        <%  when 2 %>
-            <div class="formInput">
-            <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
-            <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
-            <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
-            <p><%= f.radio_button(:ranking, "2", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
-            <p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
-            </div>
-        <%  when 3 %>
-            <div class="formInput">
-            <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
-            <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
-            <p><%= f.radio_button(:ranking, "3", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
-            <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
-            <p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
-            </div>
-        <%  when 4 %>
-            <div class="formInput">
-            <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
-            <p><%= f.radio_button(:ranking, "4", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
-            <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
-            <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
-            <p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
-            </div>
-        <%  when 5 %>
-            <div class="formInput">
-            <p><%= f.radio_button(:ranking, "5", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
-            <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
-            <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
-            <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
-            <p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
-            </div>
-        <% end %>
-    <% end %>
+    <% elsif @criteria.ranking == 1 %>
+      <div class="formInput">
+        <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
+        <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
+        <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
+        <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
+        <p><%= f.radio_button(:ranking, "1", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
+      </div>
+    <% elsif @criteria.ranking == 2 %>
+        <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
+        <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
+        <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
+        <p><%= f.radio_button(:ranking, "2", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
+        <p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
+    <% elsif @criteria.ranking == 3 %>
+        <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
+        <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
+        <p><%= f.radio_button(:ranking, "3", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
+        <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
+        <p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
+    <% elsif @criteria.ranking == 4 %>
+        <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
+        <p><%= f.radio_button(:ranking, "4", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
+        <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
+        <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
+        <p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
+    <% elsif @criteria.ranking == 5 %>
+        <p><%= f.radio_button(:ranking, "5", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
+        <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
+        <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
+        <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
+        <p><%= f.radio_button(:ranking, "1") %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
+    <% else %>
+      <div class="formInput">
+        <p><%= f.radio_button(:ranking, "5") %><%= image_tag("rankings/Payday-Loan-Rank-Star-5.png", :alt => "5 star")%></p> 
+        <p><%= f.radio_button(:ranking, "4") %><%= image_tag("rankings/Payday-Loan-Rank-Star-4.png", :alt => "4 star")%></p> 
+        <p><%= f.radio_button(:ranking, "3") %><%= image_tag("rankings/Payday-Loan-Rank-Star-3.png", :alt => "3 star")%></p>
+        <p><%= f.radio_button(:ranking, "2") %><%= image_tag("rankings/Payday-Loan-Rank-Star-2.png", :alt => "2 star")%></p> 
+        <p><%= f.radio_button(:ranking, "1", options = {:checked => true}) %><%= image_tag("rankings/Payday-Loan-Rank-Star-1.png", :alt => "1 star")%></p>
+      </div>    
+    <% end %>     
   </div>
 
   <div class="formSection">
