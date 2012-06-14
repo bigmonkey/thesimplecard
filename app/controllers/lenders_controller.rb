@@ -13,10 +13,6 @@ class LendersController < ApplicationController
     @lenders = Lender.not_lender_type("match").by_top_rank
     @page = "0004" #sets page for tracking to 'installment-loans'
   end
-  
-  def criteria
-  	@lenders = Lender.by_top_rank
-  end
   	
   def lenders
     if !params.has_key?:state then
