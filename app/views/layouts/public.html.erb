@@ -5,7 +5,7 @@
 
 <head>
 
-	<meta name="robots" content="noindex, nofollow">
+
 
 	<% if content_for?(:seotags) %>
 	<%= yield :seotags %>
@@ -13,8 +13,13 @@
 	<title>The Payday Hound: Payday Loan Reviews and Independent Rankings</title>
 	<meta name="description" content="Detailed, fair, independent reviews and rankings of payday and installment loans. The Payday Hound reviews more online payday loans than anyone else we know."/>
 	<% end %>
+	<% if content_for?(:followtags) %>
+	<%= yield :followtags %>
+	<% else %>
+	<% #in development leave as noindex, nofollow but remove for launch. some infos pages always set to nofollow and noindex %>
+	<meta name="robots" content="noindex, nofollow">	
+	<% end %>
 	<%= favicon_link_tag %>
-
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="pingback" href="http://www.thepaydayhound.com/xmlrpc.php" />
 	<link rel="canonical" href="http://www.thepaydayhound.com/" />

@@ -21,7 +21,7 @@
   </div>
   <div class="formSection">
     <div class="formLabel"><%= label(:state, :state) %></div>
-    <div class="formInput"><%= select(:state, :id, State.all.collect {|s| [s.state_abbr, s.id]}) %></div>
+    <div class="formInput"><%= select(:state, :id, State.all.collect {|s| [s.state, s.id]}) %></div>
   </div>
   <div class="formSection">
     <div class="formLabel"><%= f.label(:lender_type) %></div>
