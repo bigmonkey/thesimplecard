@@ -14,6 +14,8 @@ Pdh::Application.routes.draw do
   match 'privacy-policy' => redirect("http://resources.thepaydayhound.com/privacy-policy/")
   match 'choosing-a-payday-loan' => redirect("http://http://resources.thepaydayhound.com/choosing-a-payday-loan/")
   match 'wells-fargo-direct-advance-fridays' => redirect("http://resources.thepaydayhound.com/wells-fargo-direct-advance-fridays/")
+  match 'about-the-payday-hound' => redirect("http://www.thepaydayhound.com/infos/about/")
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
