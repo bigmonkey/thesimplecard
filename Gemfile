@@ -10,12 +10,12 @@ gem 'rails', '3.2.3'
 # mysql2 for windows
 # postgresql, execjs, therubyracer, thin for ubuntu
 # uncomment for windows
-gem 'mysql2'
+# gem 'mysql2'
 # uncomment for ubuntu/thin
-# gem 'pg'
-# gem 'thin'
-# gem 'execjs'
-# gem 'therubyracer'
+ gem 'pg'
+ gem 'thin'
+ gem 'execjs'
+ gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.

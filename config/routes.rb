@@ -9,7 +9,7 @@ Pdh::Application.routes.draw do
   match 'payday-loan-or-installment-loan' => redirect("http://http://resources.thepaydayhound.com/payday-loan-or-installment-loan/")
   match 'resources' => redirect("http://resources.thepaydayhound.com/resources/")
   match 'the-payday-hound-official-launch' => redirect("http://resources.thepaydayhound.com/the-payday-hound-official-launch/")
-  match 'payday-loans/cash-net-usa/' => redirect("http://resources.thepaydayhound.com/payday-loans/cash-net-usa/")
+  match 'payday-loans/cash-net-usa/' => redirect("http://resources.thepaydayhound.com/payday-loans/cashnetusa/")
   match 'how-payday-loans-work' => redirect("http://resources.thepaydayhound.com/how-payday-loans-work/")
   match 'privacy-policy' => redirect("http://resources.thepaydayhound.com/privacy-policy/")
   match 'choosing-a-payday-loan' => redirect("http://http://resources.thepaydayhound.com/choosing-a-payday-loan/")
