@@ -95,6 +95,6 @@
         <div class="formInput"><%= f.radio_button(:lender_type, "payday", options = {:checked => @criteria.lender_type == "term" ? false : true}) %>Payday<%= f.radio_button(:lender_type, "term", options = {:checked => @criteria.lender_type == "term" ? true : false}) %>Installment</div>
     <% end %>                              
   </div>
-	<%= submit_tag nil, :class => "findLoanButton" %>
+	<%= submit_tag "FIND LOAN", :class => "findLoanButton" %>
 <% end %>
   

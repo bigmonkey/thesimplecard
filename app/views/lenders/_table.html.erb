@@ -6,12 +6,12 @@
   <div class="msBox">Use our simple form to apply to multiple lenders at once. It's completely free to our users.
   <div class="msBenefits">
     <div class="msBenefitsLeft"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> No Faxing, No Calls<br><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Up to $1000 Cash in 24 Hours</div>
-    <div class="msBenefitsCenter"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Private, Safe, and Secure<br><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %>One Simple Form</div>
-    <div class="msBenefitsRight"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Must be 18+ or older<br><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> 100% Online</div>     
+    <div class="msBenefitsCenter"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Must be 18 or older<br><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %>Instant Approvals</div>
+    <div class="msBenefitsRight"><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Private, Safe, and Secure<br><%= image_tag("check-mark.png", :size => "20x16", :alt => "*") %> Free. No Obligation</div>     
   </div>
   <div class="msBenefitsLast">
   <%= link_to("", "http://payday-loan-apply.thepaydayhound.com", :class => "msBenefitsApply") %>
-  <div><%= link_to("instant decision", "http://payday-loan-apply.thepaydayhound.com") %></div>
+  <div class="msInstantDecision"><%= link_to("instant decision", "http://payday-loan-apply.thepaydayhound.com") %></div>
   </div> 
   </div>
   <div id="clearboth"></div>
@@ -42,7 +42,7 @@
       <td><%= l.sniff.sniff_desc %></td>
       <td class = rank<%= l.ranking.round %>><div class="ratingSpace"><%= l.ranking.round %>.0/5.0</div></td>
       <td>
-          <%= link_to("", {:controller => 'partners', :action => 'go', :id => l.id, :page=>@page}, :class => "tableApplyButton") %>
+          <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => l.id, :page=>@page}, :class => "tableApplyButton") %>
         <div class = "instantDecision"><%= link_to("instant decision", {:controller => 'partners', :action => 'go'}) %></div>
       </td>
     </tr>

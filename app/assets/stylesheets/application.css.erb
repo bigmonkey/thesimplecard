@@ -144,7 +144,7 @@ nav {
 	float: left;
 	width: 650px;
 	height: 150px;
-	margin: 20px 20px 20px 20px;
+	margin: 20px 0px;
 	border: 1.5px solid #A6C273;
 	border-radius: 7px 7px 7px 7px;
 	-moz-border-radius: 7px 7px 7px 7px;
@@ -152,7 +152,7 @@ nav {
 	box-shadow: 2px 2px 5px 0px #ddd;
     -moz-box-shadow: 2px 2px 5px 0px #ddd;
     -webkit-box-shadow: 2px 2px 5px 0px #ddd;
-    background: #efcd9;
+    background: #ebfcd9;
     background: linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
     background: -moz-linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
     background: -webkit-linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
@@ -297,9 +297,9 @@ nav {
     border-top: 4px solid #999999;
     float: right;
     font-size: inherit;
-    margin: 0px 20px 20px 0px;;
+    margin: 0px 0px 20px 0px;;
     padding: 0;
-    width: 620px;
+    width: 640px;
 }
 
 #homePDHResearch .homeResourceSummary {
@@ -335,7 +335,7 @@ nav {
 
 #sidebar {
     background-color: #fff;
-    width: 175px;
+    width: 185px;
     float: left;
     margin: 20px 15px 30px 0px;
     
@@ -382,7 +382,7 @@ nav {
 /*FindAPaydayLoan*/
 
 form {
-	padding: 0px 10px 20px 10px;
+	padding: 0px 0px 20px 10px;
     background: #666;
     vertical-align: middle;
     margin-bottom: 15px;
@@ -443,17 +443,27 @@ form p {
 	}
 
 	.findLoanButton {
-		background: url(<%= asset_path 'findloanbutton.png' %>) no-repeat scroll 0 0 transparent;
-    	display: block;
-    	height: 22px;
-    	width: 120px;
-    	margin: 10px 0px 0px 19px;
-    	border: 0px;
-    	color: transparent;
+		background: transparent;
+    	height: 24px;
+    	width: 110px;
+    	margin: 10px 0px 0px 22px;
+    	border: 1px solid #fff;
+    	color: #fff;
+    	font-family: helvetica, arial, san-serif;
+    	font-size: 0.75em;
+    	cursor: pointer;
+    	cursor: hand;
+    	-webkit-border-radius: 3px;
+    	-moz-border-radius: 3px;
+    	border-radius: 3px;
+    	padding: 0px 0px 2px;
+
 	}
 
 	.findLoanButton:hover {
-		background-position: -120px 0px;
+		box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+		-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+		-moz-box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
 	}
 
 	form button {
@@ -485,7 +495,7 @@ form p {
 		font-weight: bold;
 		background: #eee;
 		float: left;
-		margin: 0px 10px;
+		margin: 0px 0px 0px 15px;
 	}
 
 	.msBenefitsApply {
@@ -497,6 +507,11 @@ form p {
 
 	.msBenefitsApply:hover {
 		background-position: -140px 0px;
+	}
+
+	.msInstantDecision {
+		text-align: center;
+		width: 140px;
 	}
 
 /*LenderTableListing*/
@@ -535,15 +550,27 @@ tr {
 }
 
 .tableApplyButton {
-	background: url(<%= asset_path 'apply-payday-sm.png' %>)  no-repeat transparent;
-    display: block;
+	background-color: #FFF;
     margin: 0px 0px 5px 5px;
-    height: 28px;
+    display: block;
+    height: 20px;
     width: 70px;
+    border: 1px solid #888;
+    border-radius: 3px;
+    webkit-border-radius: 3px;
+    moz-border-radius: 3px;
+    padding: 4px 0px 0px 0px;
+}
+
+.tableApplyButton:link, .tableApplyButton:visited {
+	color: #666;
 }
 
 .tableApplyButton:hover {
-	background-position: -70px;
+	box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
+	-webkit-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
+	-moz-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
+	color: #666;
 }
 
 td .instantDecision {
@@ -589,7 +616,7 @@ td .instantDecision {
 /*MainContent*/
 	
 #mainContent {
-	width: 780px;
+	width: 770px;
 	float: right;
 	margin: 25px 0px 30px 0px;
 	font-size: 0.8em;

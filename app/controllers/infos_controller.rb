@@ -25,4 +25,8 @@ class InfosController < ApplicationController
 
   def terms
   end
+
+  def why
+  end
+  
 end
