@@ -31,8 +31,8 @@
     <% @lenders.each do |l| %>
     <tr>
       <td>
-        <div><%= link_to(image_tag("lendersm/#{l.image_file}", :alt => l.name ), {:controller => 'partners', :action => 'go'}) %></div>
-        <div class = "fullReview"><%= link_to("Full Review", {:controller => 'lenders', :action => 'index'}) %></div>
+        <div><%= link_to(image_tag("lendersm/#{l.image_file}", :alt => l.name ), {:controller => 'partners', :action => 'go', :id => l.id, :page => @page}) %></div>
+        <div class = "fullReview"><%= !l.review_url? ? "": link_to("Full Review", l.review_url) %></div>
       </td>
       <td>
         <div><%= l.first_comment %></div>
@@ -43,7 +43,7 @@
       <td class = rank<%= l.ranking.round %>><div class="ratingSpace"><%= l.ranking.round %>.0/5.0</div></td>
       <td>
           <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => l.id, :page=>@page}, :class => "tableApplyButton") %>
-        <div class = "instantDecision"><%= link_to("instant decision", {:controller => 'partners', :action => 'go'}) %></div>
+        <div class = "instantDecision"><%= link_to("instant decision", {:controller => 'partners', :action => 'go', :id => l.id, :page => @page}) %></div>
       </td>
     </tr>
     <% end %>

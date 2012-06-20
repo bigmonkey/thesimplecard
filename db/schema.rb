@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526100039) do
+ActiveRecord::Schema.define(:version => 20120620005639) do
 
   create_table "lenders", :force => true do |t|
     t.integer  "sniff_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120526100039) do
     t.decimal  "apr",                             :precision => 3, :scale => 2
     t.datetime "created_at",                                                    :null => false
     t.datetime "updated_at",                                                    :null => false
+    t.string   "review_url"
   end
 
   add_index "lenders", ["sniff_id"], :name => "index_lenders_on_sniff_id"
