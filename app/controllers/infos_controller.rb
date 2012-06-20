@@ -28,5 +28,8 @@ class InfosController < ApplicationController
 
   def why
   end
+
+  def sitemap
+  end
   
 end

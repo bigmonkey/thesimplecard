@@ -1,3 +1,11 @@
+<% # title and description for seo %>
+<% content_for :seotags do %>
+<title>The Payday Hound About Page: In-depth Reviews and Independent Rankings</title>
+<meta name="description" content="The Payday Hound is an online payday loan review site. We are consumer finance professionals and aim to review more payday lenders than any other resource."/>
+<% end %>
+
+
+
 <div id="wrapper">
 <aside id ="sidebar">
 
@@ -21,6 +29,8 @@
 		<h2>Are you storing my personal information?</h2>
 		<p>No, we do not store any personal information. You will notice when you apply direct to a lender we do not even ask for your name or eamil address. Instead when you are ready to apply, you are sent directly to the lender’s site.</p>
 		<p>If you use our <%= link_to("loan application service", "http://payday-loan-apply.thepaydayhound.com") %> we collect application information to submit to multiple lenders in our network making it very easy to apply to multiple lenders with one form.</p> 
+
+		<p><%= link_to "sitemap", :controllers => "infos", :action => "sitemap" %></p>
 
 </section>
 </div>
