@@ -18,7 +18,9 @@ Pdh::Application.routes.draw do
   match 'about-the-payday-hound' => redirect("http://www.thepaydayhound.com/infos/about/")
   match '/payday-loans/:name' => redirect("http://resources.thepaydayhound.com/%{name}")
   match '/installment-loans/:name' => redirect("http://resources.thepaydayhound.com/%{name}")  
-  match '/tag/:name' => redirect("http://resources.thepaydayhound.com/tag/%{name}")    
+  match '/tag/:name' => redirect("http://resources.thepaydayhound.com/tag/%{name}") 
+  match '/matching-services/:name' => redirect("http://www.thepaydayhound.com/payday-loans")  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
