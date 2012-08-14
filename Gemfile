@@ -1,21 +1,24 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+ gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# converting between windows and ubuntu/thin (heroku) set up
-# also need to change database.yml file
-# mysql2 for windows
-# postgresql, execjs, therubyracer, thin for ubuntu
-# uncomment for windows
-# gem 'mysql2'
-# uncomment for ubuntu/thin
+# converting between windows and ubuntu/mac/thin (heroku) set up 1) choose DATABASE 2) choose WEBSERVER 
+# 1)DATABASE: Heroku uses postgresql so must use 'gem pg'. CW Windows and Alison Mac set up for PostgreSQL
  gem 'pg'
- gem 'thin'
- gem 'execjs'
- gem 'therubyracer'
+
+# uncomment for windows if using mysql database and also need to chnage database.yml file
+# gem 'mysql2'
+
+# 2)WEBSERVER: Heroku/unbuntu/Mac uses thin so need gem execjs, therubyracer, thin 
+# uncomment for ubuntu/thin and comment out for Windows
+
+# gem 'thin'
+# gem 'execjs'
+# gem 'therubyracer'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
