@@ -35,7 +35,7 @@
     <% @secureds.each do |s| %>
     <tr>
       <td>
-        <div><%= link_to(image_tag("secured/#{s.image_file}", :alt => s.name ), s.lender_link) %></div>
+        <div><%= link_to(image_tag("secured/#{s.image_file}", :alt => s.name ),  {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}) %></div>
         <div class = "fullReview"><%= s.name %></div>
       </td>
       <td>
@@ -47,8 +47,8 @@
       <td><%= s.purchase_apr? ? "?" : number_to_percentage(s.purchase_apr, :precision => 2) %></td>
       <td class = rank<%= s.rating.round %>><div class="ratingSpace"><%= s.rating.round %>.0/5.0</div></td>
       <td>
-          <%= link_to("APPLY", s.lender_link, :class => "tableApplyButton") %>
-        <div class = "instantDecision"><%= link_to("instant decision", s.lender_link) %></div>
+          <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}, :class => "tableApplyButton") %>
+        <div class = "instantDecision"><%= link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}) %></div>
       </td>
     </tr>
     <% end %>

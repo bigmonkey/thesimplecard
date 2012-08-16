@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120815195844) do
+ActiveRecord::Schema.define(:version => 20120816214613) do
 
   create_table "lenders", :force => true do |t|
     t.integer  "sniff_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20120815195844) do
     t.datetime "created_at",                                                    :null => false
     t.datetime "updated_at",                                                    :null => false
     t.string   "review_url"
+    t.integer  "partner_id"
   end
 
   add_index "lenders", ["sniff_id"], :name => "index_lenders_on_sniff_id"
@@ -79,8 +80,9 @@ ActiveRecord::Schema.define(:version => 20120815195844) do
   create_table "partners", :force => true do |t|
     t.string   "lender_link"
     t.string   "lender_tail", :limit => 25
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "name",        :limit => 100
   end
 
   create_table "secureds", :force => true do |t|
@@ -96,8 +98,7 @@ ActiveRecord::Schema.define(:version => 20120815195844) do
     t.decimal  "cost",                          :precision => 7, :scale => 2
     t.datetime "created_at",                                                  :null => false
     t.datetime "updated_at",                                                  :null => false
-    t.string   "lender_tail",    :limit => 100
-    t.string   "lender_link",    :limit => 100
+    t.integer  "partner_id"
   end
 
   create_table "sniffs", :force => true do |t|

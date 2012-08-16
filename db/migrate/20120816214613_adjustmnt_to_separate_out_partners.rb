@@ -4,9 +4,11 @@ class AdjustmntToSeparateOutPartners < ActiveRecord::Migration
   	remove_column("secureds", "lender_tail")
     add_column("secureds", "partner_id", :integer)
     add_column("lenders", "partner_id", :integer)
+    add_column("partners", "name", :string, :limit =>100)
   end
 
   def down
+  	remove_column("partners", "name")
     remove_column("lenders", "partner_id")
     remove_column("secureds", "partner_id")    
   	add_column("secureds", "lender_tail", :string, :limit => 100)

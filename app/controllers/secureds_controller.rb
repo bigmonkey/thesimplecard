@@ -6,6 +6,7 @@ class SecuredsController < ApplicationController
 
   def index
   	@secureds = Secured.by_top_rank
+  	@page = "0005" #sets page for tracking to 'secured-cards'
   end
 
 end
