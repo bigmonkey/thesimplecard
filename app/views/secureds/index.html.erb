@@ -1,0 +1,59 @@
+<% # title and description for seo %>
+<% content_for :seotags do %>
+<title>Direct Payday Loans: In-Depth Reviews and Independent Rankings</title>
+<meta name="description" content="Detailed, independent reviews and rankings of direct payday loan lenders. The Payday Hound provides more reviews of direct payday lenders than anyone else we know."/>
+<% end %>
+
+<div id="wrapper">
+<aside id ="sidebar">
+
+		<%= render(:partial => "shared/securedsidebar")%>
+
+
+</aside>
+
+
+<section id="mainContent">
+  <h1>Secured Credit Cards</h1> 
+  	<p>Payday loans and installment loans are designed for short-term, emergency funding and can get cash into your checking account in 24 hours. These loans are fast, convenient and provided regardless of credit score so can be expensive. It is best to review fees and terms before accepting a payday or installment loan.</p>
+	<p>Payday loans do not require credit checks and only require a simple application. To qualify you must be employed, have direct deposit and have a checking account. The application process takes 5-10 minutes and approval is often instant. The money is usually deposited into your checking account by the next business day. Payday loans are due in full the next pay period. Installment loans are paid back over a longer period of time. See (<%= link_to('Payday Loan or Installment Loan', "http://resources.thepaydayhound.com/payday-loan-or-installment-loan/") %> for more details).</p>
+	<p>The Payday Hound reviews online lenders and ranks them according our Sniff Test, costs and licensing. The Sniff Test evaluates lenders based on where they are licensed and other factors like the presence of a privacy policy. Below is a full list of the <%= pluralize(@secureds.size, 'cards') %> we review.</p> 
+	<p>Use the loan finder to the left to find a lender best for you.</p>
+
+
+  <table class="listing" summary="full lender list">
+    <tr class="tableHeader">
+     <th>Company Name</th>
+     <th>Description</th>
+     <th>Annual Fee</th>
+     <th>Monthly Fee</th>
+     <th>Purchase APR</th>
+     <th>Rating</th>
+     <th></th>   
+
+    </tr>
+    <% @secureds.each do |s| %>
+    <tr>
+      <td>
+        <div><%= link_to(image_tag("secured/#{s.image_file}", :alt => s.name ), s.lender_link) %></div>
+        <div class = "fullReview"><%= s.name %></div>
+      </td>
+      <td>
+        <div><%= s.first_comment %></div>
+        <div><%= s.second_comment %></div>
+        <div><%= s.third_comment %></div>
+      <td><%= s.annual_fee.nil? ? "?" : number_to_currency(s.annual_fee) %></td>
+      <td><%= s.monthly_fee.nil? ? "?" : number_to_currency(s.monthly_fee) %></td>
+      <td><%= s.purchase_apr? ? "?" : number_to_percentage(s.purchase_apr, :precision => 2) %></td>
+      <td class = rank<%= s.rating.round %>><div class="ratingSpace"><%= s.rating.round %>.0/5.0</div></td>
+      <td>
+          <%= link_to("APPLY", s.lender_link, :class => "tableApplyButton") %>
+        <div class = "instantDecision"><%= link_to("instant decision", s.lender_link) %></div>
+      </td>
+    </tr>
+    <% end %>
+  </table>	
+    
+
+</section>
+</div>

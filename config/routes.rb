@@ -1,4 +1,7 @@
 Pdh::Application.routes.draw do
+
+ # get "secureds/index"
+
   match 'installment-loans' => 'lenders#installment'
   match 'quick-fast-loans' => redirect("http://resources.thepaydayhound.com/quick-fast-loans/")  
   match 'payday-direct' => redirect("http://resources.thepaydayhound.com/payday-direct/")
@@ -34,7 +37,8 @@ Pdh::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+ resources :secureds, :path => '/secured-cards'
+ 
   # Sample resource route with options:
   #   resources :products do
   #     member do

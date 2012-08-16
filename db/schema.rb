@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620005639) do
+ActiveRecord::Schema.define(:version => 20120815195844) do
 
   create_table "lenders", :force => true do |t|
     t.integer  "sniff_id"
@@ -81,6 +81,23 @@ ActiveRecord::Schema.define(:version => 20120620005639) do
     t.string   "lender_tail", :limit => 25
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+  end
+
+  create_table "secureds", :force => true do |t|
+    t.string   "name",           :limit => 70
+    t.string   "image_file",     :limit => 100
+    t.decimal  "rating",                        :precision => 3, :scale => 1
+    t.string   "first_comment",  :limit => 70
+    t.string   "second_comment", :limit => 70
+    t.string   "third_comment",  :limit => 70
+    t.decimal  "purchase_apr",                  :precision => 4, :scale => 2
+    t.decimal  "annual_fee",                    :precision => 5, :scale => 2
+    t.decimal  "monthly_fee",                   :precision => 4, :scale => 2
+    t.decimal  "cost",                          :precision => 7, :scale => 2
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
+    t.string   "lender_tail",    :limit => 100
+    t.string   "lender_link",    :limit => 100
   end
 
   create_table "sniffs", :force => true do |t|
