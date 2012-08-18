@@ -44,11 +44,11 @@
         <div><%= s.third_comment %></div>
       <td><%= s.annual_fee.nil? ? "?" : number_to_currency(s.annual_fee) %></td>
       <td><%= s.monthly_fee.nil? ? "?" : number_to_currency(s.monthly_fee) %></td>
-      <td><%= s.purchase_apr? ? "?" : number_to_percentage(s.purchase_apr, :precision => 2) %></td>
+      <td><%= number_to_percentage(s.purchase_apr, :precision => 2) %></td>
       <td class = rank<%= s.rating.round %>><div class="ratingSpace"><%= s.rating.round %>.0/5.0</div></td>
       <td>
           <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}, :class => "tableApplyButton") %>
-        <div class = "instantDecision"><%= link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}) %></div>
+        <div class = "instantDecision"><%= !s.inst_decision? ? "":link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}) %></div>
       </td>
     </tr>
     <% end %>
