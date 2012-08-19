@@ -528,7 +528,7 @@ form p {
 
 /*LenderTableListing*/
 
-.listing {
+.listing, .cardListing {
 	text-align: center;
 	border-collapse: collapse;
     border-spacing: 0;
@@ -540,10 +540,6 @@ form p {
 .tableHeader {
     color: #666;
     font-weight: bold;
-}
-
-tr:nth-child(2n+2), tr:nth-child(2n+3) {
-	background: #fff;
 }
 
 th {
@@ -559,7 +555,9 @@ td {
 
 tr {
 	border-bottom: 1px solid #ddd;
+	background: #fff;
 }
+
 
 .tableApplyButton {
 	background-color: #FFF;
@@ -590,6 +588,44 @@ td .instantDecision {
 	font-size: 0.95em;
 }
 
+
+/*CardTableListings*/
+.cardName{
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #e58D1F;
+}
+.cardListing tr:nth-child(2n+3){
+	border-bottom: 1px solid #ddd;
+}
+
+.cardListing tr:nth-child(2n){
+	border-bottom: 0px solid #ddd;
+}
+
+.cardInfo{
+	background: #eee;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+}
+
+.cardInfo td{
+    padding: 5px;
+	text-align: left;
+	vertical-align: top;
+	background: #eee;
+	font-size: 1em;
+}
+
+.cardCost{
+    font-size: 2em;
+    color:green;
+}
+
+.cardFeatures td{
+	padding: 0px 15px;
+}
 /*SniffRankings*/
 .ratingSpace {
 	margin-top: 23px;

@@ -21,19 +21,17 @@
 	<p>Use the loan finder to the left to find a lender best for you.</p>
 
 
-  <table class="listing" summary="full lender list">
+  <table class="cardListing" summary="full lender list">
     <tr class="tableHeader">
+     <th>Estimated Cost</th>
      <th>Company Name</th>
      <th>Description</th>
-     <th>Annual Fee</th>
-     <th>Monthly Fee</th>
-     <th>Purchase APR</th>
      <th>Rating</th>
      <th></th>   
-
     </tr>
     <% @secureds.each do |s| %>
     <tr>
+      <td class = "cardCost">$247</td>
       <td>
         <div><%= link_to(image_tag("secured/#{s.image_file}", :alt => s.name ),  {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}) %></div>
         <div class = "fullReview"><%= s.name %></div>
@@ -42,15 +40,79 @@
         <div><%= s.first_comment %></div>
         <div><%= s.second_comment %></div>
         <div><%= s.third_comment %></div>
-      <td><%= s.annual_fee.nil? ? "?" : number_to_currency(s.annual_fee) %></td>
-      <td><%= s.monthly_fee.nil? ? "?" : number_to_currency(s.monthly_fee) %></td>
-      <td><%= number_to_percentage(s.purchase_apr, :precision => 2) %></td>
+        <div><a href=<%="javascript:Tog(#{s.id})" %>>More Info</a></div>
+      </td>  
       <td class = rank<%= s.rating.round %>><div class="ratingSpace"><%= s.rating.round %>.0/5.0</div></td>
       <td>
           <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}, :class => "tableApplyButton") %>
         <div class = "instantDecision"><%= !s.inst_decision? ? "":link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}) %></div>
       </td>
     </tr>
+
+    <tr>
+        <td colspan = 7>
+
+          <table id = "<%=s.id %>" class = "cardInfo" style="overflow:hidden;display:none">
+            <tr>
+              <td>
+                <div class = "cardName"><%= raw(s.card_name) %></div>
+                <div><b>Issuer:</b> <%= raw(s.issuer) %></div>
+                <div><b>Network:</b> <%= raw(s.card_type) %></div>
+                <div><b>Credit Rating:</b> <%= raw(s.credit_rating.titlecase) %></div>
+                <div><%= raw(s.bullets) %></div>
+              </td>
+              <td>
+                <table class = "cardFeatures">
+                  <tr>
+                    <td><b>Minimum Deposit:</b></td>
+                    <td><%= s.min_deposit %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Annual Fee</b></td>
+                    <td><%= s.annual_fee.nil? ? "?" : number_to_currency(s.annual_fee) %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Monthly Fee</b></td>
+                    <td><%= s.monthly_fee.nil? ? "?" : number_to_currency(s.monthly_fee) %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Purchase APR:</b></td>
+                    <td><%= number_to_percentage(s.purchase_apr, :precision => 2) %> <%= raw(s.purchase_base) %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Cash APR:</b></td>
+                    <td><%= number_to_percentage(s.cash_apr, :precision => 2) %> <%= raw(s.cash_base) %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Grace Period:</b></td>
+                    <td><%= s.grace %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Late Fee:</b></td>
+                    <td><%= s.late_fee %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Overlimit Fee:</b></td>
+                    <td><%= s.overlimit_fee %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Return Item Fee:</b></td>
+                    <td><%= s.return_pmt %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Max Credit Limit:</b></td>
+                    <td><%= s.max_credit %></td>
+                  </tr>
+                  <tr>
+                    <td colspan = 2><I>V=Variable, F=Fixed</I></td>
+                  </tr>
+                </table>  
+              </td>
+            </tr>
+          </table>  
+        </td>
+    </tr>
+
     <% end %>
   </table>	
     

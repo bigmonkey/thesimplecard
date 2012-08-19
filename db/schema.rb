@@ -100,6 +100,20 @@ ActiveRecord::Schema.define(:version => 20120818004503) do
     t.datetime "updated_at",                                                  :null => false
     t.integer  "partner_id"
     t.boolean  "inst_decision"
+    t.string   "card_name"
+    t.text     "bullets"
+    t.string   "issuer",         :limit => 100
+    t.string   "card_type",      :limit => 50
+    t.string   "purchase_base",  :limit => 1
+    t.decimal  "cash_apr",                      :precision => 4, :scale => 2
+    t.string   "cash_base",      :limit => 1
+    t.string   "grace",          :limit => 50
+    t.string   "late_fee",       :limit => 20
+    t.string   "overlimit_fee",  :limit => 20
+    t.string   "max_credit",     :limit => 20
+    t.string   "min_deposit",    :limit => 20
+    t.string   "credit_rating",  :limit => 20
+    t.boolean  "live"
   end
 
   create_table "sniffs", :force => true do |t|
