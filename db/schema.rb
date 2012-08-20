@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20120818004503) do
     t.string   "cash_base",      :limit => 1
     t.string   "grace",          :limit => 50
     t.string   "late_fee",       :limit => 20
+    t.string   "return_pmt",     :limit => 20
     t.string   "overlimit_fee",  :limit => 20
     t.string   "max_credit",     :limit => 20
     t.string   "min_deposit",    :limit => 20

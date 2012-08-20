@@ -5,7 +5,7 @@ class SecuredsController < ApplicationController
   before_filter :set_tracking
 
   def index
-  	@secureds = Secured.by_top_rank
+  	@secureds = Secured.live.by_top_rank
   	@page = "0005" #sets page for tracking to 'secured-cards'
   end
 

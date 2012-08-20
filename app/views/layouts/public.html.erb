@@ -10,8 +10,8 @@
 	<% if content_for?(:seotags) %>
 	<%= yield :seotags %>
 	<% else %>
-	<title>The Payday Hound: Payday Loan Reviews and Independent Rankings</title>
-	<meta name="description" content="Detailed, fair, independent reviews and rankings of payday and installment loans. The Payday Hound reviews more online payday loans than anyone else we know."/>
+	<title>The Payday Hound: In-depth Reviews of Alternative Financial Products</title>
+	<meta name="description" content="Detailed reviews and rankings of secured credit cards, pre-paid cards and payday loans. The Payday Hound is the only site to focus on the underbanked market."/>
 	<% end %>
 	<% if content_for?(:followtags) %>
 	<%= yield :followtags %>
@@ -67,8 +67,7 @@
 			<ul>
 				<li><%= link_to("Home", {:controller => 'homes', :action => 'index'}) %></li>
 				<li><%= link_to("Payday Loans", {:controller => 'lenders', :action => 'index'}) %></li>
-				<li><%= link_to("Installment Loans", {:controller => 'lenders', :action => 'installment'}) %></li>
-				<li><%= link_to("Apply Now", "http://payday-loan-apply.thepaydayhound.com") %></li>
+				<li><%= link_to("Secured Cards", secureds_path) %></li>
 				<li><a href="http://resources.thepaydayhound.com" >Resources</a></li>
 			</ul>			
 		</nav>
@@ -89,7 +88,7 @@
 			 <li><%= link_to("Terms of Use", {:controller => 'infos', :action => 'terms'}) %></li> 	    
 		</ul>
 		<div id="copyright">Copyright © 2012 The Payday Hound. All rights reserved.</div>
-		 <div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
+		 <div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, FDIC Insurance / NCUA Insurance status, credit card information, interest rates or other provider terms and conditions during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
     </footer>  	
 </body>
 </html>

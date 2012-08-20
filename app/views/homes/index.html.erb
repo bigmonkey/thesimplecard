@@ -4,16 +4,16 @@
 	<div id = "pdhSummary">			
 		<h1>The Payday Hound</h1>
 		<ul>
-			<li>The most comprehensive online payday lender reviews</li>
-			<li>Aims to rank more online lenders than anyone else</li>
-			<li>If a lender is not listed, send us an email and we'll rank it</li>
+			<li>Comprehensive reviews of alternative financial products</li>
+			<li>Detailed analysis and tools for finding the best providers</li>
+			<li>The only site focused on this fast growing market</li>
 		</ul>
 	</div>
 	<div id = "homeQuotes">			
-		<blockquote class = "industryQuote">Payday lenders provide $40 billion of short-term loans annually</blockquote>	
-		<cite class = "industryQuoteCite">Federal Reserve Board, Wash D.C.</cite>	
-		<blockquote class = "industryQuote">Payday loans: Borrower beware</blockquote>	
-		<cite class = "industryQuoteCite">Bankrate.com, NY, NY</cite>	
+		<blockquote class = "industryQuote">30 million or almost one out of four households are underbanked</blockquote>	
+		<cite class = "industryQuoteCite">FDIC, Wash D.C.</cite>	
+		<blockquote class = "industryQuote">The underbanked spend ~$11B on nontraditional financial transactions</blockquote>	
+		<cite class = "industryQuoteCite">Experian, a Credit Bureau</cite>	
 	</div>
 </section>		
 <section id = "rankingReviews">
@@ -26,14 +26,17 @@
 		<%= link_to("REVIEWS",{:controller => "lenders", :action => "installment"}, :class => "rankingReviewsButton") %> 
 		<div class = "rankingReviewsType">Installment Loans</div>	
 	</div>
-	<div id="clearboth"></div>
-	<h2 class="applyDirecth2">Apply Direct</h2>
 	<div class = "rank_row">
-		<%= link_to("APPLY","http://payday-loan-apply.thepaydayhound.com", :class => "rankingReviewsButton") %>
-		<div class = "rankingReviewsType">Apply Online Now</div>
+		<%= link_to("REVIEWS", secureds_path, :class => "rankingReviewsButton") %> 
+		<div class = "rankingReviewsType">Secured Credit Cards</div>	
 	</div>
-
+	<div class = "rank_row">
+		<%= link_to("REVIEWS", '#', :class => "rankingReviewsButton") %> 
+		<div class = "rankingReviewsType">Pre-paids COMING SOON</div>	
+	</div>	
+	<div id="clearboth"></div>
 </section>
+
 <div id = "homeWhyPDH">
 	<ul>	
 	  	<li><%= link_to("Why use the Payday Hound?", {:controller => 'infos', :action => 'why'}) %></li>
@@ -45,7 +48,12 @@
 
 
  	<section id = "paydayIndustryNews">
- 		<h2>PAYDAY INDUSTRY NEWS</h2>
+ 		<h2>INDUSTRY NEWS</h2>
+ 		<article class = "industryNewsContent">
+ 			<h3><a href="http://www.usatoday.com/money/perfi/credit/story/2012-05-15/alternative-financial-services-underbanked-millennials/55028830/1">Banks Seek Profits, and a Better Reputation...</a></h3>
+			<h4>American Banker, July 20, 2012</h4>
+ 			<div class = "homeResourceSummary">Selling financial services to low-income customers has long appeared unprofitable at best, and a reputational risk at worst. From subprime mortgages to hidden credit card fees, banks have gotten a bad reputation for preying on poor people.</div>
+ 		</article>
  		<article class = "industryNewsContent">
  			<h3><a href="http://www.usatoday.com/money/perfi/credit/story/2012-05-15/alternative-financial-services-underbanked-millennials/55028830/1">Millennials use alternative financial services</a></h3>
 			<h4>USA Today, May 16, 2012</h4>
@@ -57,20 +65,10 @@
  			<div class = "homeResourceSummary">When David Wegner went looking for a checking account in January, he was peppered with offers for low-end financial products, including a prepaid debit card with numerous fees</div>
  		</article>
  		<article class = "industryNewsContent">
- 			<h3><a href="http://www.ftc.gov/opa/2012/04/amg.shtm">FTC charges payday lending scheme with piling inflated fees on borrowers</a></h3>
-			<h4>FTC Release, April,2, 2012</h4>
- 			<div class = "homeResourceSummary">Defendants Charged Many Consumers More than Three Times the Amount Borrowed </div>
- 		</article>
- 		<article class = "industryNewsContent">
  			<h3><a href="http://www.latimes.com/business/la-fi-banks-payday-loans-20120311,0,3076812.story">Credit Unions, banks grabbing a share of payday loan dollars</a></h3>
 			<h4>LA Times, March 11 25, 2012</h4>
  			<div class = "homeResourceSummary">Reporting from Washington— Payday loans, for years a fixture in poor, working-class neighborhoods, are increasingly being offered by local banks and employee credit unions </div>
  		</article>
- 		<article class = "industryNewsContent">	
- 			<h3><a href="http://online.wsj.com/article/SB10001424052970203806504577183240533438580.html">Bashing Payday Lenders</a></h3>
-			<h4>WSJ, January 31, 2010</h4>
- 			<div class = "homeResourceSummary">One irony of the Pelosi Congress's rush to punish banks and other financial institutions is that it has raised the price of credit for everyone, especially the poor.</div> 			
-		</article>
 	</section>
 	
  	<section id = "homePDHResearch">
