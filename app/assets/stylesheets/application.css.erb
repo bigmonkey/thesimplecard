@@ -13,7 +13,7 @@
 */
 
 /*limited reset*/
-html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, q, figure, canvas, video, th, td, tr, form {
+html, body, div, section, article, aside, header, hgroup, footer,nav , h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, q, figure, canvas, video, th, td, tr, form {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -22,7 +22,7 @@ html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h
 }
 
 /*html5 display rule*/
-address, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section, summary {
+address, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, section, summary {
 	display: block;
 }
 
@@ -112,33 +112,110 @@ p {
 	padding: 25px 0px 0px 0px;
 }
 
+
 nav {
 	clear: right;
 	float: right;
 	font-size: 0.8em;
-	font-weight: bold;
+	font-weight: bold;;
 }
  
- 	nav ul, nav ul li {
-		list-style-type:none;
-		padding: 15px 0px 0px 25px;
-    	text-transform: uppercase;
-	} 
-	
-	nav ul li {
-	display: inline;
-	}
+nav ul, nav ul li {
+	list-style-type:none;
+	padding: 15px 0px 0px 25px;
+   	text-transform: uppercase;
+} 
 
-	nav a, nav a:link, nav a:visited {
+nav ul li {
+	display: inline;
+}
+nav a, nav a:link, nav a:visited {
 	color: #0e8b4d;
-	}
-	
-	nav a:hover, nav a:active {
+}
+
+nav a:hover, nav a:active {
 	color: #E58D1F;
 	text-decoration: none;
-	}
 
-/*homepage*/
+}
+
+/* --------------Dropdown Menu Navigation ----------- */
+.chromestyle{
+width: 99%;
+font-weight: bold;
+}
+
+.chromestyle:after{ /*Add margin between menu and rest of content in Firefox*/
+content: "."; 
+display: block; 
+height: 0; 
+clear: both; 
+visibility: hidden;
+}
+
+.chromestyle ul{
+border: 1px solid #BBB;
+width: 100%;
+padding: 4px 0;
+margin: 0;
+text-align: center; /*set value to "left", "center", or "right"*/
+}
+
+.chromestyle ul li{
+display: inline;
+}
+
+.chromestyle ul li a{
+color: #494949;
+padding: 4px 7px;
+margin: 0;
+text-decoration: none;
+border-right: 1px solid #DADADA;
+}
+
+.chromestyle ul li a:hover, .chromestyle ul li a.selected{ /*script dynamically adds a class of "selected" to the current active menu item*/
+}
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv{
+position:absolute;
+top: 0;
+border: 1px solid #F0F0F0; /*THEME CHANGE HERE*/
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;  
+background-color: #F0F0F0;
+width: 130px; /*width of dropdown box */
+visibility: hidden;
+}
+
+
+.dropmenudiv a{
+width: auto;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid #F0F0F0; /*THEME CHANGE HERE*/
+padding: 2px 0;
+text-decoration: none;
+font-weight: normal;
+color: black;
+}
+
+* html .dropmenudiv a{ /*IE only hack*/
+width: 100%;
+}
+
+.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
+background-color: #F0F0F0;
+}
+
+
+/* --------------end Dropdown Menu Navigation ----------- */
+
+
+/*homepagM*/
 
 #thePaydayHound {
 	float: left;

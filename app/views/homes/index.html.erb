@@ -19,12 +19,12 @@
 <section id = "rankingReviews">
 	<h2>Rankings and Reviews</h2>
 	<div class = "rank_row">
-		<%= link_to("REVIEWS",{:controller => "lenders", :action => "index"}, :class => "rankingReviewsButton") %>
+		<%= link_to("APPLY", "http://payday-loan-apply.thepaydayhound.com", :class => "rankingReviewsButton")%>
 		<div class = "rankingReviewsType">Payday Loans</div>
 	</div>
 	<div class = "rank_row">
-		<%= link_to("REVIEWS",{:controller => "lenders", :action => "installment"}, :class => "rankingReviewsButton") %> 
-		<div class = "rankingReviewsType">Installment Loans</div>	
+		<%= link_to("REVIEWS", lenders_path, :class => "rankingReviewsButton") %> 
+		<div class = "rankingReviewsType">Payday Loans</div>	
 	</div>
 	<div class = "rank_row">
 		<%= link_to("REVIEWS", secureds_path, :class => "rankingReviewsButton") %> 

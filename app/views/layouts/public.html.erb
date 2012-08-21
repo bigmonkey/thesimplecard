@@ -63,13 +63,32 @@
 			<%= link_to(image_tag("twitter.png", :alt => "Twitter" ), "http://www.twitter.com/thepaydayhound", :title => "The Payday Hound Twitter Page") %>
 			<%= link_to(image_tag("googleplus.png", :alt => "Google +" ), "https://plus.google.com/114318301384219988110", :title => "The Payday Hound Google Page") %>
  		</div>
+
 		<nav>
-			<ul>
-				<li><%= link_to("Home", {:controller => 'homes', :action => 'index'}) %></li>
-				<li><%= link_to("Payday Loans", {:controller => 'lenders', :action => 'index'}) %></li>
-				<li><%= link_to("Secured Cards", secureds_path) %></li>
-				<li><a href="http://resources.thepaydayhound.com" >Resources</a></li>
-			</ul>			
+			<div class = "chromestye" id = "chromemenu">
+				<ul>
+					<li><%= link_to("Home", homes_path) %></li>
+					<li><%= link_to("Secured Cards", secureds_path) %></li>
+				    <li><%= link_to("Payday Loans", lenders_path, :rel => "dropmenu1") %></li>
+					<li><a href="http://resources.thepaydayhound.com" >Resources</a></li>
+				</ul>	
+			</div>	
+
+
+			<!--1st drop down menu -->                                                   
+			<div id="dropmenu1" class="dropmenudiv">
+			<%= link_to("Apply Now", "http://payday-loan-apply.thepaydayhound.com") %>
+			<%= link_to("Payday Loans", lenders_path) %>	
+			<%= link_to("Installment Loans", {:controller => 'lenders', :action => 'installment'}) %>
+			</div>
+
+			<script type="text/javascript">
+
+			cssdropdown.startchrome("chromemenu")
+
+			</script>
+
+
 		</nav>
 	</header>
 	</div>
