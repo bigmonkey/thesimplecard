@@ -15,105 +15,123 @@
 
 <section id="mainContent">
   <h1>Secured Credit Cards</h1> 
-  	<p>Secured credit cards are a great way to build and repair credit ratings. They are designed for those with poor credit, bad credit, or no credit. Secured cards look and work just like normal credit cards and can be used to make purchases or cash advances like any other Visa or Mastercard. The only difference is that behind the scenes a fully refundable security deposit is required. The deposit is used if your account goes to collections.</p> 
-    <p>Secured cards report to the three major credit bureaus and can help improve or repair your credit rating and is ideal for those with bad credit, poor credit, or no credit. Pre-paid cards DO NOT impact your credit rating.</p> 
-    <p>The Payday Hound reviews secured cards based on pricing and features like free credit monitoring or interest bearing security accounts. We also provide an industry-first Secured Card Cost Calculator to see the all-in cost of owning a secured card. Below is of the <%= pluralize(@secureds.size, 'cards') %> we review.</p> 
-    <p>Use the Secured Card Cost Calculator to the left to find the secured card best for you.</p>
+  	<p>Secured credit cards are a great way to build and repair credit ratings and can be used to make purchases or cash advances like any other Visa or Mastercard. Use our industry-first, Secured Card Cost Calculator to the left to find the secured card best for you.</p>
+
+      <span id = "securedCards" class = "jsData"><%= @secureds.size %></span> we review.
+      <span id = "duration" class = "jsData"><%= @duration %></span>
+      <span id = "purBal" class = "jsData"><%= @pur_balance %></span>
+      <span id = "cashBal" class = "jsData"><%= @cash_balance %></span>
+      <span id = "durationYears" class = "jsData"><%= (@duration/12.00).ceil %></span>
+      <span id = "yearsPercent" class = "jsData"><%= @days/100.0/365.0 %></span>
+    
+    
 
 
-  <table class="cardListing" summary="full lender list">
-    <tr class="tableHeader">
-     <th>Estimated Cost</th>
-     <th>Company Name</th>
-     <th>Description</th>
-     <th>Rating</th>
-     <th></th>   
-    </tr>
-    <% @secureds.each do |s| %>
-    <tr>
-      <td class = "cardCost">$247</td>
-      <td>
-        <div><%= link_to(image_tag("secured/#{s.image_file}", :alt => s.name ),  {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}) %></div>
-        <div class = "fullReview"><%= s.name %></div>
-      </td>
-      <td>
-        <div><%= s.first_comment %></div>
-        <div><%= s.second_comment %></div>
-        <div><%= s.third_comment %></div>
-        <div><a href=<%="javascript:Tog(#{s.id})" %>>More Info</a></div>
-      </td>  
-      <td class = rank<%= s.rating.round %>><div class="ratingSpace"><%= s.rating.round %>.0/5.0</div></td>
-      <td>
-          <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}, :class => "tableApplyButton") %>
-        <div class = "instantDecision"><%= !s.inst_decision? ? "":link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}) %></div>
-      </td>
-    </tr>
+  <table id = "securedCardTable" class="cardListing tablesorter" summary="full lender list">
+    <thead>    
+      <tr class="tableHeader">
+      <th>Estimated Cost</th>
+      <th>Company Name</th>
+      <th>Description</th>
+      <th>Rating</th>
+      <th></th>   
+      </tr>
+    </thead>
+    <tbody>    
+      <% @secureds.each.with_index do |s,i| %>
+      <tr>
+        <td class = "cardCost" id = <%="cardCost#{i}" %>><%= number_to_currency(((@duration/12.00).ceil*s.annual_fee)+(@duration*s.monthly_fee)+ @days*@pur_balance*s.purchase_apr/100/365 + @days*@cash_balance*s.cash_apr/100/365, :precision => 0) %></td>
+        <td class ="jsData" id = <%="annFee#{i}" %>><%= s.annual_fee.nil? ? 0 : s.annual_fee %></td>
+        <td class ="jsData" id = <%="mthFee#{i}" %>><%= s.monthly_fee.nil? ? 0 : s.monthly_fee %></td>
+        <td class ="jsData" id = <%="purAPR#{i}" %>><%= s.purchase_apr %></td>
+        <td class ="jsData" id = <%="cashAPR#{i}" %>><%= s.cash_apr %></td>
 
-    <tr>
-        <td colspan = 7>
-
-          <table id = "<%=s.id %>" class = "cardInfo" style="overflow:hidden;display:none">
-            <tr>
-              <td>
-                <div class = "cardName"><%= raw(s.card_name) %></div>
-                <div><b>Issuer:</b> <%= raw(s.issuer) %></div>
-                <div><b>Network:</b> <%= raw(s.card_type) %></div>
-                <div><b>Credit Rating:</b> <%= raw(s.credit_rating.titlecase) %></div>
-                <div><%= raw(s.bullets) %></div>
-              </td>
-              <td>
-                <table class = "cardFeatures">
-                  <tr>
-                    <td><b>Minimum Deposit:</b></td>
-                    <td><%= s.min_deposit %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Annual Fee</b></td>
-                    <td><%= s.annual_fee.nil? ? "?" : number_to_currency(s.annual_fee) %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Monthly Fee</b></td>
-                    <td><%= s.monthly_fee.nil? ? "?" : number_to_currency(s.monthly_fee) %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Purchase APR:</b></td>
-                    <td><%= number_to_percentage(s.purchase_apr, :precision => 2) %> <%= raw(s.purchase_base) %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Cash APR:</b></td>
-                    <td><%= number_to_percentage(s.cash_apr, :precision => 2) %> <%= raw(s.cash_base) %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Grace Period:</b></td>
-                    <td><%= s.grace %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Late Fee:</b></td>
-                    <td><%= s.late_fee %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Overlimit Fee:</b></td>
-                    <td><%= s.overlimit_fee %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Return Item Fee:</b></td>
-                    <td><%= s.return_pmt %></td>
-                  </tr>
-                  <tr>
-                    <td><b>Max Credit Limit:</b></td>
-                    <td><%= s.max_credit %></td>
-                  </tr>
-                  <tr>
-                    <td colspan = 2><I>V=Variable, F=Fixed</I></td>
-                  </tr>
-                </table>  
-              </td>
-            </tr>
-          </table>  
+        <td style = "display: block">
+            <table id="cardInfoTable">
+              <tr>    
+                <td>
+                    <div><%= link_to(image_tag("secured/#{s.image_file}", :alt => s.name ),  {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}) %></div>
+                    <div class = "fullReview"><%= s.name %></div>
+                </td>
+                <td>
+                  <div><%= s.first_comment %></div>
+                  <div><%= s.second_comment %></div>
+                  <div><%= s.third_comment %></div>
+                  <div><a href=<%="javascript:Tog(#{s.id})" %>>More Info</a></div>
+                </td>  
+                <td class = rank<%= s.rating.round %>><div class="ratingSpace"><%= s.rating.round %>.0/5.0</div></td>
+                <td>
+                    <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}, :class => "tableApplyButton") %>
+                  <div class = "instantDecision"><%= !s.inst_decision? ? "":link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}) %></div>
+                </td>
+              </tr>         
+              <tr>
+                  <td colspan = 7>
+                    <table id = "<%=s.id %>" class = "cardInfo" style="overflow:hidden;display:none">
+                      <tr>
+                        <td>
+                          <div class = "cardName"><%= raw(s.card_name) %></div>
+                          <div><b>Issuer:</b> <%= raw(s.issuer) %></div>
+                          <div><b>Network:</b> <%= raw(s.card_type) %></div>
+                          <div><b>Credit Rating:</b> <%= raw(s.credit_rating.titlecase) %></div>
+                          <div><%= raw(s.bullets) %></div>
+                        </td>
+                        <td>
+                          <table class = "cardFeatures">
+                            <tr>
+                              <td><b>Minimum Deposit:</b></td>
+                              <td><%= s.min_deposit %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Annual Fee</b></td>
+                              <td><%= s.annual_fee.nil? ? "?" : number_to_currency(s.annual_fee) %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Monthly Fee</b></td>
+                              <td><%= s.monthly_fee.nil? ? "?" : number_to_currency(s.monthly_fee) %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Purchase APR:</b></td>
+                              <td><%= number_to_percentage(s.purchase_apr, :precision => 2) %> <%= raw(s.purchase_base) %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Cash APR:</b></td>
+                              <td><%= number_to_percentage(s.cash_apr, :precision => 2) %> <%= raw(s.cash_base) %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Grace Period:</b></td>
+                              <td><%= s.grace %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Late Fee:</b></td>
+                              <td><%= s.late_fee %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Overlimit Fee:</b></td>
+                              <td><%= s.overlimit_fee %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Return Item Fee:</b></td>
+                              <td><%= s.return_pmt %></td>
+                            </tr>
+                            <tr>
+                              <td><b>Max Credit Limit:</b></td>
+                              <td><%= s.max_credit %></td>
+                            </tr>
+                            <tr>
+                              <td colspan = 2><I>V=Variable, F=Fixed</I></td>
+                            </tr>
+                          </table>  
+                        </td>
+                      </tr>
+                    </table>  
+                  </td>
+              </tr>
+            </table>
         </td>
-    </tr>
-
-    <% end %>
+      </tr>
+      <% end %>
+    </tbody>    
   </table>	
     
 

@@ -1,9 +1,26 @@
-
+<div class = "criteria">
+	<h2>Find a Card</h2>
+		<div id="securedCardCalc">
+		    <div class="formLabel">Purchase Balance</div>
+		    <div class="formLabelDesc">What is your average card balance?</div>
+		    <div id="sliderPurBal"></div>$<span id="calcPurBal"><%= @pur_balance %></span>
+	    	<br />
+	    	<div class="formLabel">Cash Advance Balance</div>
+	    	<div class="formLabelDesc">What is your average cash advance balance?</div>
+	    	<div id="sliderCashBal"></div>$<span id="calcCashBal"><%= @cash_balance %></span>
+	    	<br />
+	    	<div class="formLabel">Length of Ownership</div>
+	    	<div class="formLabelDesc">How long do you plan to keep this card?</div>
+	    	<div id="sliderDuration"></div><span id="calcDuration"><%= @duration %></span> months
+	    	<br />
+    	</div>
+</div>
 
 <div id = "sidebarWhyPDH">
 	<h2>The Payday Hound</h2>
-		<ul>
+	<ul>
 		<li><%= link_to("Why Use Us", {:controller => 'infos', :action => 'why'}) %></li>
 		<li><%= link_to("How We Make Money", {:controller => 'infos', :action => 'why'}) %></li>
 		<li><%= link_to("How Our Rankings Work", {:controller => 'infos', :action => 'why'}) %></li>
+	</ul>
 </div>

@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_tree ../../../vendor/assets/stylesheets
  *= require_tree .
 */
 
@@ -422,6 +423,17 @@ background-color: #F0F0F0;
 
 /*sidebar*/
 
+.criteria h2 {
+	background: #FFF;
+	color: #555;
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: none;
+	padding: 4px 0px;
+	border-top: 2px solid #666;
+	text-align: center;
+}
+
 #sidebar {
     background-color: #fff;
     width: 185px;
@@ -430,7 +442,7 @@ background-color: #F0F0F0;
     
 }
 
-#sidebarWhyPDH h2, .criteria h2 {
+#sidebarWhyPDH h2{
     color: #555;
     font-size: 0.75em;
     padding: 4px 0px;
@@ -467,10 +479,13 @@ background-color: #F0F0F0;
 	color: #E58D1F;
 	text-decoration: none;
 }
+/* Find a Card */
+ 
+/* end */
 
 /*FindAPaydayLoan*/
 
-form {
+form, #securedCardCalc {
 	padding: 0px 0px 20px 10px;
     background: #666;
     vertical-align: middle;
@@ -482,15 +497,6 @@ form p {
 	margin: 2px 0px 0px 20px;
 }
 
-	.criteria h2 {
-		background: #FFF;
-		color: #555;
-		font-size: 1em;
-		text-transform: none;
-		padding: 4px 0px;
-		border-top: 2px solid #666;
-		text-align: center;
-	}
 
 	.formLabel {
 		float: left;
@@ -666,19 +672,32 @@ td .instantDecision {
 }
 
 
+/* hidden class for javacript calculations use 'none' for live and 'block' for debugging*/
+.jsData {
+	display: none;
+}
+
 /*CardTableListings*/
 .cardName{
 	font-size: 1.1em;
 	font-weight: bold;
 	color: #e58D1F;
 }
-.cardListing tr:nth-child(2n+3){
-	border-bottom: 1px solid #ddd;
-}
 
-.cardListing tr:nth-child(2n){
+/* secured table border. tr defaults to bottom border, remove every third from 2 and 1, then re-do header */
+.cardListing tr:nth-child(3n+2){
 	border-bottom: 0px solid #ddd;
 }
+
+.cardListing tr:nth-child(3n+1){
+	border-bottom: 0px solid #ddd;
+}
+
+.cardListing tr.tableHeader{
+	border-bottom: 1px solid #ddd;
+}
+/* end border definition for secured card table */
+
 
 .cardInfo{
 	background: #eee;
@@ -686,6 +705,7 @@ td .instantDecision {
 	-moz-border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px 5px 5px 5px;
 }
+
 
 .cardInfo td{
     padding: 5px;

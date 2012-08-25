@@ -26,7 +26,7 @@ expand.style.display=(expand.style.display=='none')?'block': 'none';
 
 var cssdropdown={
 disappeardelay: 250, //set delay in miliseconds before menu disappears onmouseout
-dropdownindicator: '<img src="/assets/down.gif"" "border=0"/>', //specify full HTML to add to end of each menu item with a drop down menu
+//dropdownindicator: '<img src="/assets/down.gif"" "border=0"/>', //specify full HTML to add to end of each menu item with a drop down menu
 enablereveal: [true, 5], //enable swipe effect? [true/false, steps (Number of animation steps. Integer between 1-20. Smaller=faster)]
 enableiframeshim: 1, //enable "iframe shim" in IE5.5 to IE7? (1=yes, 0=no)
 
@@ -211,3 +211,108 @@ startchrome:function(){
 } //end startchrome
 
 }
+
+
+// sort secured card table //
+var sortcell = 1 //td element to sort by in secured card table
+
+$(document).ready(function() 
+    { 
+        $("#securedCardTable").tablesorter({
+            sortList: [[sortcell,1]]
+        }); 
+    } 
+); 
+
+// ***************** sliders for secured card ************//
+$(document).ready(function () {
+    var purBal = parseFloat($("#purBal").html());
+    var cashBal = parseFloat($("#cashBal").html());
+    var duration = parseFloat($("#duration").html());
+    var durationYears = parseFloat($("#durationYears").html());
+    var yearsPercent = parseFloat($("#yearsPercent").html());
+    var cards = parseFloat($("#securedCards").html());
+
+/*    console.log('purBal is', purBal, 'and is of type ', typeof(purBal));
+    console.log('cashBal is', cashBal, 'and is of type ', typeof(cashBal));
+    console.log('duration is', duration, 'and is of type ', typeof(duration));
+    console.log('cards is', cards, 'and is of type ', typeof(cards));    
+    console.log('yearsPercent is', yearsPercent, 'and is of type ', typeof(yearsPercent));      
+    console.log('durationYears is', durationYears, 'and is of type ', typeof(durationYears));    
+*/
+    $("#sliderPurBal").slider({
+        value: 300,
+        min: 0,
+        max: 5000,
+        step: 100,
+        slide: function (event, ui) {
+            $("#calcPurBal").html(ui.value);
+            purBal = ui.value;
+            for ( var i = 0 ; i<cards ; i++){
+                annualFee = parseFloat($('#annFee'+i+'').html());
+                monthlyFee = parseFloat($('#mthFee'+i+'').html());
+                purAPR = parseFloat($('#purAPR'+i+'').html());
+                cashAPR = parseFloat($('#cashAPR'+i+'').html());
+                var totalFee = duration * monthlyFee + durationYears * annualFee;
+                var totalInt = yearsPercent * (purBal * purAPR + cashBal + cashAPR);
+                $('#cardCost'+i+'').html("$" + Math.round(totalInt+totalFee));
+            };
+        },
+        stop: function (event, ui) {$("#securedCardTable").tablesorter({
+            sortList: [[sortcell,1]]
+        });
+        }           
+    });
+
+    $("#sliderCashBal").slider({
+        value: 300,
+        min: 0,
+        max: 5000,
+        step: 100,
+        slide: function (event, ui) {
+            $("#calcCashBal").html(ui.value);
+            cashBal = ui.value;
+            for ( var i = 0 ; i<cards ; i++){
+                annualFee = parseFloat($('#annFee'+i+'').html());
+                monthlyFee = parseFloat($('#mthFee'+i+'').html());
+                purAPR = parseFloat($('#purAPR'+i+'').html());
+                cashAPR = parseFloat($('#cashAPR'+i+'').html());
+                var totalFee = duration * monthlyFee + durationYears * annualFee;
+                var totalInt = yearsPercent * (purBal * purAPR + cashBal + cashAPR);
+                $('#cardCost'+i+'').html("$" + Math.round(totalInt+totalFee));
+            };
+        },
+        stop: function (event, ui) {$("#securedCardTable").tablesorter({
+            sortList: [[sortcell,1]]
+        });
+        }           
+    });
+
+    $("#sliderDuration").slider({
+        value: 12,
+        min: 1,
+        max: 48,
+        step: 1,
+        slide: function (event, ui) {
+            $("#calcDuration").html(ui.value);
+            duration = ui.value;
+            durationYears = Math.ceil(duration/12);
+            yearsPercent = duration*365/12/100/365;
+            for ( var i = 0 ; i<cards ; i++){
+                annualFee = parseFloat($('#annFee'+i+'').html());
+                monthlyFee = parseFloat($('#mthFee'+i+'').html());
+                purAPR = parseFloat($('#purAPR'+i+'').html());
+                cashAPR = parseFloat($('#cashAPR'+i+'').html());
+                var totalFee = duration * monthlyFee + durationYears * annualFee;
+                var totalInt = yearsPercent * (purBal * purAPR + cashBal + cashAPR);
+                $('#cardCost'+i+'').html("$" + Math.round(totalInt+totalFee));
+            };
+        },
+        stop: function (event, ui) {$("#securedCardTable").tablesorter({
+            sortList: [[sortcell,1]]
+        });
+        }           
+    });
+
+});
+// ***************** sliders for secured card ************//
