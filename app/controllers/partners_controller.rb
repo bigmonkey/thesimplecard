@@ -1,5 +1,5 @@
 class PartnersController < ApplicationController
-
+  layout 'partner'
   before_filter :set_tracking
 
   def index

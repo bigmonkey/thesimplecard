@@ -6,7 +6,6 @@ class SecuredsController < ApplicationController
 
   def index
   	@duration = 25.0 #number of months someone keeps the secured car, ad decimal so not integer
-  	@days = @duration*365.0/12.0 #convert @duration to number of days
   	@pur_balance =  400.0 #revolving purchase balance
   	@cash_balance = 100.0 #cash balance balance
   	@secureds = Secured.live.by_top_rank

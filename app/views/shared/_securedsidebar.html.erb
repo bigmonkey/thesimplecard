@@ -1,18 +1,22 @@
 <div class = "criteria">
 	<h2>Find a Card</h2>
-		<div id="securedCardCalc">
-		    <div class="formLabel">Purchase Balance</div>
-		    <div class="formLabelDesc">What is your average card balance?</div>
-		    <div id="sliderPurBal"></div>$<span id="calcPurBal"><%= @pur_balance %></span>
-	    	<br />
-	    	<div class="formLabel">Cash Advance Balance</div>
-	    	<div class="formLabelDesc">What is your average cash advance balance?</div>
-	    	<div id="sliderCashBal"></div>$<span id="calcCashBal"><%= @cash_balance %></span>
-	    	<br />
-	    	<div class="formLabel">Length of Ownership</div>
-	    	<div class="formLabelDesc">How long do you plan to keep this card?</div>
-	    	<div id="sliderDuration"></div><span id="calcDuration"><%= @duration %></span> months
-	    	<br />
+		<div class="securedCardCalc">
+		    <div class = "securedCalcTitles">	
+		    	<div class="securedCalcLabel">Purchases<span id="calcPurBal" class = "calcValues"><%= number_to_currency(@pur_balance, :precision => 0) %></span></div>
+		       	<div class="securedCalcLabelDesc">Average purchase balances</div>
+		       	
+		    	<p><div id="sliderPurBal"></div></p>
+		    </div>
+			<div class = "securedCalcTitles">
+   		    	<div class="securedCalcLabel">Cash Advances<span id="calcCashBal" class = "calcValues"><%= number_to_currency(@cash_balance, :precision => 0) %></span></div>
+   		    	<div class="securedCalcLabelDesc">Average cash advance balances</div>
+   		    	<p><div id="sliderCashBal"></div></p>
+	    	</div>	    	
+	    	<div class = "securedCalcTitles">
+	    		<div class="securedCalcLabel">Time<span class = "calcValues"><span id="calcDuration"><%= @duration.ceil %></span> months</span></div>
+	    		<div class="securedCalcLabelDesc">How long you will have the card</div>
+	    		<p><div id="sliderDuration"></div></p>
+	    	</div>
     	</div>
 </div>
 

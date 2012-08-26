@@ -15,59 +15,55 @@
 
 <section id="mainContent">
   <h1>Secured Credit Cards</h1> 
-  	<p>Secured credit cards are a great way to build and repair credit ratings and can be used to make purchases or cash advances like any other Visa or Mastercard. Use our industry-first, Secured Card Cost Calculator to the left to find the secured card best for you.</p>
+  	<p>Secured credit cards are a great way to build and repair credit ratings. They report to the three major credit bureaus and can be used like any other Visa or Mastercard. Our industry-first, Secured Card Cost Calculator can help you find the secured card best for you.</p>
 
-      <span id = "securedCards" class = "jsData"><%= @secureds.size %></span> we review.
+      <span id = "securedCards" class = "jsData"><%= @secureds.size %></span>
       <span id = "duration" class = "jsData"><%= @duration %></span>
       <span id = "purBal" class = "jsData"><%= @pur_balance %></span>
       <span id = "cashBal" class = "jsData"><%= @cash_balance %></span>
-      <span id = "durationYears" class = "jsData"><%= (@duration/12.00).ceil %></span>
-      <span id = "yearsPercent" class = "jsData"><%= @days/100.0/365.0 %></span>
-    
-    
-
-
+ 
   <table id = "securedCardTable" class="cardListing tablesorter" summary="full lender list">
     <thead>    
-      <tr class="tableHeader">
-      <th>Estimated Cost</th>
-      <th>Company Name</th>
-      <th>Description</th>
-      <th>Rating</th>
-      <th></th>   
+      <tr class="securedTableHeader">
+        <th><div class = "headCost">Estimated Cost</div></th>
+        <th><div class = "headName">Company Name</div></th>
+        <th class = "headDesc">Description</th>
+        <th><div  class = "headApply">Apply</div></th>   
       </tr>
     </thead>
     <tbody>    
       <% @secureds.each.with_index do |s,i| %>
       <tr>
-        <td class = "cardCost" id = <%="cardCost#{i}" %>><%= number_to_currency(((@duration/12.00).ceil*s.annual_fee)+(@duration*s.monthly_fee)+ @days*@pur_balance*s.purchase_apr/100/365 + @days*@cash_balance*s.cash_apr/100/365, :precision => 0) %></td>
-        <td class ="jsData" id = <%="annFee#{i}" %>><%= s.annual_fee.nil? ? 0 : s.annual_fee %></td>
-        <td class ="jsData" id = <%="mthFee#{i}" %>><%= s.monthly_fee.nil? ? 0 : s.monthly_fee %></td>
-        <td class ="jsData" id = <%="purAPR#{i}" %>><%= s.purchase_apr %></td>
-        <td class ="jsData" id = <%="cashAPR#{i}" %>><%= s.cash_apr %></td>
-
-        <td style = "display: block">
-            <table id="cardInfoTable">
+        <td class = "cardCost" id = <%="cardCost#{i}" %>><%= number_to_currency(((@duration/12.00).ceil*s.annual_fee)+(@duration*s.monthly_fee)+((@duration/12.0)*365.0*(@pur_balance*s.purchase_apr/100/365 + @cash_balance*s.cash_apr/100/365)), :precision => 0) %></td>
+        <td colspan = 3 class = "cardInfo">
+            <table width = 100% >
               <tr>    
-                <td>
+                <td class = "cardInfoName">
                     <div><%= link_to(image_tag("secured/#{s.image_file}", :alt => s.name ),  {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}) %></div>
-                    <div class = "fullReview"><%= s.name %></div>
+                    <div class = "cardNameUnderImage"><%= s.name %></div>
                 </td>
-                <td>
+                <td class = "cardInfoDesc">
                   <div><%= s.first_comment %></div>
                   <div><%= s.second_comment %></div>
                   <div><%= s.third_comment %></div>
                   <div><a href=<%="javascript:Tog(#{s.id})" %>>More Info</a></div>
                 </td>  
-                <td class = rank<%= s.rating.round %>><div class="ratingSpace"><%= s.rating.round %>.0/5.0</div></td>
-                <td>
+                <td class = "cardInfoApply">
                     <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}, :class => "tableApplyButton") %>
-                  <div class = "instantDecision"><%= !s.inst_decision? ? "":link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}) %></div>
+                  <div class = "cardInstantDecision"><%= !s.inst_decision? ? "":link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}) %></div>
                 </td>
-              </tr>         
+              </tr>    
               <tr>
-                  <td colspan = 7>
-                    <table id = "<%=s.id %>" class = "cardInfo" style="overflow:hidden;display:none">
+                <td colspan = 3>
+                    <table id = "<%=s.id %>" class = "cardDetails" style="overflow:hidden;display:none">
+                      <tr>
+                        <td class = "jsData">
+                          <span id = <%="annualFee#{i}" %>><%= s.annual_fee.nil? ? 0 : s.annual_fee %></span>
+                          <span id = <%="monthlyFee#{i}" %>><%= s.monthly_fee.nil? ? 0 : s.monthly_fee %></span>
+                          <span id = <%="purAPR#{i}" %>><%= s.purchase_apr %></span>
+                          <span id = <%="cashAPR#{i}" %>><%= s.cash_apr %></span>
+                        </td>                
+                      </tr>     
                       <tr>
                         <td>
                           <div class = "cardName"><%= raw(s.card_name) %></div>
@@ -125,7 +121,7 @@
                         </td>
                       </tr>
                     </table>  
-                  </td>
+                </td>
               </tr>
             </table>
         </td>

@@ -38,6 +38,23 @@ body {
 	color: #666;
 }
 
+th {
+	vertical-align: middle;
+	font-size: 0.9em;
+}
+
+td {
+    padding: 5px;
+	vertical-align: middle;
+	font-size: 0.9em;
+}
+
+
+tr {
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
 #wrapper {
 	width: 980px;
     margin: 0 auto;
@@ -485,7 +502,7 @@ background-color: #F0F0F0;
 
 /*FindAPaydayLoan*/
 
-form, #securedCardCalc {
+form {
 	padding: 0px 0px 20px 10px;
     background: #666;
     vertical-align: middle;
@@ -620,25 +637,9 @@ form p {
     width: 780px;
 }
 
-.tableHeader {
+.tableHeader, .securedTableHeader{
     color: #666;
     font-weight: bold;
-}
-
-th {
-	vertical-align: middle;
-	font-size: 0.9em;
-}
-
-td {
-    padding: 5px;
-	vertical-align: middle;
-	font-size: 0.9em;
-}
-
-tr {
-	border-bottom: 1px solid #ddd;
-	background: #fff;
 }
 
 
@@ -677,48 +678,136 @@ td .instantDecision {
 	display: none;
 }
 
-/*CardTableListings*/
+/* secured card slider */
+
+.securedCardCalc {
+	padding: 10px;
+    background: #eee;
+    border: 1px solid #ddd;
+    vertical-align: bottom;
+    margin-bottom: 15px;
+    color: #555;
+    border-radius: 3px;
+    webkit-border-radius: 3px;
+    moz-border-radius: 3px;    
+}
+
+.securedCalcTitles{
+	padding: 5px 0px;
+}
+
+.securedCalcLabel {
+	font-size: .80em;
+	text-transform: uppercase;
+	vertical-align: bottom;
+	font-weight: bold;
+}
+
+.securedCalcLabelDesc {
+	font-size: 0.6em;
+	font-style: italic;
+}
+
+.calcValues{
+	color: #e58D1F;
+	padding-top: 0px;
+	float: right;
+	text-align: right;
+	font-size: 1em;
+	font-weight: bold;
+	vertical-align: bottom;
+}
+
+
+/* end secured card slider */
+/* secured table border. tr defaults to bottom border, remove every third from 2 and 1, then re-do header */
+
+.cardListing tr.tableHeader{
+	border-bottom: 1px solid #ddd;
+}
+
+.cardInfo tr{
+	border: 0px solid #ddd;
+}
+/* end border definition for secured card table */
+
+
+
+/* sets table heading spacing. Desc take 100%, others are defined by width of inside text */
+.securedTableHeader th.headDesc{
+	width: 100%;
+}
+
+.headCost{
+	width: 100px;
+}
+
+.headName{
+	width: 150px;
+}
+
+.headApply{
+	width: 140px;
+}
+
+/* end set table space spacing */
+
+/* sets spacing for inside of table. Desc takes 100%, others are defined by width of inside text */
+.cardCost{
+    font-size: 2em;
+    color:green;
+    width: 100px;
+}
+
+.cardInfo {
+	font-size: 1em;
+	padding: 0px;
+}
+
+.cardNameUnderImage{
+	width: 150px;
+}
+
+.cardInstantDecision {
+	width: 90px;
+}
+
+.cardInfoName {
+	padding: 0px;
+}
+
+.cardInfoDesc {
+	width: 100%;
+	padding: 0px;
+}
+
+.cardInfoApply {
+	padding: 2px 20px;
+}
+
+/* end set spacing for inside of table */
+
+/*CardDetails -- more information dropdown. Card Features are the card terms*/
 .cardName{
 	font-size: 1.1em;
 	font-weight: bold;
 	color: #e58D1F;
 }
 
-/* secured table border. tr defaults to bottom border, remove every third from 2 and 1, then re-do header */
-.cardListing tr:nth-child(3n+2){
-	border-bottom: 0px solid #ddd;
-}
-
-.cardListing tr:nth-child(3n+1){
-	border-bottom: 0px solid #ddd;
-}
-
-.cardListing tr.tableHeader{
-	border-bottom: 1px solid #ddd;
-}
-/* end border definition for secured card table */
-
-
-.cardInfo{
+.cardDetails{
 	background: #eee;
 	border-radius: 5px 5px 5px 5px;
 	-moz-border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px 5px 5px 5px;
 }
 
-
-.cardInfo td{
+.cardDetails td{
     padding: 5px;
 	text-align: left;
 	vertical-align: top;
 	background: #eee;
-	font-size: 1em;
-	max-width: 500px;
-}
-
-.cardCost{
-    font-size: 2em;
-    color:green;
+	font-size: .95em;
+	max-width: 400px;
 }
 
 .cardFeatures td{
