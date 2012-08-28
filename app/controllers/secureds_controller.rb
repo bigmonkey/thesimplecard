@@ -18,11 +18,13 @@ class SecuredsController < ApplicationController
 
       # if params hold different criteria reset criteria
       if !params[:criteria].nil? then
-        if pur_balance_range === params[:criteria][:PurBal].to_i && @cash_balance_range === params[:criteria][:CashBal].to_i && @duration_range === params[:criteria][:Duration].to_i then
-    		  @pur_balance = params[:criteria][:PurBal].to_i
-      		@cash_balance = params[:criteria][:CashBal].to_i
-      		@duration = params[:criteria][:Duration].to_i
-    	  end
+        if params.has_key?(:PurBal) && params.has_key?(:CashBal) && params.has_key?(:Duration) then
+          if pur_balance_range === params[:criteria][:PurBal].to_i && @cash_balance_range === params[:criteria][:CashBal].to_i && @duration_range === params[:criteria][:Duration].to_i then
+      		  @pur_balance = params[:criteria][:PurBal].to_i
+        		@cash_balance = params[:criteria][:CashBal].to_i
+        		@duration = params[:criteria][:Duration].to_i
+      	  end
+        end
       end  
       @secureds = Secured.live.by_top_rank    
   	  @page = "0005" #sets page for tracking to 'secured-cards'

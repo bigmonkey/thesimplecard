@@ -37,16 +37,19 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    daemons (1.1.9)
     erubis (2.7.0)
+    eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.4)
-    jquery-rails (2.0.2)
-      railties (>= 3.2.0, < 5.0)
+    jquery-rails (2.1.1)
+      railties (>= 3.1.0, < 5.0)
       thor (~> 0.14)
-    json (1.7.4)
+    json (1.7.5)
+    libv8 (3.3.10.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -81,7 +84,7 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
-    sass (3.2.0)
+    sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -90,6 +93,12 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    therubyracer (0.10.2)
+      libv8 (~> 3.3.10)
+    thin (1.4.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -106,8 +115,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  execjs
   jquery-rails
   pg
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
+  therubyracer
+  thin
   uglifier (>= 1.0.3)
