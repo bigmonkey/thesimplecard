@@ -15,7 +15,7 @@ class LendersController < ApplicationController
   end
   	
   def lenders
-    if !params.has_key?:state then
+    if !params.has_key?(:state) then
       redirect_to :action => 'index'
     else  
     #instantiate a new lender and set criteria

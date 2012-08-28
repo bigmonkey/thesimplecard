@@ -9,3 +9,4 @@ class Secured < ActiveRecord::Base
     end
 
 end
+

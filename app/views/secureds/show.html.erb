@@ -1,0 +1,46 @@
+<%# 
+To render in rails add controller show
+place file in secureds Views
+
+relies on jquery and public.js
+function blogSlidePurBal, blogSlideCashBal, blogSliderDuration
+
+%>
+<aside id ="sidebar">
+<div class = "criteria">
+  <h2>Find a Card</h2>
+    <%= form_for(:criteria,:url => {:action => "index"}, :html => {:class =>"securedCardCalc", :method => :get} ) do |f| %>
+        <%= f.hidden_field('PurBal', :value => '400') %>
+        <%= f.hidden_field('CashBal', :value => '100') %>
+        <%= f.hidden_field('Duration', :value => '20') %>
+        <div class = "securedCalcTitles"> 
+          <div class="securedCalcLabel">Purchases<span id="blogCalcPurBal" class = "calcValues">$400</span></div>
+          <div class="securedCalcLabelDesc">Average purchase balances</div>
+            
+          <p><div id="blogSliderPurBal"></div></p>
+        </div>
+        <div class = "securedCalcTitles">
+          <div class="securedCalcLabel">Cash Advances<span id="blogCalcCashBal" class = "calcValues">$100</span></div>
+          <div class="securedCalcLabelDesc">Average cash advance balances</div>
+          <p><div id="blogSliderCashBal"></div></p>
+        </div>        
+        <div class = "securedCalcTitles">
+          <div class="securedCalcLabel">Time<span class = "calcValues"><span id="blogCalcDuration">20</span> months</span></div>
+          <div class="securedCalcLabelDesc">How long you will have the card</div>
+          <p><div id="blogSliderDuration"></div></p>
+        </div>
+      <%= submit_tag "FIND LOAN", :class => "findLoanButton" %>
+    <% end %>
+        
+</div>
+<div id = "sidebarWhyPDH">
+  <h2>The Payday Hound</h2>
+  <ul>
+    <li><a href="/why-use-the-payday-hound">Why Use Us</a></li>
+    <li><a href="/why-use-the-payday-hound">How We Make Money</a></li>
+    <li><a href="/why-use-the-payday-hound">How Our Rankings Work</a></li>
+  </ul>
+</div>
+
+</aside>
+
