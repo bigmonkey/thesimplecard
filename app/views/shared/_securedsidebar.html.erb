@@ -3,13 +3,13 @@
 		<div class="securedCardCalc">
 		    <div class = "securedCalcTitles">	
 		    	<div class="securedCalcLabel">Purchases<span id="calcPurBal" class = "calcValues"><%= number_to_currency(@pur_balance, :precision => 0) %></span></div>
-		       	<div class="securedCalcLabelDesc">Average purchase balances</div>
+		       	<div class="securedCalcLabelDesc">Revolving purchase balance</div>
 		       	
 		    	<p><div id="sliderPurBal"></div></p>
 		    </div>
 			<div class = "securedCalcTitles">
    		    	<div class="securedCalcLabel">Cash Advances<span id="calcCashBal" class = "calcValues"><%= number_to_currency(@cash_balance, :precision => 0) %></span></div>
-   		    	<div class="securedCalcLabelDesc">Average cash advance balances</div>
+   		    	<div class="securedCalcLabelDesc">Revolving cash advance balance</div>
    		    	<p><div id="sliderCashBal"></div></p>
 	    	</div>	    	
 	    	<div class = "securedCalcTitles">

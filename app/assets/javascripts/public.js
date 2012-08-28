@@ -223,7 +223,7 @@ $(document).ready(function()
     } 
 ); 
 
-// ***************** sliders for secured card ************//
+// ***************** sliders for secured card calculator ************//
 
 
 
@@ -258,7 +258,7 @@ $(document).ready(function () {
 
 
     $("#sliderPurBal").slider({
-        value: 300,
+        value: purBal,
         min: 0,
         max: 3000,
         step: 100,
@@ -274,7 +274,7 @@ $(document).ready(function () {
     });
 
     $("#sliderCashBal").slider({
-        value: 300,
+        value: cashBal,
         min: 0,
         max: 3000,
         step: 100,
@@ -292,7 +292,7 @@ $(document).ready(function () {
     });
 
     $("#sliderDuration").slider({
-        value: 12,
+        value: duration,
         min: 1,
         max: 48,
         step: 1,
@@ -308,4 +308,45 @@ $(document).ready(function () {
     });
 
 });
-// ***************** sliders for secured card ************//
+// ***************** sliders for secured card calculator************//
+
+
+
+// ******************* slider for secured blogs site **************//
+$(document).ready(function () {
+
+    $("#blogSliderPurBal").slider({
+        value: 400,
+        min: 0,
+        max: 3000,
+        step: 100,
+        slide: function (event, ui){
+          $("#blogCalcPurBal").html(ui.value).currency({decimals:0});
+          $("#criteria_PurBal").val(ui.value);  
+        },
+    });
+
+    $("#blogSliderCashBal").slider({
+        value: 100,
+        min: 0,
+        max: 3000,
+        step: 100,
+        slide: function (event, ui) {
+            $("#blogCalcCashBal").html(ui.value).currency({decimals:0});
+            $("#criteria_CashBal").val(ui.value);
+        },
+    });
+
+    $("#blogSliderDuration").slider({
+        value: 20,
+        min: 1,
+        max: 48,
+        step: 1,
+        slide: function (event, ui) {
+            $("#blogCalcDuration").html(ui.value);
+            $("#criteria_Duration").val(ui.value);
+        },
+    });
+
+});
+// ************** end slider for secured card blog site **********//
