@@ -6,15 +6,17 @@ class SecuredsController < ApplicationController
 
   def index
       # set maximum and minimum usage criteria for variable checks
-      max_balance = 3000
-      max_duration = 48
-      duration_range = (1..48)
+      # need to change public.js slider settings as well in six places.
+      # then need to update blog settings and any files that point to public.js, i.e. on resources.pdh.com
+      max_balance = 1000
+      max_duration = 36
+      duration_range = (1..max_duration)
       pur_balance_range = (0..max_balance)
       cash_balance_range = (0..max_balance)
 
-      @pur_balance =  400.0 #revolving purchase balance
-      @cash_balance = 100.0 #cash balance balance
-      @duration = 20.0  #number of months someone keeps the secured car, ad decimal so not integer
+      @pur_balance =  600.0 #revolving purchase balance
+      @cash_balance = 0.0 #cash balance balance
+      @duration = 8.0  #number of months someone keeps the secured car, ad decimal so not integer
 
 
       # if params hold different criteria reset criteria
