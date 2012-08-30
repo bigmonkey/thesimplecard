@@ -1,7 +1,7 @@
 Pdh::Application.routes.draw do
 
  # get "secureds/index"
-
+  match '' => redirect("http://www.thepaydayhound.com")
   match 'installment-loans' => 'lenders#installment'
   match 'why-use-the-payday-hound' => 'infos#why'  
   match 'payday-loans' => 'lenders#index'
@@ -65,5 +65,5 @@ Pdh::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  match ':controller(/:action(/:id))(.:format)'
+   match ':controller(/:action(/:id))(.:format)'
 end
