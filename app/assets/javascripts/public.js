@@ -252,7 +252,7 @@ $(document).ready(function () {
           // console.log('cashAPR is', cashAPR, 'and is of type ', typeof(cashAPR));   
           // console.log('totalFee is', totalFee, 'and is of type ', typeof(totalFee));
           // console.log('totalInt is', totalInt, 'and is of type ', typeof(totalInt));                   
-          $('#cardCost'+i+'').html("$" + (totalInt+totalFee).toFixed(0));
+          $('#cardCost'+i+'').html("$" + (((totalInt+totalFee)/duration).toFixed(2)));
         };
     }
 

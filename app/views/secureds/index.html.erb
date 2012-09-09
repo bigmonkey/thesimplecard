@@ -25,7 +25,7 @@
   <table id = "securedCardTable" class="cardListing tablesorter" summary="full lender list">
     <thead>    
       <tr class="securedTableHeader">
-        <th><div class = "headCost">Estimated Cost</div></th>
+        <th><div class = "headCost">Est. Cost/Month</div></th>
         <th><div class = "headName">Company Name</div></th>
         <th class = "headDesc">Description</th>
         <th><div  class = "headApply">Apply</div></th>   
@@ -34,7 +34,7 @@
     <tbody>    
       <% @secureds.each.with_index do |s,i| %>
       <tr>
-        <td class = "cardCost" id = <%="cardCost#{i}" %>><%= number_to_currency(((@duration/12.00).ceil*s.annual_fee)+(@duration*s.monthly_fee)+((@duration/12.0)*365.0*(@pur_balance*s.purchase_apr/100/365 + @cash_balance*s.cash_apr/100/365)), :precision => 0) %></td>
+        <td class = "cardCost" id = <%="cardCost#{i}" %>><%= number_to_currency((((@duration/12.00).ceil*s.annual_fee)+(@duration*s.monthly_fee)+((@duration/12.0)*365.0*(@pur_balance*s.purchase_apr/100/365 + @cash_balance*s.cash_apr/100/365)))/@duration, :precision => 2) %></td>
         <td colspan = 3 class = "cardInfo">
             <table width = 100% >
               <tr>    
