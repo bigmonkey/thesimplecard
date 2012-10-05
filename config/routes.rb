@@ -20,9 +20,9 @@ Pdh::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
  resources :secureds, :path => '/secured-cards'
- resources :homes, :path => ''
  resources :lenders, :path => '/payday-loans'
- 
+ resources :prepaids
+ resources :homes, :path => ''
   # Sample resource route with options:
   #   resources :products do
   #     member do

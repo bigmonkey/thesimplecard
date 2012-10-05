@@ -6,5 +6,4 @@ class HomesController < ApplicationController
   def index
   	redirect("http://www.thepaydayhound.com")
   end
-
 end

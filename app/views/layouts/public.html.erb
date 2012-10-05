@@ -68,19 +68,26 @@
 			<div class = "chromestye" id = "chromemenu">
 				<ul>
 					<li><%= link_to("Home", "http://www.thepaydayhound.com") %></li>
-					<li><%= link_to("Secured Cards", secureds_path) %></li>
-				    <li><%= link_to("Payday Loans", lenders_path, :rel => "dropmenu1") %></li>
+					<li><%= link_to("Secured Cards", secureds_path, :rel => "dropmenu1") %></li>
+				    <li><%= link_to("Payday Loans", lenders_path, :rel => "dropmenu2") %></li>
 					<li><a href="http://www.thepaydayhound.com/resources/" >Resources</a></li>
 				</ul>	
 			</div>	
 
 
-			<!--1st drop down menu -->                                                   
+			<!--credit card drop down menu -->                                                   
 			<div id="dropmenu1" class="dropmenudiv">
+			<%= link_to("Prepaid Cards", prepaids_path) %>	
+			<%= link_to("Secured Cards", secureds_path) %>
+			</div>
+
+			<!--payday loan drop down menu -->                                                   
+			<div id="dropmenu2" class="dropmenudiv">
 			<%= link_to("Apply Now", "http://payday-loan-apply.thepaydayhound.com") %>
 			<%= link_to("Payday Loans", lenders_path) %>	
 			<%= link_to("Installment Loans", {:controller => 'lenders', :action => 'installment'}) %>
 			</div>
+
 
 			<script type="text/javascript">
 
