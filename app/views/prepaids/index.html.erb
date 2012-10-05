@@ -7,6 +7,8 @@
 <div id="wrapper">
 <aside id ="sidebar">
 
+    <%= render(:partial => "shared/prepaidsidebar")%>
+
 
 </aside>
 
@@ -16,17 +18,17 @@
  	<p>Pre-paid cards can help manage spending and expenses. They generally have 100% approval rates and do not require a bank account or good credit. The cards themselves are often loaded with numerous fees that can be tricky to understand. Use our industry-first, Pre-Paid Card Cost Calculator to the left to help you find the pre-paid card best for you.</p>
 
   <span id = "prepaidCards" class = "jsData"><%= @prepaids.size %></span>
-  <span id = "prepaid_duration" class = "jsData"><%= @prepaid_duration %></span>
-  <span id = "mthLoad" class = "jsData"><%= @mth_load %></span>
+  <span id = "prepaidDuration" class = "jsData"><%= @prepaid_duration %></span>
+  <span id = "wklyLoad" class = "jsData"><%= @wkly_load %></span>
   <span id = "directDep" class = "jsData"><%= @direct_dep %></span>
-  <span id = "wklyCharges" class = "jsData"><%= @wkly_trans %></span>
+  <span id = "wklyTrans" class = "jsData"><%= @wkly_trans %></span>
   <span id = "wklyATMBalChk" class = "jsData"><%= @wkly_atm_bal_chk %></span>
   <span id = "wklyATMCash" class = "jsData"><%= @wkly_atm_cash %></span>
   
-  <table id = "prePaidTable" class="cardListing tablesorter" summary="full prepaid list">
+  <table id = "prepaidTable" class="cardListing tablesorter" summary="full prepaid list">
     <thead>    
       <tr class="securedTableHeader">
-        <th><div class = "headCost">Est. Cost/Month</div></th>
+        <th><div class = "headCost">Est. Cost/Week</div></th>
         <th><div class = "headName">Company Name</div></th>
         <th class = "headDesc">Description</th>
         <th><div  class = "headApply">Apply</div></th>   
@@ -35,10 +37,10 @@
     <tbody>    
       <% @prepaids.each.with_index do |p,i| %>
       <tr>
-        <td class = "cardCost" id = <%="prePaidCost#{i}" %>><%= number_to_currency(
-          p.activation_fee/@prepaid_duration+ 
-          (( !p.reduce_mth_fee_load_amt.nil? && @mth_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit ))+
-          (@wkly_trans*p.trans_fee_signature+@wkly_atm_bal_chk*p.atm_balance_inq+@wkly_atm_cash*p.atm_withdraw)/7*30.5) %></td>
+        <td class = "cardCost" id = <%="prepaidCost#{i}" %>><%= number_to_currency(
+          (p.activation_fee/@prepaid_duration+ 
+          (( !p.reduce_mth_fee_load_amt.nil? && @wkly_load/7*30.5 >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit )))/30.5*7+
+          (@wkly_trans*p.trans_fee_signature+@wkly_atm_bal_chk*p.atm_balance_inq+@wkly_atm_cash*p.atm_withdraw)) %></td>
         <td colspan = 3 class = "cardInfo">
             <table width = 100% >
               <tr>    
@@ -62,6 +64,8 @@
                       <tr>
                         <td class = "jsData">
                           <span id = <%="activationFee#{i}" %>><%= p.activation_fee.nil? ? 0 : p.activation_fee %></span>
+                          <span id = <%="reduceMthFeeLevel#{i}" %>><%= p.reduce_mth_fee_load_amt %></span>
+                          <span id = <%="reduceMthFee#{i}" %>><%= p.reduce_mth_fee %></span>              
                           <span id = <%="mthFeeDirectDep#{i}" %>><%= p.mth_fee_direct_dep.nil? ? 0 : p.mth_fee_direct_dep %></span>
                           <span id = <%="mthFeeNoDirectDep#{i}" %>><%= p.mth_fee_no_direct_deposit.nil? ? 0 : p.mth_fee_no_direct_deposit %></span>
                           <span id = <%="transFeeSig#{i}" %>><%= p.trans_fee_signature.nil? ? 0 : p.trans_fee_signature %></span>
@@ -81,7 +85,7 @@
                           <table class = "cardFeatures">
                             <tr>
                               <td><b>Activation Fee</b></td>
-                              <td><%= p.activation_fee %></td>
+                              <td><%= number_to_currency(p.activation_fee) %></td>
                             </tr>
                             <tr>
                               <td><b>Monthly Fee</b></td>

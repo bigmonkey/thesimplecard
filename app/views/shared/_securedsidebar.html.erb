@@ -1,20 +1,20 @@
 <div class = "criteria">
 	<h2>Find a Card</h2>
-		<div class="securedCardCalc">
-		    <div class = "securedCalcTitles">	
-		    	<div class="securedCalcLabel">Purchases<span id="calcPurBal" class = "calcValues"><%= number_to_currency(@pur_balance, :precision => 0) %></span></div>
-		       	<div class="securedCalcLabelDesc">Revolving purchase balance</div>
+		<div class="cardCalc">
+		    <div class = "cardCalcTitles">	
+		    	<div class="cardCalcLabel">Purchases<span id="calcPurBal" class = "calcValues"><%= number_to_currency(@pur_balance, :precision => 0) %></span></div>
+		       	<div class="cardCalcLabelDesc">Revolving purchase balance</div>
 		       	
 		    	<p><div id="sliderPurBal"></div></p>
 		    </div>
-			<div class = "securedCalcTitles">
-   		    	<div class="securedCalcLabel">Cash Advances<span id="calcCashBal" class = "calcValues"><%= number_to_currency(@cash_balance, :precision => 0) %></span></div>
-   		    	<div class="securedCalcLabelDesc">Revolving cash advance balance</div>
+				<div class = "cardCalcTitles">
+   		    	<div class="cardCalcLabel">Cash Advances<span id="calcCashBal" class = "calcValues"><%= number_to_currency(@cash_balance, :precision => 0) %></span></div>
+   		    	<div class="cardCalcLabelDesc">Revolving cash advance balance</div>
    		    	<p><div id="sliderCashBal"></div></p>
 	    	</div>	    	
-	    	<div class = "securedCalcTitles">
-	    		<div class="securedCalcLabel">Time<span class = "calcValues"><span id="calcDuration"><%= @duration.ceil %></span> months</span></div>
-	    		<div class="securedCalcLabelDesc">How long you will have the card</div>
+	    	<div class = "cardCalcTitles">
+	    		<div class="cardCalcLabel">Time<span class = "calcValues"><span id="calcDuration"><%= @duration.ceil %></span> months</span></div>
+	    		<div class="cardCalcLabelDesc">How long you will have the card</div>
 	    		<p><div id="sliderDuration"></div></p>
 	    	</div>
     	</div>

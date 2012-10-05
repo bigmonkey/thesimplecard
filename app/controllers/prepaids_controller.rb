@@ -18,11 +18,11 @@ class PrepaidsController < ApplicationController
       wkly_atm_bal_chk_range = (0..max_wkly_atm_bal_chk)
       wkly_atm_cash_range = (0..max_wkly_atm_cash)
 
-      @mth_load =  2500.0 #average cash loaded to card
-      @direct_dep = TRUE #1 is true
-      @wkly_trans = 8.0  #number of signature transactions
-      @wkly_atm_bal_chk = 0.0 #number of atm balance inquiries
-      @wkly_atm_cash = 1.0 #number of atm cash withdrawels
+      @wkly_load =  300 #average cash loaded to card
+      @direct_dep = false  #true -- has direct depoist. Values: true or false, case doesn't matter
+      @wkly_trans = 8  #number of signature transactions
+      @wkly_atm_bal_chk = 0 #number of atm balance inquiries
+      @wkly_atm_cash = 0 #number of atm cash withdrawels
       @prepaid_duration = 18 #numner of months keeping the card
 
 

@@ -223,6 +223,13 @@ $(document).ready(function()
     } 
 ); 
 
+$(document).ready(function() 
+    { 
+        $("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        }); 
+    } 
+);
 // ***************** sliders for secured card calculator ************//
 
 
@@ -284,7 +291,6 @@ $(document).ready(function () {
             update();
         },
         stop: function (event, ui) {
-          console.log('this thing stopped');
           $("#securedCardTable").tablesorter({
             sortList: [[sortcell,0]]
           });
@@ -350,3 +356,149 @@ $(document).ready(function () {
 
 });
 // ************** end slider for secured card blog site **********//
+
+
+// ***************** sliders for prepaid card calculator ************//
+
+
+
+$(document).ready(function () {
+    var prepaidDuration = parseFloat($("#prepaidDuration").html());
+    var wklyLoad = parseFloat($("#wklyLoad").html());
+    var directDep = ($("#directDep").html())=="true";
+    var wklyTrans = parseFloat($("#wklyTrans").html());
+    var wklyATMBalChk = parseFloat($("#wklyATMBalChk").html());
+    var wklyATMCash = parseFloat($("#wklyATMCash").html());
+    var cards = parseFloat($("#prepaidCards").html());
+
+
+    // console.log('purBal is', purBal, 'and is of type ', typeof(purBal));
+    // console.log('cashBal is', cashBal, 'and is of type ', typeof(cashBal));
+    // console.log('duration is', duration, 'and is of type ', typeof(duration));
+    // console.log('cards is', cards, 'and is of type ', typeof(cards));    
+
+    function update (){
+        for ( var i = 0 ; i<cards ; i++){
+          var activationFee = parseFloat($('#activationFee'+i+'').html());
+          var mthFeeDirectDep = parseFloat($('#mthFeeDirectDep'+i+'').html());
+          var mthFeeNoDirectDep = parseFloat($('#mthFeeNoDirectDep'+i+'').html());
+          var transFeeSig = parseFloat($('#transFeeSig'+i+'').html());
+          var atmBalInq = parseFloat($('#atmBalInq'+i+'').html());
+          var atmWithdraw = parseFloat($('#atmWithdraw'+i+'').html()); 
+          var reduceMthFeeLevel = parseFloat($('#reduceMthFeeLevel'+i+'').html());
+          var reduceMthFee = parseFloat($('#reduceMthFee'+i+'').html());        
+          var mthFeeDirectDep = parseFloat($('#mthFeeDirectDep'+i+'').html()); 
+
+
+          var transFees = (wklyTrans*transFeeSig+wklyATMBalChk*atmBalInq+wklyATMCash*atmWithdraw)
+
+
+          // calculates monthly fee based on minimums and direct deposit 
+          if (!isNaN(reduceMthFeeLevel) && wklyLoad/7*30.5>=reduceMthFeeLevel) {prepaidMonthlyFee = reduceMthFee}
+            else if (directDep) {prepaidMonthlyFee=mthFeeDirectDep}
+              else {prepaidMonthlyFee=mthFeeNoDirectDep}
+
+//          console.log('directDep is', directDep, 'and is of type ', typeof(directDep));
+//          console.log('transFeeSig is', transFeeSig, 'and is of type ', typeof(transFeeSig));
+//          console.log('wklyATMBalChk is', wklyATMBalChk, 'and is of type ', typeof(wklyATMBalChk));
+//          console.log('atmBalInq is', atmBalInq, 'and is of type ', typeof(atmBalInq));   
+//          console.log('wklyATMBalChk is', wklyATMBalChk, 'and is of type ', typeof(wklyATMBalChk));
+//          console.log('atmWithdraw is', atmWithdraw, 'and is of type ', typeof(atmWithdraw));                   
+//          $('#prepaidCost'+i+'').html("$" + (activationFee/prepaidDuration+transFees).toFixed(2));
+          $('#prepaidCost'+i+'').html("$" + ((activationFee/prepaidDuration  + prepaidMonthlyFee)/30.5*7 + transFees).toFixed(2));
+ 
+        };
+    }
+    $("#sliderWklyTrans").slider({
+        value: wklyTrans,
+        min: 0,
+        max: 40,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcWklyTrans").html(ui.value);
+          wklyTrans = ui.value;
+          update();
+        },
+        stop: function (event, ui) {$("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+    $("#sliderATMInq").slider({
+        value: wklyATMBalChk,
+        min: 0,
+        max: 7,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcATMInq").html(ui.value);
+          wklyATMBalChk= ui.value;
+          update();
+        },
+        stop: function (event, ui) {$("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+    $("#sliderATMCash").slider({
+        value: wklyATMCash,
+        min: 0,
+        max: 7,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcATMCash").html(ui.value);
+          wklyATMCash = ui.value;
+          update();
+        },
+        stop: function (event, ui) {$("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+    $("input[name='radioDirectDep']").change(function(){
+        directDep = ($('input[name=radioDirectDep]:checked').val())=="true";
+        if (directDep){$("#calcDirectDep").html("Yes")}
+          else {$("#calcDirectDep").html("No")} ;
+        update();
+        $("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+    });
+
+    $("#sliderWklyLoad").slider({
+        value: wklyLoad,
+        min: 20,
+        max: 1000,
+        step: 50,
+        slide: function (event, ui){
+          $("#calcWklyLoad").html(ui.value).currency({decimals:0});
+          wklyLoad = ui.value;
+          update();
+        },
+        stop: function (event, ui) {$("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+    $("#sliderPrepaidDuration").slider({
+        value: prepaidDuration,
+        min: 1,
+        max: 36,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcPrepaidDur").html(ui.value);
+          prepaidDuration = ui.value;
+          update();
+        },
+        stop: function (event, ui) {$("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+
+});
+// ***************** sliders for prepaid card calculator************//
