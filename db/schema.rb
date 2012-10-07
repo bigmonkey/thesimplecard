@@ -107,11 +107,13 @@ ActiveRecord::Schema.define(:version => 20121004212831) do
     t.decimal  "max_daily_spend",                          :precision => 8, :scale => 2
     t.decimal  "min_load",                                 :precision => 8, :scale => 2
     t.decimal  "max_cash_deposit",                         :precision => 8, :scale => 2
-    t.string   "online_bill_pay",           :limit => 100
+    t.string   "bill_pay_elec",             :limit => 70
+    t.string   "bill_pay_paper",            :limit => 70
     t.string   "call_center",               :limit => 100
     t.text     "bullets"
     t.string   "issuer",                    :limit => 100
     t.string   "card_type",                 :limit => 100
+    t.decimal  "payout",                                   :precision => 4, :scale => 2
     t.boolean  "live"
     t.datetime "created_at",                                                             :null => false
     t.datetime "updated_at",                                                             :null => false
