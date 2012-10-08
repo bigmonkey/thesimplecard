@@ -2,7 +2,7 @@
 
   <h2>Loan Finder</h2>
 
-<%= form_for(:lender, :url => {:controller => 'lenders', :action => 'lenders'}, :html => {:id => "findPaydayForm", :class => "cardCalc"}) do |f| %>
+<%= form_for(:lender, :url => {:controller => 'lenders', :action => 'lenders'}, :html => {:id => "findPaydayForm", :class => "cardCalc", :target => "_parent"}) do |f| %>
   <div class="formSection">
 
     <div class="formLabel"><%= f.label(:sniff_id) %></div>
