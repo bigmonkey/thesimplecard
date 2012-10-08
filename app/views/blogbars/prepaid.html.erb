@@ -1,0 +1,66 @@
+<aisde id = "sidebar">
+<div class = "criteria">
+
+  <span id = "prepaidDuration" class = "jsData"><%= @prepaid_duration %></span>
+  <span id = "wklyLoad" class = "jsData"><%= @wkly_load %></span>
+  <span id = "directDep" class = "jsData"><%= @direct_dep %></span>
+  <span id = "wklyTrans" class = "jsData"><%= @wkly_trans %></span>
+  <span id = "wklyATMBalChk" class = "jsData"><%= @wkly_atm_bal_chk %></span>
+  <span id = "wklyATMCash" class = "jsData"><%= @wkly_atm_cash %></span>
+
+	<h2>Find a Card</h2>
+		<%= form_for(:criteria,:url => prepaids_path, :html => {:class => "cardCalc", :method => :get} ) do |f| %>
+	        <%= f.hidden_field('CalcATMInq', :value => @wkly_atm_bal_chk) %>
+	        <%= f.hidden_field('CalcATMCash', :value => @wkly_atm_cash) %>
+	        <%= f.hidden_field('CalcDirectDep', :value => @direct_dep) %>
+	        <%= f.hidden_field('CalcWklyTrans', :value => @wkly_trans) %>
+	        <%= f.hidden_field('CalcWklyLoad', :value => @wkly_load) %>
+	        <%= f.hidden_field('CalcPrepaidDur', :value => @prepaid_duration) %>
+
+
+		    <div class = "cardCalcTitles">	
+		    	<div class="cardCalcLabel">ATM USAGE</div>
+		    	<div class="cardCalcLabelDesc">How often will you...</div>
+		       	<div class="cardSubLabel">Check Balances?<span class = "calcValues"><span id="blogCalcATMInq" ><%= @wkly_atm_bal_chk %></span> /week</span></div>
+		    	<p class ="sliderBars"><div id="blogSliderATMInq"></div></p>
+		       	<div class="cardSubLabel">Make Withdrawals?<span class = "calcValues"><span id="blogCalcATMCash" ><%= @wkly_atm_cash %></span> /week</span></div>
+		       	
+		    	<p class ="sliderBars"><div id="blogSliderATMCash"></div></p>
+		    </div>
+
+
+		    <div class = "cardCalcTitles">	
+		    	<div class="cardCalcLabel">DIRECT DEPOSIT<span class = "calcValues" id="blogCalcDirectDep" ><%= @direct_dep ? "Yes" : "No" %></span></div>
+		    	<div class="cardCalcLabelDesc">Will you use direct deposit?</div>
+
+		       	<p class = "calcRadios">
+		       		<input type="radio" name="blogRadioDirectDep" value="true">Yes</input>
+		       		<input type="radio" name="blogRadioDirectDep" value="false" checked = "checked">No</input>
+		       	</p>
+		    </div>
+
+		    <div class = "cardCalcTitles">	
+		    	<div class="cardCalcLabel">PURCHASES<span class = "calcValues"><span id="blogCalcWklyTrans"><%= @wkly_trans %></span> /week</span></div>
+		      <div class="cardCalcLabelDesc">How many will you make?</div>
+		       	
+		    	<p class = "blogSliderBars"><div id="sliderWklyTrans"></div></p>
+		    </div>
+
+		    <div class = "cardCalcTitles">	
+		    	<div class="cardCalcLabel">LOAD<span class = "calcValues"><span id="blogCalcWklyLoad"> <%= number_to_currency(@wkly_load, :precision => 0) %></span> /week</span></div>
+		       	<div class="cardCalcLabelDesc">How much cash will you add?</div>
+		       	
+		    	<p class ="blogSliderBars"><div id="sliderWklyLoad"></div></p>
+		    </div>
+
+
+		    <div class = "cardCalcTitles">	
+		    	<div class="cardCalcLabel">TIME<span class = "calcValues"><span id="blogCalcPrepaidDur"> <%= @prepaid_duration %></span> months</span></div>
+		       	<div class="cardCalcLabelDesc">How long will you keep the card?</div>
+		       	
+		    	<p class ="blogSliderBars"><div id="sliderPrepaidDuration"></div></p>
+		    </div>
+	      <%= submit_tag "FIND CARD", :class => "findLoanButton" %>
+   	<% end %>
+</div>
+</aside>
