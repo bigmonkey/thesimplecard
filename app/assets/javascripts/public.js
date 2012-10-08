@@ -360,8 +360,6 @@ $(document).ready(function () {
 
 // ***************** sliders for prepaid card calculator ************//
 
-
-
 $(document).ready(function () {
     var prepaidDuration = parseFloat($("#prepaidDuration").html());
     var wklyLoad = parseFloat($("#wklyLoad").html());
@@ -501,4 +499,90 @@ $(document).ready(function () {
 
 
 });
-// ***************** sliders for prepaid card calculator************//
+// ***************** end sliders for prepaid card calculator************//
+
+
+// ***************** sliders for prepaid card calculator blog version ************//
+
+$(document).ready(function () {
+
+    var prepaidDuration = parseFloat($("#prepaidDuration").html());
+    var wklyLoad = parseFloat($("#wklyLoad").html());
+    var directDep = ($("#directDep").html())=="true";
+    var wklyTrans = parseFloat($("#wklyTrans").html());
+    var wklyATMBalChk = parseFloat($("#wklyATMBalChk").html());
+    var wklyATMCash = parseFloat($("#wklyATMCash").html());
+    var cards = parseFloat($("#prepaidCards").html());
+
+    $("#blogSliderWklyTrans").slider({
+        value: wklyTrans,
+        min: 0,
+        max: 40,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcWklyTrans").html(ui.value);
+          $("#criteria_CalcWklyTrans").val(ui.value);  
+        },
+    });
+
+    $("#blogSliderATMInq").slider({
+        value: wklyATMBalChk,
+        min: 0,
+        max: 7,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcATMInq").html(ui.value);
+          $("#criteria_CalcATMInq").val(ui.value);  
+        },
+    });
+
+    $("#blogSliderATMCash").slider({
+        value: wklyATMCash,
+        min: 0,
+        max: 7,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcATMCash").html(ui.value);
+          $("#criteria_CalcATMCash").val(ui.value);  
+        },        
+    });
+
+    $("input[name='blogRadioDirectDep']").change(function(){
+        directDep = ($('input[name=blogRadioDirectDep]:checked').val())=="true";
+        if (directDep){
+            $("#blogCalcDirectDep").html("Yes");
+            $("#criteria_CalcDirectDep").val("true");  
+          }
+          else {
+            $("#blogCalcDirectDep").html("No");
+            $("#criteria_CalcDirectDep").val("false");  
+        };
+    });
+
+    $("#blogSliderWklyLoad").slider({
+        value: wklyLoad,
+        min: 20,
+        max: 1000,
+        step: 50,
+        slide: function (event, ui){
+          $("#blogCalcWklyLoad").html(ui.value).currency({decimals:0});
+          $("#criteria_CalcWklyLoad").val(ui.value);  
+        },
+    });
+
+    $("#blogSliderPrepaidDuration").slider({
+        value: prepaidDuration,
+        min: 1,
+        max: 36,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcPrepaidDur").html(ui.value);
+          $("#criteria_CalcPrepaidDur").val(ui.value);  
+        },           
+    });
+
+
+});
+// ***************** end sliders for prepaid card calculator blog version ************//
+
+

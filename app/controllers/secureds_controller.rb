@@ -3,6 +3,7 @@ class SecuredsController < ApplicationController
   layout 'public'
   
   before_filter :set_tracking
+  before_filter :set_secured_constants
 
   def index
       # set maximum and minimum usage criteria for variable checks
@@ -13,11 +14,6 @@ class SecuredsController < ApplicationController
       duration_range = (1..max_duration)
       pur_balance_range = (0..max_balance)
       cash_balance_range = (0..max_balance)
-
-      @pur_balance =  600.0 #revolving purchase balance
-      @cash_balance = 0.0 #cash balance balance
-      @duration = 8.0  #number of months someone keeps the secured car, ad decimal so not integer
-
 
       # if params hold different criteria reset criteria
       if !params[:criteria].nil? then # do params exist
