@@ -18,8 +18,8 @@
 		    	<div class="cardCalcLabelDesc">Will you use direct deposit?</div>
 
 		       	<p class = "calcRadios">
-		       		<input type="radio" name="radioDirectDep" value="true">Yes</input>
-		       		<input type="radio" name="radioDirectDep" value="false" checked = "checked">No</input>
+		       		<input type="radio" name="radioDirectDep" value="true" <%= "checked" if @direct_dep %> >Yes</input>
+		       		<input type="radio" name="radioDirectDep" value="false"<%= "checked" if !@direct_dep %> >No</input>
 		       	</p>
 		    </div>
 

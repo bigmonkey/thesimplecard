@@ -1,12 +1,14 @@
 <aisde id = "sidebar">
 <div class = "criteria">
 
+<!-- data from Rails for javaScript to use -->
   <span id = "prepaidDuration" class = "jsData"><%= @prepaid_duration %></span>
   <span id = "wklyLoad" class = "jsData"><%= @wkly_load %></span>
   <span id = "directDep" class = "jsData"><%= @direct_dep %></span>
   <span id = "wklyTrans" class = "jsData"><%= @wkly_trans %></span>
   <span id = "wklyATMBalChk" class = "jsData"><%= @wkly_atm_bal_chk %></span>
   <span id = "wklyATMCash" class = "jsData"><%= @wkly_atm_cash %></span>
+<!-- end data from Rails for javaScript to use -->
 
 	<h2>Find a Card</h2>
 		<%= form_for(:criteria,:url => prepaids_path, :html => {:class => "cardCalc", :method => :get} ) do |f| %>
@@ -34,8 +36,8 @@
 		    	<div class="cardCalcLabelDesc">Will you use direct deposit?</div>
 
 		       	<p class = "calcRadios">
-		       		<input type="radio" name="blogRadioDirectDep" value="true">Yes</input>
-		       		<input type="radio" name="blogRadioDirectDep" value="false" checked = "checked">No</input>
+		       		<input type="radio" name="blogRadioDirectDep" value="true" <%= "checked" if @direct_dep %>>Yes</input>
+		       		<input type="radio" name="blogRadioDirectDep" value="false" <%= "checked" if !@direct_dep %>>No</input>
 		       	</p>
 		    </div>
 
@@ -43,14 +45,14 @@
 		    	<div class="cardCalcLabel">PURCHASES<span class = "calcValues"><span id="blogCalcWklyTrans"><%= @wkly_trans %></span> /week</span></div>
 		      <div class="cardCalcLabelDesc">How many will you make?</div>
 		       	
-		    	<p class = "blogSliderBars"><div id="sliderWklyTrans"></div></p>
+		    	<p class = "sliderBars"><div id="blogSliderWklyTrans"></div></p>
 		    </div>
 
 		    <div class = "cardCalcTitles">	
 		    	<div class="cardCalcLabel">LOAD<span class = "calcValues"><span id="blogCalcWklyLoad"> <%= number_to_currency(@wkly_load, :precision => 0) %></span> /week</span></div>
 		       	<div class="cardCalcLabelDesc">How much cash will you add?</div>
 		       	
-		    	<p class ="blogSliderBars"><div id="sliderWklyLoad"></div></p>
+		    	<p class ="sliderBars"><div id="blogSliderWklyLoad"></div></p>
 		    </div>
 
 
@@ -58,9 +60,11 @@
 		    	<div class="cardCalcLabel">TIME<span class = "calcValues"><span id="blogCalcPrepaidDur"> <%= @prepaid_duration %></span> months</span></div>
 		       	<div class="cardCalcLabelDesc">How long will you keep the card?</div>
 		       	
-		    	<p class ="blogSliderBars"><div id="sliderPrepaidDuration"></div></p>
+		    	<p class ="sliderBars"><div id="blogSliderPrepaidDuration"></div></p>
 		    </div>
 	      <%= submit_tag "FIND CARD", :class => "findLoanButton" %>
    	<% end %>
 </div>
+
+
 </aside>

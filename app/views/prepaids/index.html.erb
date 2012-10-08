@@ -17,6 +17,7 @@
   <h1>Pre-Paid Cards</h1> 
  	<p>Pre-paid cards can help manage spending and expenses. They generally have 100% approval rates and do not require a bank account or good credit. The cards themselves are often loaded with numerous fees that can be tricky to understand. Use our industry-first, Pre-Paid Card Cost Calculator to the left to help you find the pre-paid card best for you.</p>
 
+<!-- data from Rails for javaScript to use -->
   <span id = "prepaidCards" class = "jsData"><%= @prepaids.size %></span>
   <span id = "prepaidDuration" class = "jsData"><%= @prepaid_duration %></span>
   <span id = "wklyLoad" class = "jsData"><%= @wkly_load %></span>
@@ -24,7 +25,8 @@
   <span id = "wklyTrans" class = "jsData"><%= @wkly_trans %></span>
   <span id = "wklyATMBalChk" class = "jsData"><%= @wkly_atm_bal_chk %></span>
   <span id = "wklyATMCash" class = "jsData"><%= @wkly_atm_cash %></span>
-  
+<!-- end data from Rails for javaScript to use -->
+
   <table id = "prepaidTable" class="cardListing tablesorter" summary="full prepaid list">
     <thead>    
       <tr class="securedTableHeader">

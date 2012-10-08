@@ -29,7 +29,4 @@ class SecuredsController < ApplicationController
   	  @page = "0005" #sets page for tracking to 'secured-cards'
   end
 
-  def show
-  end
-
 end
