@@ -21,7 +21,7 @@
 <!-- data from Rails for javaScript to use -->
   <span id = "prepaidCards" class = "jsData"><%= @prepaids.size %></span>
   <span id = "prepaidDuration" class = "jsData"><%= @prepaid_duration %></span>
-  <span id = "wklyLoad" class = "jsData"><%= @wkly_load %></span>
+  <span id = "mthlyLoad" class = "jsData"><%= @mthly_load %></span>
   <span id = "directDep" class = "jsData"><%= @direct_dep %></span>
   <span id = "wklyTrans" class = "jsData"><%= @wkly_trans %></span>
   <span id = "wklyATMBalChk" class = "jsData"><%= @wkly_atm_bal_chk %></span>
@@ -31,7 +31,7 @@
   <table id = "prepaidTable" class="cardListing tablesorter" summary="full prepaid list">
     <thead>    
       <tr class="securedTableHeader">
-        <th><div class = "headCost">Est. Cost/Week</div></th>
+        <th><div class = "headCost">Weekly Cost</div></th>
         <th><div class = "headName">Company Name</div></th>
         <th class = "headDesc">Who Should Use This Card</th>
         <th><div  class = "headApply">Apply</div></th>   
@@ -42,24 +42,23 @@
       <tr>
         <td class = "cardCost" id = <%="prepaidCost#{i}" %>><%= number_to_currency(
           (p.activation_fee/@prepaid_duration+ 
-          (( !p.reduce_mth_fee_load_amt.nil? && @wkly_load/7*30.5 >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit )))/30.5*7+
+          (( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit )))/30.5*7+
           (@wkly_trans*p.trans_fee_signature+@wkly_atm_bal_chk*p.atm_balance_inq+@wkly_atm_cash*p.atm_withdraw)) %></td>
         <td colspan = 3 class = "cardInfo">
             <table width = 100% >
               <tr>    
                 <td class = "cardInfoName">
-                    <div><%= link_to(image_tag("prepaid/#{p.image_file}", :alt => p.name ),  {:controller => 'partners', :action => 'go', :id => p.partner_id, :page=>@page}, :target => "_blank") %></div>
+                    <div><%= link_to(image_tag("http://www.imgsynergy.com/cccom/#{p.image_file}", :alt => p.name ),  {:controller => 'partners', :action => 'go', :id => p.partner_id, :page=>@page}, :target => "_blank") %></div>
                     <div class = "cardNameUnderImage"><%= p.name %></div>
                 </td>
                 <td class = "cardInfoDesc">
                   <div><%= p.first_comment %></div>
                   <div><%= p.second_comment %></div>
                   <div><%= p.third_comment %></div>                  
-                  <div><a href=<%="javascript:Tog(#{p.id})" %>>More Info</a></div>
+                  <div><a href=<%="javascript:Tog(#{p.id})" %> id = <%= "info#{p.id}" %>>More Info</a></div>
                 </td>  
                 <td class = "cardInfoApply">
-                    <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => p.partner_id, :page=>@page}, :class => "tableApplyButton", :target => "_blank") %>
-                  <div class = "cardInstantDecision"><%= link_to("instant decision", {:controller => 'partners', :action => 'go', :id => p.partner_id, :page => @page}, :target => "_blank") %></div>
+                    <%= link_to("SIGN UP", {:controller => 'partners', :action => 'go', :id => p.partner_id, :page=>@page}, :class => "cardApplyButton", :target => "_blank") %>
                 </td>
               </tr>    
               <tr>
@@ -82,9 +81,79 @@
                         <td>
                           <div class = "cardName"><%= raw(p.card_name) %></div>
                           <div><b>Issuer:</b> <%= raw(p.issuer) %></div>
-                          <div><b>Network:</b> <%= raw(p.card_type) %></div>
+                          <div><b>Credit:</b> <%= raw(p.credit_needed) %></div>
                           <div><%= raw(p.bullets) %></div>
                         </td>
+                        <td style width ="40%">
+                          <div class ="cardCostBreak">
+                          <table>
+                            <tr>
+                              <th>Fee</th>
+                              <th>Amt</th>
+                              <th>Freq</th>
+                              <th>Cost</th>
+                            </tr>
+                            <tr>
+                              <td>Activation</td>
+                              <td><%= number_to_currency(p.activation_fee) %></td>
+                              <td>Once</td>
+                              <td><%= number_to_currency((p.activation_fee/@prepaid_duration)/30.5*7) %></td>
+                            </tr> 
+                            <tr>
+                              <td>Monthly</td>
+                              <td><%= number_to_currency((( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit ))) %></td>
+                              <td>1/mth</td>
+                              <td><%= number_to_currency(((( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit )))/30.5*7) %></td>
+                            </tr>  
+                            <tr>
+                              <td>ATM Fees</td>
+                            </tr>
+                            <tr>
+                              <td>- Check Balance</td>
+                              <td><%= number_to_currency(p.atm_balance_inq) %></td>
+                              <td><%= @wkly_atm_bal_chk %>/wk</td>
+                              <td><%= number_to_currency(@wkly_atm_bal_chk*p.atm_balance_inq) %></td>
+                            </tr>
+                            <tr>
+                              <td>- Withdraw in Network)</td>
+                              <td><%= p.atm_network_withdraw.nil? ? number_to_currency(p.atm_withdraw) : number_to_currency(p.atm_network_withdraw) %></td>
+                              <td><%= @wkly_atm_network_cash %>/wk</td>
+                              <td><%= number_to_currency(@wkly_atm_network_cash * (p.atm_network_withdraw.nil? ? p.atm_withdraw : p.atm_network_withdraw)) %></td>
+                            </tr>
+                            <tr>
+                              <td>- Withdraw out of Network</td>
+                              <td><%= number_to_currency(p.atm_withdraw) %></td>
+                              <td><%= @wkly_atm_cash%>/wk</td>
+                              <td><%= number_to_currency(@wkly_atm_cash * p.atm_withdraw) %></td>
+                            </tr>
+                            <tr>
+                              <td>- Out of Network Charges</td>
+                              <td><%= number_to_currency(@atm_owner_fee) %></td>
+                              <td><%= @wkly_atm_cash%>/wk</td>
+                              <td><%= number_to_currency(@wkly_atm_cash * @atm_owner_fee) %></td>
+                            </tr>
+                            <tr>
+                              <td colspan = "3">ATM Total Fees</td>
+                              <td><%= number_to_currency(@wkly_atm_network_cash * (p.atm_network_withdraw.nil? ? p.atm_withdraw : p.atm_network_withdraw)  +  @wkly_atm_cash * p.atm_withdraw  +  @wkly_atm_cash * @atm_owner_fee ) %></td>
+                            </tr>                            
+                            <tr>
+                              <td>Load</td>
+                              <td><%= number_to_currency(p.load_fee) %></td>
+                              <td><%= @mthly_loads%>/mth</td>
+                              <td><%= number_to_currency(@mthly_loads * p.load_fee) %></td>
+                            </tr>
+                            <tr>
+                              <td>Customer Service</td>
+                              <td><%= number_to_currency(@direct_dep ? p.call_center_dep : p.call_center_no_dep)%></td>
+                              <td><%= @calls %>/mth</td>
+                              <td><%= number_to_currency(@direct_dep ? (@calls * p.call_center_dep) : ((@calls - p.call_center_free_calls)*p.call_center_no_dep)) %></td>
+                            </tr>                            
+
+                          </table>
+                          </div>
+                        </td>
+                      </tr>  
+                      <tr>  
                         <td>
                           <table class = "cardFeatures">
                             <tr>
@@ -119,7 +188,10 @@
                             </tr>
                             <tr>
                               <td><b>Statements</b></td>
-                              <td><%= p.paper_statement.nil? ? "?" : number_to_currency(p.atm_balance_inq) %> /paper</td>
+                              \
+
+                              <td><%= p.paper_statement.nil? ? "?" : number_to_currency(p.
+                              atm_balance_inq) %> /paper</td>
                             </tr>
                             <tr>
                               <td><b>Max Balance</b></td>
@@ -147,8 +219,9 @@
                             </tr>                            
                             <tr>
                               <td><b>Call Center</b></td>
-                              <td><%= p.call_center %></td>
+                              <td><%= p.call_center_desc %></td>
                             </tr>
+
 
                            
                           </table>  

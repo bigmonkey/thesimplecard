@@ -3,7 +3,7 @@
 
 <!-- data from Rails for javaScript to use -->
   <span id = "prepaidDuration" class = "jsData"><%= @prepaid_duration %></span>
-  <span id = "wklyLoad" class = "jsData"><%= @wkly_load %></span>
+  <span id = "mthlyLoad" class = "jsData"><%= @mthly_load %></span>
   <span id = "directDep" class = "jsData"><%= @direct_dep %></span>
   <span id = "wklyTrans" class = "jsData"><%= @wkly_trans %></span>
   <span id = "wklyATMBalChk" class = "jsData"><%= @wkly_atm_bal_chk %></span>
@@ -16,7 +16,7 @@
 	        <%= f.hidden_field('CalcATMCash', :value => @wkly_atm_cash) %>
 	        <%= f.hidden_field('CalcDirectDep', :value => @direct_dep) %>
 	        <%= f.hidden_field('CalcWklyTrans', :value => @wkly_trans) %>
-	        <%= f.hidden_field('CalcWklyLoad', :value => @wkly_load) %>
+	        <%= f.hidden_field('CalcWklyLoad', :value => @mthly_load) %>
 	        <%= f.hidden_field('CalcPrepaidDur', :value => @prepaid_duration) %>
 
 
@@ -49,7 +49,7 @@
 		    </div>
 
 		    <div class = "cardCalcTitles">	
-		    	<div class="cardCalcLabel">LOAD<span class = "calcValues"><span id="blogCalcWklyLoad"> <%= number_to_currency(@wkly_load, :precision => 0) %></span> /week</span></div>
+		    	<div class="cardCalcLabel">LOAD<span class = "calcValues"><span id="blogCalcMthlyLoad"> <%= number_to_currency(@mthly_load, :precision => 0) %></span> /week</span></div>
 		       	<div class="cardCalcLabelDesc">How much cash will you add?</div>
 		       	
 		    	<p class ="sliderBars"><div id="blogSliderWklyLoad"></div></p>

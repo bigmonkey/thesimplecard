@@ -761,7 +761,8 @@ td .instantDecision {
 }
 
 /* end secured card slider */
-/* secured table border. tr defaults to bottom border, remove every third from 2 and 1, then re-do header */
+
+/* card table border. tr defaults to bottom border, remove every third from 2 and 1, then re-do header */
 
 .cardListing tr.tableHeader{
 	border-bottom: 1px solid #ddd;
@@ -826,6 +827,33 @@ td .instantDecision {
 	padding: 2px 20px;
 }
 
+.cardApplyButton {
+	background-color: #E58D1F;
+  color: #fff;
+  font-weight: bold;
+  margin: 0px 0px 5px 5px;
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  width: 70px;
+  border: 1px solid #E58D1F;
+  border-radius: 3px;
+  webkit-border-radius: 3px;
+  moz-border-radius: 3px;
+  padding: 0px;
+}
+
+.cardApplyButton:link, .cardApplyButton:visited {
+	color: #fff;
+}
+
+.cardApplyButton:hover {
+	box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
+	-webkit-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
+	-moz-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
+	color: #fff;
+	font-weight: normal;
+}
 /* end set spacing for inside of table */
 
 /*CardDetails -- more information dropdown. Card Features are the card terms*/
@@ -837,13 +865,13 @@ td .instantDecision {
 
 .cardDetails{
 	background: #eee;
-	border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;	
 	-moz-border-radius: 5px 5px 5px 5px;
-	-webkit-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px; 
 }
 
 .cardDetails td{
-    padding: 5px;
+  padding: 5px;
 	text-align: left;
 	vertical-align: top;
 	background: #eee;
@@ -854,6 +882,32 @@ td .instantDecision {
 .cardFeatures td{
 	padding: 0px 15px;
 }
+
+.cardCostBreak{
+	border: 1px solid #fff;
+	background: #fff;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+}
+
+.cardCostBreak th{
+	margin:0px;
+	padding: 0px;
+	border: 0px;
+	font-weight: bold;
+	background: #fff;
+}
+
+.cardCostBreak td{
+	margin:0px;
+	padding: 0px;	
+	border: 0px;
+	background: #fff;
+}
+
+
+
 /*SniffRankings*/
 .ratingSpace {
 	margin-top: 23px;

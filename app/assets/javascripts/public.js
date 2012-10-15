@@ -1,6 +1,8 @@
 function Tog(d) {
 var expand=document.getElementById(d);
+var info=document.getElementById('info' + d);
 expand.style.display=(expand.style.display=='none')?'block': 'none';
+info.innerHTML=(info.innerHTML=='More Info')?'Less Info': 'More Info';
 }
 
 
@@ -362,7 +364,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     var prepaidDuration = parseFloat($("#prepaidDuration").html());
-    var wklyLoad = parseFloat($("#wklyLoad").html());
+    var mthlyLoad = parseFloat($("#mthlyLoad").html());
     var directDep = ($("#directDep").html())=="true";
     var wklyTrans = parseFloat($("#wklyTrans").html());
     var wklyATMBalChk = parseFloat($("#wklyATMBalChk").html());
@@ -392,7 +394,7 @@ $(document).ready(function () {
 
 
           // calculates monthly fee based on minimums and direct deposit 
-          if (!isNaN(reduceMthFeeLevel) && wklyLoad/7*30.5>=reduceMthFeeLevel) {prepaidMonthlyFee = reduceMthFee}
+          if (!isNaN(reduceMthFeeLevel) && mthlyLoad>=reduceMthFeeLevel) {prepaidMonthlyFee = reduceMthFee}
             else if (directDep) {prepaidMonthlyFee=mthFeeDirectDep}
               else {prepaidMonthlyFee=mthFeeNoDirectDep}
 
@@ -465,14 +467,14 @@ $(document).ready(function () {
         });
     });
 
-    $("#sliderWklyLoad").slider({
-        value: wklyLoad,
+    $("#sliderMthlyLoad").slider({
+        value: mthlyLoad,
         min: 20,
-        max: 1000,
+        max: 4000,
         step: 50,
         slide: function (event, ui){
-          $("#calcWklyLoad").html(ui.value).currency({decimals:0});
-          wklyLoad = ui.value;
+          $("#calcMthlyLoad").html(ui.value).currency({decimals:0});
+          mthlyLoad = ui.value;
           update();
         },
         stop: function (event, ui) {$("#prepaidTable").tablesorter({
@@ -507,7 +509,7 @@ $(document).ready(function () {
 $(document).ready(function () {
 
     var prepaidDuration = parseFloat($("#prepaidDuration").html());
-    var wklyLoad = parseFloat($("#wklyLoad").html());
+    var mthlyLoad = parseFloat($("#wklyLoad").html());
     var directDep = ($("#directDep").html())=="true";
     var wklyTrans = parseFloat($("#wklyTrans").html());
     var wklyATMBalChk = parseFloat($("#wklyATMBalChk").html());
@@ -559,10 +561,10 @@ $(document).ready(function () {
         };
     });
 
-    $("#blogSliderWklyLoad").slider({
-        value: wklyLoad,
+    $("#blogSliderMthlyLoad").slider({
+        value: mthlyLoad,
         min: 20,
-        max: 1000,
+        max: 4000,
         step: 50,
         slide: function (event, ui){
           $("#blogCalcWklyLoad").html(ui.value).currency({decimals:0});

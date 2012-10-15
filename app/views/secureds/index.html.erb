@@ -50,7 +50,7 @@
                   <div><a href=<%="javascript:Tog(#{s.id})" %>>More Info</a></div>
                 </td>  
                 <td class = "cardInfoApply">
-                    <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}, :class => "tableApplyButton", :target => "_blank") %>
+                    <%= link_to("APPLY", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page=>@page}, :class => "cardApplyButton", :target => "_blank") %>
                   <div class = "cardInstantDecision"><%= !s.inst_decision? ? "":link_to("instant decision", {:controller => 'partners', :action => 'go', :id => s.partner_id, :page => @page}, :target => "_blank") %></div>
                 </td>
               </tr>    
