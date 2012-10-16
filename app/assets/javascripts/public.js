@@ -363,13 +363,26 @@ $(document).ready(function () {
 // ***************** sliders for prepaid card calculator ************//
 
 $(document).ready(function () {
-    var prepaidDuration = parseFloat($("#prepaidDuration").html());
-    var mthlyLoad = parseFloat($("#mthlyLoad").html());
-    var directDep = ($("#directDep").html())=="true";
-    var wklyTrans = parseFloat($("#wklyTrans").html());
-    var wklyATMBalChk = parseFloat($("#wklyATMBalChk").html());
-    var wklyATMCash = parseFloat($("#wklyATMCash").html());
     var cards = parseFloat($("#prepaidCards").html());
+    var directDep = ($("#directDep").html())=="true";
+    var atmOwnerFee = parseFloat($("#atmOwnerFee").html());
+    var wklyTrans = parseFloat($("#wklyTrans").html());
+    var wklyATMIn = parseFloat($("#wklyATMIn").html());
+    var wklyATMOut = parseFloat($("#wklyATMOut").html());
+    var mthlyLoad = parseFloat($("#mthlyLoad").html());
+    var mthlyLoads = parseFloat($("#mthlyLoads").html());
+    var wklyATMInq = parseFloat($("#wklyATMInq").html());
+    var wklyCalls = parseFloat($("#wklyCalls").html());
+    var prepaidDuration = parseFloat($("#prepaidDuration").html());
+    var maxWklyTrans = parseFloat($("#maxWklyTrans").html());
+    var maxWklyATMIn = parseFloat($("#maxWklyATMIn").html());
+    var maxWklyATMOut = parseFloat($("#maxWklyATMOut").html());
+    var maxMthlyLoad = parseFloat($("#maxMthlyLoad").html());
+    var maxMthlyLoads = parseFloat($("#maxMthlyLoads").html());
+    var maxWklyATMInq = parseFloat($("#maxWklyATMInq").html());
+    var maxWklyCalls = parseFloat($("#maxWklyCalls").html());
+    var maxPrepaidDuration = parseFloat($("#maxPrepaidDuration").html());
+
 
 
     // console.log('purBal is', purBal, 'and is of type ', typeof(purBal));
@@ -380,82 +393,77 @@ $(document).ready(function () {
     function update (){
         for ( var i = 0 ; i<cards ; i++){
           var activationFee = parseFloat($('#activationFee'+i+'').html());
+          var reduceMthFeeLevel = parseFloat($('#reduceMthFeeLevel'+i+'').html());
+          var reduceMthFee = parseFloat($('#reduceMthFee'+i+'').html());  
           var mthFeeDirectDep = parseFloat($('#mthFeeDirectDep'+i+'').html());
           var mthFeeNoDirectDep = parseFloat($('#mthFeeNoDirectDep'+i+'').html());
           var transFeeSig = parseFloat($('#transFeeSig'+i+'').html());
+
           var atmBalInq = parseFloat($('#atmBalInq'+i+'').html());
-          var atmWithdraw = parseFloat($('#atmWithdraw'+i+'').html()); 
-          var reduceMthFeeLevel = parseFloat($('#reduceMthFeeLevel'+i+'').html());
-          var reduceMthFee = parseFloat($('#reduceMthFee'+i+'').html());        
-          var mthFeeDirectDep = parseFloat($('#mthFeeDirectDep'+i+'').html()); 
+          var atmOutNetFee = parseFloat($('#atmOutNetFee'+i+'').html()); 
+          var atmInNetFee = parseFloat($('#atmInNetFee'+i+'').html()); 
+
+          var loadFee = parseFloat($('#loadFee'+i+'').html());
+          var callFeeDep = parseFloat($('#callFeeDep'+i+'').html()); 
+          var callFeeNoDep = parseFloat($('#callFeeNoDep'+i+'').html()); 
+          var freeCalls = parseFloat($('#freeCalls'+i+'').html()); 
+
+          // Calculate Weekly Fees//
+
+          var wklyActivationFees = activationFee/prepaidDuration/30.5*7;
+
+          if (!isNaN(reduceMthFeeLevel) && mthlyLoad>=reduceMthFeeLevel) {prepaidWklyFees = reduceMthFee/30.5*7}
+            else if (directDep) {prepaidWklyFees=mthFeeDirectDep/30.5*7}
+              else {prepaidWklyFees=mthFeeNoDirectDep/30.5*7};
+          var wklyATMInqFees = atmBalInq * wklyATMInq;
+          if (!isNaN(atmInNetFee)) {wklyATMInNetFees=atmInNetFee*wklyATMIn}
+            else {wklyATMInNetFees=atmOutNetFee*wklyATMIn};
+          var wklyATMOutNetFees=atmOutNetFee*wklyATMOut;    
+          var wklyATMOwnerFees=atmOwnerFee*wklyATMOut;
+          var atmTotalFees=wklyATMInqFees+wklyATMInNetFees+wklyATMOutNetFees+wklyATMOwnerFees;
+          var wklyLoadFees=mthlyLoads*loadFee/30.5*7;
+          var wklyTransFees=wklyTrans*transFeeSig;
+          if (directDep) {wklyCallFees = wklyCalls * callFeeDep}
+            else {wklyCallFees = ( (freeCalls>wklyCalls) ? 0 : (wklyCalls - freeCalls)) * callFeeNoDep};
 
 
-          var transFees = (wklyTrans*transFeeSig+wklyATMBalChk*atmBalInq+wklyATMCash*atmWithdraw)
 
 
-          // calculates monthly fee based on minimums and direct deposit 
-          if (!isNaN(reduceMthFeeLevel) && mthlyLoad>=reduceMthFeeLevel) {prepaidMonthlyFee = reduceMthFee}
-            else if (directDep) {prepaidMonthlyFee=mthFeeDirectDep}
-              else {prepaidMonthlyFee=mthFeeNoDirectDep}
 
-//          console.log('directDep is', directDep, 'and is of type ', typeof(directDep));
-//          console.log('transFeeSig is', transFeeSig, 'and is of type ', typeof(transFeeSig));
-//          console.log('wklyATMBalChk is', wklyATMBalChk, 'and is of type ', typeof(wklyATMBalChk));
-//          console.log('atmBalInq is', atmBalInq, 'and is of type ', typeof(atmBalInq));   
-//          console.log('wklyATMBalChk is', wklyATMBalChk, 'and is of type ', typeof(wklyATMBalChk));
-//          console.log('atmWithdraw is', atmWithdraw, 'and is of type ', typeof(atmWithdraw));                   
-//          $('#prepaidCost'+i+'').html("$" + (activationFee/prepaidDuration+transFees).toFixed(2));
-          $('#prepaidCost'+i+'').html("$" + ((activationFee/prepaidDuration  + prepaidMonthlyFee)/30.5*7 + transFees).toFixed(2));
+//          console.log('atmInNetFee is', atmInNetFee, 'and is of type ', typeof(atmInNetFee));
+//          console.log('wklyATMIn is', wklyATMIn, 'and is of type ', typeof(wklyATMIn));
+//          console.log('wklyATMOut is', wklyATMOut, 'and is of type ', typeof(wklyATMOut));   
+                  
+          $('#wklyActivationFees'+i+'').html("$" + (wklyActivationFees).toFixed(2));
+          $('#actMthlyFee'+i+'').html("$" + (prepaidWklyFees/7*30.5).toFixed(2));
+          $('#prepaidWklyFees'+i+'').html("$" + (prepaidWklyFees).toFixed(2));
+          $('#wklyATMInq'+i+'').html((wklyATMInq) +"/wk");
+          $('#wklyATMInqFees'+i+'').html("$" + (wklyATMInqFees).toFixed(2));
+
+          $('#wklyATMIn'+i+'').html((wklyATMIn) +"/wk");
+          $('#wklyATMInNetFees'+i+'').html("$" + (wklyATMInNetFees).toFixed(2));
+
+          $('#wklyATMOut'+i+'').html((wklyATMOut) +"/wk");
+          $('#wklyATMOutNetFees'+i+'').html("$" + (wklyATMOutNetFees).toFixed(2));
+
+          $('#wklyATMOutOwner'+i+'').html((wklyATMOut) +"/wk");
+          $('#wklyATMOwnerFees'+i+'').html("$" + (wklyATMOwnerFees).toFixed(2));
+
+          $('#atmTotalFees'+i+'').html("$" + (atmTotalFees).toFixed(2));
+
+          $('#mthlyLoads'+i+'').html((mthlyLoads) +"/mth");
+          $('#wklyLoadFees'+i+'').html("$" + (wklyLoadFees).toFixed(2));
+
+          $('#wklyTrans'+i+'').html((wklyTrans) +"/wk");
+          $('#wklyTransFees'+i+'').html("$" + (wklyTransFees).toFixed(2));
+
+          $('#wklyCalls'+i+'').html((wklyCalls) +"/wk");
+          $('#wklyCallFees'+i+'').html("$" + (wklyCallFees).toFixed(2));
+          
+          $('#prepaidCost'+i+'').html("$" + (wklyActivationFees + prepaidWklyFees + atmTotalFees + wklyLoadFees +wklyTransFees + wklyCallFees).toFixed(2));
  
         };
     }
-    $("#sliderWklyTrans").slider({
-        value: wklyTrans,
-        min: 0,
-        max: 40,
-        step: 1,
-        slide: function (event, ui){
-          $("#calcWklyTrans").html(ui.value);
-          wklyTrans = ui.value;
-          update();
-        },
-        stop: function (event, ui) {$("#prepaidTable").tablesorter({
-            sortList: [[sortcell,0]]
-        });
-        }           
-    });
-
-    $("#sliderATMInq").slider({
-        value: wklyATMBalChk,
-        min: 0,
-        max: 7,
-        step: 1,
-        slide: function (event, ui){
-          $("#calcATMInq").html(ui.value);
-          wklyATMBalChk= ui.value;
-          update();
-        },
-        stop: function (event, ui) {$("#prepaidTable").tablesorter({
-            sortList: [[sortcell,0]]
-        });
-        }           
-    });
-
-    $("#sliderATMCash").slider({
-        value: wklyATMCash,
-        min: 0,
-        max: 7,
-        step: 1,
-        slide: function (event, ui){
-          $("#calcATMCash").html(ui.value);
-          wklyATMCash = ui.value;
-          update();
-        },
-        stop: function (event, ui) {$("#prepaidTable").tablesorter({
-            sortList: [[sortcell,0]]
-        });
-        }           
-    });
 
     $("input[name='radioDirectDep']").change(function(){
         directDep = ($('input[name=radioDirectDep]:checked').val())=="true";
@@ -467,33 +475,142 @@ $(document).ready(function () {
         });
     });
 
-    $("#sliderMthlyLoad").slider({
-        value: mthlyLoad,
-        min: 20,
-        max: 4000,
-        step: 50,
+
+    $("#sliderWklyTrans").slider({
+        value: wklyTrans,
+        min: 0,
+        max: maxWklyTrans,
+        step: 1,
         slide: function (event, ui){
-          $("#calcMthlyLoad").html(ui.value).currency({decimals:0});
-          mthlyLoad = ui.value;
-          update();
+          $("#calcWklyTrans").html(ui.value);
+          wklyTrans = ui.value;
         },
-        stop: function (event, ui) {$("#prepaidTable").tablesorter({
+        stop: function (event, ui) {
+          update();
+          $("#prepaidTable").tablesorter({
             sortList: [[sortcell,0]]
         });
         }           
     });
 
+    $("#sliderATMIn").slider({
+        value: wklyATMIn,
+        min: 0,
+        max: maxWklyATMIn,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcATMIn").html(ui.value);
+          wklyATMIn = ui.value;
+        },
+        stop: function (event, ui) {
+          update();
+          $("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+    $("#sliderATMOut").slider({
+        value: wklyATMOut,
+        min: 0,
+        max: maxWklyATMOut,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcATMOut").html(ui.value);
+          wklyATMOut = ui.value;
+        },
+        stop: function (event, ui) {
+          update();
+          $("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+          });
+        }           
+    });
+
+    $("#sliderMthlyLoad").slider({
+        value: mthlyLoad,
+        min: 20,
+        max: maxMthlyLoad,
+        step: 50,
+        slide: function (event, ui){
+          $("#calcMthlyLoad").html(ui.value).currency({decimals:0});
+          mthlyLoad = ui.value;
+        },
+        stop: function (event, ui) {
+          update();
+          $("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+    $("#sliderMthlyLoads").slider({
+        value: mthlyLoads,
+        min: 0,
+        max: maxMthlyLoads,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcMthlyLoads").html(ui.value);
+          mthlyLoads = ui.value;
+        },
+        stop: function (event, ui) {
+          update();
+          $("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+
+    $("#sliderATMInq").slider({
+        value: wklyATMInq,
+        min: 0,
+        max: maxWklyATMInq,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcATMInq").html(ui.value);
+          wklyATMInq= ui.value;
+        },
+        stop: function (event, ui) {
+          update();
+          $("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+    $("#sliderCalls").slider({
+        value: wklyCalls,
+        min: 0,
+        max: maxWklyCalls,
+        step: 1,
+        slide: function (event, ui){
+          $("#calcCalls").html(ui.value);
+          wklyCalls= ui.value;
+        },
+        stop: function (event, ui) {
+          update();
+          $("#prepaidTable").tablesorter({
+            sortList: [[sortcell,0]]
+        });
+        }           
+    });
+
+
+
+
     $("#sliderPrepaidDuration").slider({
         value: prepaidDuration,
         min: 1,
-        max: 36,
+        max: maxPrepaidDuration,
         step: 1,
         slide: function (event, ui){
           $("#calcPrepaidDur").html(ui.value);
           prepaidDuration = ui.value;
-          update();
         },
-        stop: function (event, ui) {$("#prepaidTable").tablesorter({
+        stop: function (event, ui) {
+          update();
+          $("#prepaidTable").tablesorter({
             sortList: [[sortcell,0]]
         });
         }           
