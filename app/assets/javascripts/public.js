@@ -460,8 +460,9 @@ $(document).ready(function () {
           $('#wklyCalls'+i+'').html((wklyCalls) +"/wk");
           $('#wklyCallFees'+i+'').html("$" + (wklyCallFees).toFixed(2));
           
+          $('#prepaidBreakCost'+i+'').html("Cost per Week  $" + (wklyActivationFees + prepaidWklyFees + atmTotalFees + wklyLoadFees +wklyTransFees + wklyCallFees).toFixed(2));
+          
           $('#prepaidCost'+i+'').html("$" + (wklyActivationFees + prepaidWklyFees + atmTotalFees + wklyLoadFees +wklyTransFees + wklyCallFees).toFixed(2));
- 
         };
     }
 

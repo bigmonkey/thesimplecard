@@ -776,10 +776,13 @@ td .instantDecision {
 
 
 /* sets table heading spacing. Desc take 100%, others are defined by width of inside text */
-.securedTableHeader th.headDesc{
+.securedTableHeader {
 	width: 100%;
 }
 
+.headDesc{
+	width: 100%;
+}
 .headCost{
 	width: 100px;
 }
@@ -790,6 +793,24 @@ td .instantDecision {
 
 .headApply{
 	width: 140px;
+}
+
+.preHeadDesc{
+	width: 375px;
+}
+.preHeadCost{
+	width: 100px;
+}
+
+.preHeadName{
+	width: 125px;
+}
+
+.preHeadDetails{
+	width: 120px;
+}
+.preHeadApply{
+	width: 100px;
 }
 
 /* end set table space spacing */
@@ -826,7 +847,23 @@ td .instantDecision {
 .cardInfoApply {
 	padding: 2px 20px;
 }
+.preCardNameUnderImage{
+	width: 125px;
+}
+.preCardInfoDesc {
+	width: 00%;
+	padding: 0px;
+}
 
+.preCardInfoDetails {
+	width: 120px;
+	font-size: .9em;
+	font-style: italic;
+	text-align: right;
+}
+.preCardInfoApply {
+	padding: 2px 5px;
+}
 .cardApplyButton {
 	background-color: #E58D1F;
   color: #fff;
@@ -879,16 +916,59 @@ td .instantDecision {
 	max-width: 400px;
 }
 
+.cardFeatures{
+	border: 1px solid #fff;
+	background: #fff;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;	
+}
 .cardFeatures td{
-	padding: 0px 15px;
+	padding: 0px;
+	margin: 5px;
+	border: 0px;
+	background: #F7ECD2;
+	line-height: 120%;
 }
 
+.cardFeatures th{
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	background: #fff;
+	font-size: 1em;
+	text-align: center;
+	font-weight: bold;
+	color: #E58D1F;
+
+}
 .cardCostBreak{
 	border: 1px solid #fff;
 	background: #fff;
 	border-radius: 5px 5px 5px 5px;
 	-moz-border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px 5px 5px 5px;
+}
+
+.cardCostBreakTitle {
+	margin:0px;
+	padding: 0px;
+	border: 0px;
+	text-align: center;
+	color: green;
+	font-size: 1em;
+	font-weight: bold;
+	background: #fff;
+}
+.cardCostBreakCost {
+	margin:0px;
+	padding: 0px;
+	border: 0px;
+	text-align: center;
+	color: green;
+	font-size: 1em;
+	font-weight: bold;
+	background: #fff;
 }
 
 .cardCostBreak th{
