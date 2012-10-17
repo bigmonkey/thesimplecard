@@ -43,4 +43,13 @@ class PartnersController < ApplicationController
     end
   end
 
+  def adgo
+    #If there is an ID go to lender app else return to the hound
+    if params[:id].nil?
+      redirect_to(:controller => 'homes', :action => 'index')
+    else
+    redirect_values
+    end
+    redirect_to(@lender_url)
+  end
 end

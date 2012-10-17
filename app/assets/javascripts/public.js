@@ -372,7 +372,7 @@ $(document).ready(function () {
     var mthlyLoad = parseFloat($("#mthlyLoad").html());
     var mthlyLoads = parseFloat($("#mthlyLoads").html());
     var wklyATMInq = parseFloat($("#wklyATMInq").html());
-    var wklyCalls = parseFloat($("#wklyCalls").html());
+    var mthlyCalls = parseFloat($("#mthlyCalls").html());
     var prepaidDuration = parseFloat($("#prepaidDuration").html());
     var maxWklyTrans = parseFloat($("#maxWklyTrans").html());
     var maxWklyATMIn = parseFloat($("#maxWklyATMIn").html());
@@ -380,7 +380,7 @@ $(document).ready(function () {
     var maxMthlyLoad = parseFloat($("#maxMthlyLoad").html());
     var maxMthlyLoads = parseFloat($("#maxMthlyLoads").html());
     var maxWklyATMInq = parseFloat($("#maxWklyATMInq").html());
-    var maxWklyCalls = parseFloat($("#maxWklyCalls").html());
+    var maxMthlyCalls = parseFloat($("#maxMthlyCalls").html());
     var maxPrepaidDuration = parseFloat($("#maxPrepaidDuration").html());
 
 
@@ -423,8 +423,8 @@ $(document).ready(function () {
           var atmTotalFees=wklyATMInqFees+wklyATMInNetFees+wklyATMOutNetFees+wklyATMOwnerFees;
           var wklyLoadFees=mthlyLoads*loadFee/30.5*7;
           var wklyTransFees=wklyTrans*transFeeSig;
-          if (directDep) {wklyCallFees = wklyCalls * callFeeDep}
-            else {wklyCallFees = ( (freeCalls>wklyCalls) ? 0 : (wklyCalls - freeCalls)) * callFeeNoDep};
+          if (directDep) {wklyCallFees = mthlyCalls * callFeeDep/30.5*7}
+            else {wklyCallFees = (( (freeCalls>mthlyCalls) ? 0 : (mthlyCalls - freeCalls)) * callFeeNoDep)/30.5*7};
 
 
 
@@ -457,7 +457,7 @@ $(document).ready(function () {
           $('#wklyTrans'+i+'').html((wklyTrans) +"/wk");
           $('#wklyTransFees'+i+'').html("$" + (wklyTransFees).toFixed(2));
 
-          $('#wklyCalls'+i+'').html((wklyCalls) +"/wk");
+          $('#mthlyCalls'+i+'').html((mthlyCalls) +"/mth");
           $('#wklyCallFees'+i+'').html("$" + (wklyCallFees).toFixed(2));
           
           $('#prepaidBreakCost'+i+'').html("Cost per Week  $" + (wklyActivationFees + prepaidWklyFees + atmTotalFees + wklyLoadFees +wklyTransFees + wklyCallFees).toFixed(2));
@@ -581,13 +581,13 @@ $(document).ready(function () {
     });
 
     $("#sliderCalls").slider({
-        value: wklyCalls,
+        value: mthlyCalls,
         min: 0,
-        max: maxWklyCalls,
+        max: maxMthlyCalls,
         step: 1,
         slide: function (event, ui){
           $("#calcCalls").html(ui.value);
-          wklyCalls= ui.value;
+          mthlyCalls= ui.value;
         },
         stop: function (event, ui) {
           update();
@@ -626,46 +626,25 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 
-    var prepaidDuration = parseFloat($("#prepaidDuration").html());
-    var mthlyLoad = parseFloat($("#wklyLoad").html());
-    var directDep = ($("#directDep").html())=="true";
-    var wklyTrans = parseFloat($("#wklyTrans").html());
-    var wklyATMBalChk = parseFloat($("#wklyATMBalChk").html());
-    var wklyATMCash = parseFloat($("#wklyATMCash").html());
     var cards = parseFloat($("#prepaidCards").html());
-
-    $("#blogSliderWklyTrans").slider({
-        value: wklyTrans,
-        min: 0,
-        max: 40,
-        step: 1,
-        slide: function (event, ui){
-          $("#blogCalcWklyTrans").html(ui.value);
-          $("#criteria_CalcWklyTrans").val(ui.value);  
-        },
-    });
-
-    $("#blogSliderATMInq").slider({
-        value: wklyATMBalChk,
-        min: 0,
-        max: 7,
-        step: 1,
-        slide: function (event, ui){
-          $("#blogCalcATMInq").html(ui.value);
-          $("#criteria_CalcATMInq").val(ui.value);  
-        },
-    });
-
-    $("#blogSliderATMCash").slider({
-        value: wklyATMCash,
-        min: 0,
-        max: 7,
-        step: 1,
-        slide: function (event, ui){
-          $("#blogCalcATMCash").html(ui.value);
-          $("#criteria_CalcATMCash").val(ui.value);  
-        },        
-    });
+    var directDep = ($("#directDep").html())=="true";
+    var atmOwnerFee = parseFloat($("#atmOwnerFee").html());
+    var wklyTrans = parseFloat($("#wklyTrans").html());
+    var wklyATMIn = parseFloat($("#wklyATMIn").html());
+    var wklyATMOut = parseFloat($("#wklyATMOut").html());
+    var mthlyLoad = parseFloat($("#mthlyLoad").html());
+    var mthlyLoads = parseFloat($("#mthlyLoads").html());
+    var wklyATMInq = parseFloat($("#wklyATMInq").html());
+    var mthlyCalls = parseFloat($("#mthlyCalls").html());
+    var prepaidDuration = parseFloat($("#prepaidDuration").html());
+    var maxWklyTrans = parseFloat($("#maxWklyTrans").html());
+    var maxWklyATMIn = parseFloat($("#maxWklyATMIn").html());
+    var maxWklyATMOut = parseFloat($("#maxWklyATMOut").html());
+    var maxMthlyLoad = parseFloat($("#maxMthlyLoad").html());
+    var maxMthlyLoads = parseFloat($("#maxMthlyLoads").html());
+    var maxWklyATMInq = parseFloat($("#maxWklyATMInq").html());
+    var maxMthlyCalls = parseFloat($("#maxMthlyCalls").html());
+    var maxPrepaidDuration = parseFloat($("#maxPrepaidDuration").html());
 
     $("input[name='blogRadioDirectDep']").change(function(){
         directDep = ($('input[name=blogRadioDirectDep]:checked').val())=="true";
@@ -679,21 +658,90 @@ $(document).ready(function () {
         };
     });
 
+    $("#blogSliderWklyTrans").slider({
+        value: wklyTrans,
+        min: 0,
+        max: maxWklyTrans,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcWklyTrans").html(ui.value);
+          $("#criteria_CalcWklyTrans").val(ui.value);  
+        },
+    });
+
+
+    $("#blogSliderATMIn").slider({
+        value: wklyATMIn,
+        min: 0,
+        max: maxWklyATMIn,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcATMIn").html(ui.value);
+          $("#criteria_CalcATMIn").val(ui.value); 
+        }           
+    });
+
+    $("#blogSliderATMOut").slider({
+        value: wklyATMOut,
+        min: 0,
+        max: maxWklyATMOut,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcATMOut").html(ui.value);
+          $("#criteria_CalcATMOut").val(ui.value); 
+        }           
+    });
+
     $("#blogSliderMthlyLoad").slider({
         value: mthlyLoad,
         min: 20,
-        max: 4000,
+        max: maxMthlyLoad,
         step: 50,
         slide: function (event, ui){
-          $("#blogCalcWklyLoad").html(ui.value).currency({decimals:0});
-          $("#criteria_CalcWklyLoad").val(ui.value);  
+          $("#blogCalcMthlyLoad").html(ui.value).currency({decimals:0});
+          $("#criteria_CalcMthlyLoad").val(ui.value);  
         },
     });
+
+    $("#blogSliderMthlyLoads").slider({
+        value: mthlyLoads,
+        min: 0,
+        max: maxMthlyLoads,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcMthlyLoads").html(ui.value).currency({decimals:0});
+          $("#criteria_CalcMthlyLoads").val(ui.value);  
+        },
+    });
+
+    $("#blogSliderATMInq").slider({
+        value: wklyATMInq,
+        min: 0,
+        max: maxWklyATMInq,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcATMInq").html(ui.value);
+          $("#criteria_CalcATMInq").val(ui.value);  
+        },
+    });
+
+    $("#blogSliderCalls").slider({
+        value: mthlyCalls,
+        min: 0,
+        max: maxMthlyCalls,
+        step: 1,
+        slide: function (event, ui){
+          $("#blogCalcCalls").html(ui.value);
+          $("#criteria_CalcCalls").val(ui.value);  
+        },        
+    });
+
+
 
     $("#blogSliderPrepaidDuration").slider({
         value: prepaidDuration,
         min: 1,
-        max: 36,
+        max: maxPrepaidDuration,
         step: 1,
         slide: function (event, ui){
           $("#blogCalcPrepaidDur").html(ui.value);

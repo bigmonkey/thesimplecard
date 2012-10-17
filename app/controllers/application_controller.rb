@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     @max_mthly_load = 4000 # total amount of cash loaded onto card
     @max_mthly_loads = 8 #number of loads
     @max_wkly_atm_inq = 10 #number of atm balance inquiries
-    @max_calls = 10 #number of calls to customer service
+    @max_calls = 10 #number of calls to customer service per month
     @max_prepaid_duration = 48 #length of ownership
 
   end
