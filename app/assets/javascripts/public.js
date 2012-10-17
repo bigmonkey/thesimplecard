@@ -530,7 +530,7 @@ $(document).ready(function () {
 
     $("#sliderMthlyLoad").slider({
         value: mthlyLoad,
-        min: 20,
+        min: 0,
         max: maxMthlyLoad,
         step: 50,
         slide: function (event, ui){
@@ -694,7 +694,7 @@ $(document).ready(function () {
 
     $("#blogSliderMthlyLoad").slider({
         value: mthlyLoad,
-        min: 20,
+        min: 0,
         max: maxMthlyLoad,
         step: 50,
         slide: function (event, ui){

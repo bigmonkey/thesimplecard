@@ -19,12 +19,12 @@ class ApplicationController < ActionController::Base
 
     @direct_dep = false  #true -- has direct depoist. Values: true or false, case doesn't matter
     @wkly_trans = 8  #number of signature transactions
-    @wkly_atm_in_net = 0 #number of atm in network cash withdrawels
+    @wkly_atm_in_net = 1 #number of atm in network cash withdrawels
     @wkly_atm_out_net = 0 #number of atm out of network cash withdrawals 
-    @mthly_load =  2000 #average cash loaded to card
-    @mthly_loads = 1 #number of loads
+    @mthly_load =  1000 #average cash loaded to card
+    @mthly_loads = 0 #number of loads
     @wkly_atm_inq = 0 #number of atm balance inquiries
-    @calls = 1 #live customer service per month 
+    @calls = 0 #live customer service per month 
     @prepaid_duration = 24 #numner of months keeping the card  
 
     @max_wkly_purchase = 20
