@@ -13,12 +13,13 @@ class CreatePrepaids < ActiveRecord::Migration
 		  t.decimal "activation_fee", :precision => 4, :scale => 2
 		  t.decimal "reduce_mth_fee_load_amt", :precision => 8, :scale => 2
 		  t.decimal "reduce_mth_fee", :precision => 4, :scale => 2
-		  t.decimal "mth_fee_direct_dep", :precision => 4, :scale => 2
-		  t.decimal "mth_fee_no_direct_deposit", :precision => 4, :scale => 2
+		  t.decimal "mth_fee_dep", :precision => 4, :scale => 2
+		  t.decimal "mth_fee_no_dep", :precision => 4, :scale => 2
 		  t.decimal "trans_fee_signature", :precision => 4, :scale => 2
 		  t.decimal "atm_bal_fee", :precision => 4, :scale => 2
 		  t.decimal "atm_out_net_fee", :precision => 4, :scale => 2
-		  t.decimal "atm_in_net_fee", :precision => 4, :scale => 2
+		  t.decimal "atm_in_net_fee_dep", :precision => 4, :scale => 2
+		  t.decimal "atm_in_net_fee_no_dep", :precision => 4, :scale => 2
 		  t.decimal "load_fee", :precision => 4, :scale => 2
 		  t.decimal "paper_statement", :precision => 4, :scale => 2
 		  t.decimal "max_atm", :precision => 8, :scale => 2

@@ -62,10 +62,10 @@
             (p.activation_fee/@prepaid_duration)/30.5*7 +
 
             #monthly fees  
-            (( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit ))/30.5*7+
+            (( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_dep : p.mth_fee_no_dep ))/30.5*7+
           
             #atm fees 
-            (@wkly_atm_inq*p.atm_bal_fee + @wkly_atm_in_net * ( !p.atm_in_net_fee.nil? ? p.atm_in_net_fee : p.atm_out_net_fee)  +  @wkly_atm_out_net * p.atm_out_net_fee  +  @wkly_atm_out_net * @atm_owner_fee) +
+            (@wkly_atm_inq*p.atm_bal_fee + @wkly_atm_in_net * ( !p.atm_in_net_fee_no_dep.nil? ? (@direct_dep ? p.atm_in_net_fee_dep : p.atm_in_net_fee_no_dep) : p.atm_out_net_fee)  +  @wkly_atm_out_net * p.atm_out_net_fee  +  @wkly_atm_out_net * @atm_owner_fee) +
 
             #load fees
             (@mthly_loads * p.load_fee/30.5*7) + 
@@ -108,15 +108,15 @@
                             <span id = <%="activationFee#{i}" %>><%= p.activation_fee.nil? ? 0 : p.activation_fee %></span>
                             <span id = <%="reduceMthFeeLevel#{i}" %>><%= p.reduce_mth_fee_load_amt %></span>
                             <span id = <%="reduceMthFee#{i}" %>><%= p.reduce_mth_fee %></span>              
-                            <span id = <%="mthFeeDirectDep#{i}" %>><%= p.mth_fee_direct_dep.nil? ? 0 : p.mth_fee_direct_dep %></span>
-                            <span id = <%="mthFeeNoDirectDep#{i}" %>><%= p.mth_fee_no_direct_deposit.nil? ? 0 : p.mth_fee_no_direct_deposit %></span>
+                            <span id = <%="mthFeeDep#{i}" %>><%= p.mth_fee_dep.nil? ? 0 : p.mth_fee_dep %></span>
+                            <span id = <%="mthFeeNoDep#{i}" %>><%= p.mth_fee_no_dep.nil? ? 0 : p.mth_fee_no_dep %></span>
                             <span id = <%="transFeeSig#{i}" %>><%= p.trans_fee_signature.nil? ? 0 : p.trans_fee_signature %></span>
 
 
                             <span id = <%="atmBalInq#{i}" %>><%= p.atm_bal_fee.nil? ? 0 : p.atm_bal_fee %></span>
                             <span id = <%="atmOutNetFee#{i}" %>><%= p.atm_out_net_fee.nil? ? 0 : p.atm_out_net_fee %></span>
-                            <span id = <%="atmInNetFee#{i}" %>><%= p.atm_in_net_fee %> ***</span>
-
+                            <span id = <%="atmInNetFeeDep#{i}" %>><%= p.atm_in_net_fee_dep %> ***</span>
+                            <span id = <%="atmInNetFeeNoDep#{i}" %>><%= p.atm_in_net_fee_no_dep %> ***</span>
                             <span id = <%="loadFee#{i}" %>><%= p.load_fee.nil? ? 0 : p.load_fee %></span>
                             <span id = <%="callFeeDep#{i}" %>><%= p.call_fee_dep.nil? ? 0 : p.call_fee_dep %></span>                      
                             <span id = <%="callFeeNoDep#{i}" %>><%= p.call_fee_no_dep.nil? ? 0 : p.call_fee_no_dep %></span>
@@ -152,9 +152,9 @@
                                 </tr> 
                                 <tr>
                                   <td>Monthly</td>
-                                  <td id = <%= "actMthlyFee#{i}"%>><%= number_to_currency(( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit )) %></td>
+                                  <td id = <%= "actMthlyFee#{i}"%>><%= number_to_currency(( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_dep : p.mth_fee_no_dep )) %></td>
                                   <td>1/mth</td>
-                                  <td id = <%= "prepaidWklyFees#{i}"%>><%= number_to_currency((( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit ))/30.5*7) %></td>
+                                  <td id = <%= "prepaidWklyFees#{i}"%>><%= number_to_currency((( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_dep : p.mth_fee_no_dep ))/30.5*7) %></td>
                                 </tr>  
                                 <tr>
                                   <td colspan ="4">ATM Fees</td>
@@ -167,10 +167,10 @@
                                 </tr>
                                 <tr>
                                   <td>&nbsp- In Network w/draw</td>
-                                  <% # if there is no in network fee us out of the network fee %>
-                                  <td><%= number_to_currency( !p.atm_in_net_fee.nil? ? p.atm_in_net_fee : p.atm_out_net_fee) %></td>
+                                  <% # if there is in network fee then use in network fee depending on direct dep else use out of the network fee %>
+                                  <td id = <%= "actATMInFee#{i}"%>><%= number_to_currency( !p.atm_in_net_fee_no_dep.nil? ? (@direct_dep ? p.atm_in_net_fee_dep : p.atm_in_net_fee_no_dep) : p.atm_out_net_fee) %></td>
                                   <td id = <%= "wklyATMIn#{i}"%>><%= @wkly_atm_in_net %>/wk</td>
-                                  <td id = <%= "wklyATMInNetFees#{i}"%>><%= number_to_currency(@wkly_atm_in_net * ( !p.atm_in_net_fee.nil? ? p.atm_in_net_fee : p.atm_out_net_fee)) %></td>
+                                  <td id = <%= "wklyATMInNetFees#{i}"%>><%= number_to_currency(@wkly_atm_in_net * ( !p.atm_in_net_fee_no_dep.nil? ? (@direct_dep ? p.atm_in_net_fee_dep : p.atm_in_net_fee_no_dep) : p.atm_out_net_fee)) %></td>
                                 </tr>
                                 <tr>
                                   <td>&nbsp- Out of Network w/draw</td>
@@ -186,7 +186,7 @@
                                 </tr>
                                 <tr>
                                   <td colspan = "3">ATM Total Fees</td>
-                                  <td id = <%= "atmTotalFees#{i}"%> ><%= number_to_currency(@wkly_atm_inq*p.atm_bal_fee + @wkly_atm_in_net * ( !p.atm_in_net_fee.nil? ? p.atm_in_net_fee : p.atm_out_net_fee)  +  @wkly_atm_out_net * p.atm_out_net_fee  +  @wkly_atm_out_net * @atm_owner_fee ) %></td>
+                                  <td id = <%= "atmTotalFees#{i}"%> ><%= number_to_currency(@wkly_atm_inq*p.atm_bal_fee + @wkly_atm_in_net * ( !p.atm_in_net_fee_no_dep.nil? ? (@direct_dep ? p.atm_in_net_fee_dep : p.atm_in_net_fee_no_dep) : p.atm_out_net_fee)  +  @wkly_atm_out_net * p.atm_out_net_fee  +  @wkly_atm_out_net * @atm_owner_fee ) %></td>
                                 </tr>                            
                                 <tr>
                                   <td>Load</td>
@@ -216,10 +216,10 @@
                                 (p.activation_fee/@prepaid_duration)/30.5*7 +                  
 
                                 #monthly fees  
-                                (( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_direct_dep : p.mth_fee_no_direct_deposit ))/30.5*7+
+                                (( !p.reduce_mth_fee_load_amt.nil? && @mthly_load >= p.reduce_mth_fee_load_amt ) ?  p.reduce_mth_fee : (@direct_dep ? p.mth_fee_dep : p.mth_fee_no_dep ))/30.5*7+
                               
                                 #atm fees 
-                                (@wkly_atm_inq*p.atm_bal_fee + @wkly_atm_in_net * ( !p.atm_in_net_fee.nil? ? p.atm_in_net_fee : p.atm_out_net_fee)  +  @wkly_atm_out_net * p.atm_out_net_fee  +  @wkly_atm_out_net * @atm_owner_fee) +                    
+                                (@wkly_atm_inq*p.atm_bal_fee + @wkly_atm_in_net * ( !p.atm_in_net_fee_no_dep.nil? ? (@direct_dep ? p.atm_in_net_fee_dep : p.atm_in_net_fee_no_dep) : p.atm_out_net_fee)  +  @wkly_atm_out_net * p.atm_out_net_fee  +  @wkly_atm_out_net * @atm_owner_fee) +                    
 
                                 #load fees
                                 (@mthly_loads * p.load_fee/30.5*7) +                    
@@ -256,12 +256,12 @@
                                   </tr>
                                   <tr>
                                     <td><b>Monthly Fee<%= "*" if !p.reduce_mth_fee_load_amt.nil? %></b></td>
-                                    <td><%= p.mth_fee_direct_dep.nil? ? "?" : number_to_currency(p.mth_fee_direct_dep) %> w/ direct dep</td>
+                                    <td><%= p.mth_fee_dep.nil? ? "?" : number_to_currency(p.mth_fee_dep) %> w/ direct dep</td>
                                   </tr>
 
                                   <tr>
                                     <td><b></b></td>
-                                    <td><%= p.mth_fee_no_direct_deposit.nil? ? "?" : number_to_currency(p.mth_fee_no_direct_deposit) %> no direct dep</td>
+                                    <td><%= p.mth_fee_no_dep.nil? ? "?" : number_to_currency(p.mth_fee_no_dep) %> no direct dep</td>
                                   </tr>                 
                                   <tr>
                                     <td><b>Call Center</b></td>
@@ -283,26 +283,26 @@
                                     <td colspan = 2><%= "* Load #{number_to_currency(p.reduce_mth_fee_load_amt, :precision => 0)} /mth and monthy fee is #{ number_to_currency(p.reduce_mth_fee, :precision => 0)}" if !p.reduce_mth_fee_load_amt.nil? %></td>
                                   </tr>   
                                   <tr>
-                                    <td colspan ="2" >***Today, cards rarely charge load fees but to get cash onto your card you need to use a network who will charge you fees. Some cards own networks and reduce the fee's they charge. Our calculator includes these fees.</td>
+                                    <td colspan ="2" >***None of the cards we carry charge load fees but to get cash onto your card 3rd party networks may charge you fees. Some cards own networks, have bank branch access, or retail store access and reduce the fee's charged. We include the different variations of all these fees based on your usage.</td>
                                   </tr>                                                  
                                 </table>  
                               </td>
                               <td>
                                 <table>                              
                                   <tr>
-                                    <td><b>ATM</b></td>
+                                    <td><b>ATM**</b></td>
                                   </tr>
                                   <tr>
                                     <td>&nbsp-Balance Inquiry</td>
                                     <td><%= p.atm_bal_fee.nil? ? "?" : number_to_currency(p.atm_bal_fee) %> /inquiry</td>
                                   </tr>
                                   <tr>
-                                    <td>&nbsp- Out of Network**</td>
+                                    <td>&nbsp- Out of Network</td>
                                     <td><%= p.atm_out_net_fee.nil? ? "?" : "#{number_to_currency(p.atm_out_net_fee)} /withdrawal" %></td>
                                   </tr>
                                   <tr>
-                                    <td>&nbsp- In Network**</td>
-                                    <td><%= p.atm_in_net_fee.nil? ? "N/A" : "#{number_to_currency(p.atm_in_net_fee)} /withdrawal" %></td>
+                                    <td>&nbsp- In Network<%= "****" if ( !p.atm_in_net_fee_no_dep.nil? and !( p.atm_in_net_fee_no_dep == p.atm_in_net_fee_dep )) %></td>
+                                    <td><%= p.atm_in_net_fee_no_dep.nil? ? "N/A" : "#{number_to_currency( @direct_dep ? p.atm_in_net_fee_dep : p.atm_in_net_fee_no_dep)} /withdrawal" %></td>
                                   </tr>   
                                   <tr>
                                     <td><b>Transaction Fee (signature)</b></td>
@@ -317,7 +317,10 @@
                                     <td><%= p.online_acct %></td>
                                   </tr>  
                                   <tr>
-                                    <td colspan ="2">**Out of Network ATM owners will charge fees in addition to the card's fee above. This fee averages about $2.50. Cards that have In Network ATM's waive this owner's fee (but may still charge a card fee). Our calculator includes these fees.</td>
+                                    <td colspan ="2">**Out of Network ATM owners charge an average fee of $2.50 fees in addition to the fees above. Cards with In Network ATM access waive this owner's charge (but may charge a card fee). We include the different variations of all these fees based on your usage.</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan ="2">****<%= "In Network withdrawals are #{number_to_currency(p.atm_in_net_fee_dep, :precision => 0)} w/ direct deposit and #{number_to_currency(p.atm_in_net_fee_no_dep, :precision => 0)} w/o" if ( !p.atm_in_net_fee_no_dep.nil? and !( p.atm_in_net_fee_no_dep == p.atm_in_net_fee_dep ))%></td>
                                   </tr>                                  
                                 </table>
                               </td>

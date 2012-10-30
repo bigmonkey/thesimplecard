@@ -395,14 +395,14 @@ $(document).ready(function () {
           var activationFee = parseFloat($('#activationFee'+i+'').html());
           var reduceMthFeeLevel = parseFloat($('#reduceMthFeeLevel'+i+'').html());
           var reduceMthFee = parseFloat($('#reduceMthFee'+i+'').html());  
-          var mthFeeDirectDep = parseFloat($('#mthFeeDirectDep'+i+'').html());
-          var mthFeeNoDirectDep = parseFloat($('#mthFeeNoDirectDep'+i+'').html());
+          var mthFeeDep = parseFloat($('#mthFeeDep'+i+'').html());
+          var mthFeeNoDep = parseFloat($('#mthFeeNoDep'+i+'').html());
           var transFeeSig = parseFloat($('#transFeeSig'+i+'').html());
 
           var atmBalInq = parseFloat($('#atmBalInq'+i+'').html());
           var atmOutNetFee = parseFloat($('#atmOutNetFee'+i+'').html()); 
-          var atmInNetFee = parseFloat($('#atmInNetFee'+i+'').html()); 
-
+          var atmInNetFeeDep = parseFloat($('#atmInNetFeeDep'+i+'').html()); 
+          var atmInNetFeeNoDep = parseFloat($('#atmInNetFeeNoDep'+i+'').html()); 
           var loadFee = parseFloat($('#loadFee'+i+'').html());
           var callFeeDep = parseFloat($('#callFeeDep'+i+'').html()); 
           var callFeeNoDep = parseFloat($('#callFeeNoDep'+i+'').html()); 
@@ -413,11 +413,20 @@ $(document).ready(function () {
           var wklyActivationFees = activationFee/prepaidDuration/30.5*7;
 
           if (!isNaN(reduceMthFeeLevel) && mthlyLoad>=reduceMthFeeLevel) {prepaidWklyFees = reduceMthFee/30.5*7}
-            else if (directDep) {prepaidWklyFees=mthFeeDirectDep/30.5*7}
-              else {prepaidWklyFees=mthFeeNoDirectDep/30.5*7};
+            else if (directDep) {prepaidWklyFees=mthFeeDep/30.5*7}
+              else {prepaidWklyFees=mthFeeNoDep/30.5*7};
           var wklyATMInqFees = atmBalInq * wklyATMInq;
-          if (!isNaN(atmInNetFee)) {wklyATMInNetFees=atmInNetFee*wklyATMIn}
-            else {wklyATMInNetFees=atmOutNetFee*wklyATMIn};
+
+          if (!isNaN(atmInNetFeeNoDep) && atmInNetFeeDep==atmInNetFeeNoDep) {actATMInFee=atmInNetFeeNoDep}
+            else if (!isNaN(atmInNetFeeNoDep) && directDep) {actATMInFee= atmInNetFeeDep}
+                else if (!isNaN(atmInNetFeeNoDep)) {actATMInFee= atmInNetFeeNoDep}
+              else {actATMInFee=atmOutNetFee};
+
+          if (!isNaN(atmInNetFeeNoDep) && atmInNetFeeDep==atmInNetFeeNoDep) {wklyATMInNetFees=atmInNetFeeNoDep*wklyATMIn}
+            else if (!isNaN(atmInNetFeeNoDep) && directDep) {wklyATMInNetFees= atmInNetFeeDep*wklyATMIn}
+                else if (!isNaN(atmInNetFeeNoDep)) {wklyATMInNetFees= atmInNetFeeNoDep*wklyATMIn}
+              else {wklyATMInNetFees=atmOutNetFee*wklyATMIn};
+
           var wklyATMOutNetFees=atmOutNetFee*wklyATMOut;    
           var wklyATMOwnerFees=atmOwnerFee*wklyATMOut;
           var atmTotalFees=wklyATMInqFees+wklyATMInNetFees+wklyATMOutNetFees+wklyATMOwnerFees;
@@ -440,6 +449,7 @@ $(document).ready(function () {
           $('#wklyATMInq'+i+'').html((wklyATMInq) +"/wk");
           $('#wklyATMInqFees'+i+'').html("$" + (wklyATMInqFees).toFixed(2));
 
+          $('#actATMInFee'+i+'').html("$" + (actATMInFee).toFixed(2));
           $('#wklyATMIn'+i+'').html((wklyATMIn) +"/wk");
           $('#wklyATMInNetFees'+i+'').html("$" + (wklyATMInNetFees).toFixed(2));
 
