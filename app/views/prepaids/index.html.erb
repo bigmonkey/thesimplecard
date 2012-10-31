@@ -15,9 +15,8 @@
 
   <section id="mainContent">
     <h1>Prepaid Cards</h1> 
-   	<p>Prepaid cards can be tricky to evaluate. They can be loaded with many different fees such as activation, monthly, ATM, or transaction fees. Recent competition has boiled down the differences to monthly fees, ATM fees and customer service fees. Some cards will waive monthly fees with direct deposit or if you load a certain amount each month.</p>
-    <p>Prepaids use to cost much more than checking accounts but recent competition has brought down fees and unlike most checking accounts they do not require a credit check. Prepaids do not build credit like <%= link_to("Secured Cards", secureds_path) %>.</p>
-    <p>Our Pre-Paid Card Cost Calculator helps evaluate the fees including fee waivers for direct deposit and loads. Use the sliders on the left to set you usage patterns to find the best card for you.</p> 
+   	<p>Finding the best prepaid card can be difficult because there are so many variations on activation, monthly, ATM, or transaction fees. We've found the key differences in the best cards boil down to monthly, ATM, customer service and 3rd party load fees. Even when just focusing on these differences some cards reduce or waive these fees for direct deposit customers or those that load a certain amount to the card. Our Pre-Paid Card Cost Calculator calculates the total cost to own a card based on your usage and accounts for the different fee waivers. Just use the sliders to the left and to find the best bard for you.</p>
+    <p>Remember that unlike many checking accounts prepaids do not require a credit check so you can just sign up. But also remember that prepaids do not build credit. If you want to build credit we recommend <%= link_to("Secured Cards", secureds_path) %></p> 
 
 <% #-- data from Rails for javaScript to use -- %>
     <span id = "prepaidCards" class = "jsData"><%= @prepaids.size %></span> 
@@ -48,7 +47,7 @@
         <tr class="securedTableHeader">
           <th><div class = "preHeadCost">Weekly Cost</div></th>
           <th><div class = "preHeadName">Company Name</div></th>
-          <th class = "preHeadDesc">Who Should Use This Card</th>
+          <th class = "preHeadDesc">Key Card Highlights</th>
           <th class = "preHeadDetails">Daily Limits</th>          
           <th><div  class = "preHeadApply">Sign Up</div></th>   
         </tr>
@@ -81,7 +80,7 @@
               <table width = 100% >
                 <tr>    
                   <td class = "cardInfoName">
-                      <div><%= link_to(image_tag("http://www.imgsynergy.com/cccom/#{p.image_file}", :alt => p.name ),  {:controller => 'partners', :action => 'go', :id => p.partner_id, :page=>@page}, :target => "_blank") %></div>
+                      <div><%= link_to(image_tag("prepaid/#{p.image_file}", :alt => p.name ),  {:controller => 'partners', :action => 'go', :id => p.partner_id, :page=>@page}, :target => "_blank") %></div>
                       <div class = "preCardNameUnderImage"><%= p.name %></div>
                   </td>
                   <td class = "preCardInfoDesc">
@@ -91,13 +90,13 @@
                     <div align = "center"><a href=<%="javascript:Tog(#{p.id})" %> id = <%= "info#{p.id}" %>>More Info</a></div>
                   </td>  
                   <td class = "preCardInfoDetails">
-                    <div>Card Value: <%= number_to_currency(p.max_bal, :precision =>0) %></div>
-                    <div>Cash Reload: <%= p.max_cash_deposit.nil? ? "?" : number_to_currency(p.max_cash_deposit, :precision =>0) %></div>
-                    <div>Spend: <%= p.max_daily_spend.nil? ? "?" : number_to_currency(p.max_daily_spend, :precision =>0) %></div>
-                    <div>ATM: <%= number_to_currency(p.max_atm, :precision =>0) %></div>
+                    <div>Card Value: <%= p.max_bal == -1 ? "no limit" : ( p.max_bal.nil? ? "?" : number_to_currency(p.max_bal, :precision =>0)) %></div>
+                    <div>Cash Load: <%= p.max_cash_deposit == -1 ? "no limit" : (p.max_cash_deposit.nil? ? "?" : number_to_currency(p.max_cash_deposit, :precision =>0)) %></div>
+                    <div>Spend: <%= p.max_daily_spend == -1 ? "no limit" : (p.max_daily_spend.nil? ? "?" : number_to_currency(p.max_daily_spend, :precision =>0)) %></div>
+                    <div>ATM: <%= p.max_atm.nil? ? "?" : number_to_currency(p.max_atm, :precision =>0) %></div>
                   </td>
                   <td class = "preCardInfoApply">
-                      <%= link_to("SIGN UP", {:controller => 'partners', :action => 'adgo', :id => p.partner_id, :page=>@page}, :class => "cardApplyButton", :target => "_blank") %>
+                      <%= link_to("SIGN UP", {:controller => 'partners', :action => 'go', :id => p.partner_id, :page=>@page}, :class => "cardApplyButton", :target => "_blank") %>
                   </td>
                 </tr>    
                 <tr>
