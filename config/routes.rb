@@ -1,5 +1,7 @@
 Pdh::Application.routes.draw do
 
+  get "topoffers/prepaid_a0"
+
  # get "secureds/index"
   match '' => redirect("http://www.thepaydayhound.com")
   match 'installment-loans' => 'lenders#installment'

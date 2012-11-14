@@ -1,0 +1,53 @@
+<!DOCTYPE html><!-- HTML 5 -->
+<html dir="ltr" lang="en-US">
+<% # This is the layout for landing pages %>
+<head>
+
+
+
+	<% if content_for?(:seotags) %>
+	<%= yield :seotags %>
+	<% else %>
+	<title>Top Prepaid Cards: The Payday Hound</title>
+	<meta name="description" content="Compare the top prepaid cards and find and sign up for the one best for you. Get started now."/>
+	<% end %>
+	<% if content_for?(:followtags) %>
+	<%= yield :followtags %>
+	<% end %>
+	<%= favicon_link_tag %>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+ 	<%= javascript_include_tag "application" %>
+
+
+
+ 	<%= csrf_meta_tags %>
+   	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+	<% # Google Analytics code for subdomain tracking %>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-29737687-1']);
+	  _gaq.push(['_setDomainName', 'thepaydayhound.com']);
+	  _gaq.push(['_trackPageview']);	
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();	
+
+	</script>	
+	<% # End Google Analytics code for subdomain tracking %>
+
+
+</head>
+
+
+	<%= yield %>
+
+
+</html>
