@@ -3,7 +3,9 @@
 <% # This is the layout for landing pages %>
 <head>
 
-
+	<% if content_for?(:optimizely) %>
+	<%= yield :optimizely %>
+	<% end %>
 
 	<% if content_for?(:seotags) %>
 	<%= yield :seotags %>

@@ -5,7 +5,12 @@ expand.style.display=(expand.style.display=='none')?'block': 'none';
 info.innerHTML=(info.innerHTML=='More Info')?'Less Info': 'More Info';
 }
 
-
+function TogPrivacy() {
+var expand=document.getElementById('privacyFooter');
+var info=document.getElementById('infoPrivacyFooter');
+expand.style.display=(expand.style.display=='none')?'block': 'none';
+info.innerHTML=(info.innerHTML=='Privacy Policy and Terms of Use')?'Hide Privacy Policy and Terms': 'Privacy Policy and Terms of Use';
+}
 
 //** Chrome Drop Down Menu- Author: Dynamic Drive (http://www.dynamicdrive.com)
 

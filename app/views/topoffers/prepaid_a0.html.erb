@@ -1,145 +1,155 @@
+<% # optimizely code %>
+<% content_for :optimizely do %>
+<% #<script src="//cdn.optimizely.com/js/75650562.js"></script> %>
+<% end %>
+
+<% # title and description for seo %>
+<% content_for :seotags do %>
+<title>Top Prepaid Cards: The Payday Hound</title>
+<meta name="description" content="Compare the top prepaid cards. Find and sign up for the one best for you. Get started now."/>
+<% end %>
 
 <body class="lpBody">
-<div id = "lpWrapper">
+	<div id = "lpWrapper">	
 
-<!--header-->
+		<header>
+			<div class = "lpHeader"><%= image_tag("lp/prepaid/sm-logo-hound.gif")%></div>
+		</header>
+		
+		<section id="lpMainContent">	
 
-	<header><div class = "lpHeader"><%= image_tag("lp/prepaid/sm-logo-hound.gif")%></div></header>
-	
-<!-- everything between header and footer -->
+		<div class="topCardBanner">Sign Up for the <b>Top Prepaid Card</b>. No Credit Check!</div>
+		<div class="topCardBox">
+			<div class="topCardBoxLeft">
+				<h1>Most Popular Prepaid Card</h1>
+				<h2>American Express® Prepaid Card</h2>
+				<ul>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;No monthly, activation, or transaction fees. No Credit Check!</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;Convenient cash reloads at locations such as 7-Elevens and Office Depots.</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;Free customer service calls, purchase protection & roadside assistance.</li>
+				</ul>
+				<div><%= link_to("SIGN UP", {:controller => 'partners', :action => 'go', :id => '46', :page=>@page}, :class => "compareTopCardApplyTop", :target => "_blank") %></a></div>
+			</div>
+			<div class="topCardBoxRight"><%= image_tag("lp/prepaid/Amex-Prepaid-Card.png") %></div>	
+		</div>		
 
-<section id="lpMainContent">
+		<div class="lpBottomSection">	
+			<div class="compareCards">
+				<div class="compareTopCardBanner">Compare <b>Top Prepaid Cards</b></div>
+				<div class="compareCardsTable">	
+					<div class="compareTopCardRow">
+						<div class="compareTopCardRowC1"><%= image_tag("lp/prepaid/green-dot-prepaid-visa.jpg") %></div>
+						<div class="compareTopCardRowC2">
+							<h3>Green Dot® Gold PrePaid Visa® or MasterCard®</h3>
+							<ul>
+								<li>Free ATM withdrawals at over 20k MoneyPass ATMs.</li>
+								<li>No fees if you make 30 purchases/mth or load $1000.</li>
+								<li>Easy cash reloads with MoneyPak.</li>
+							</ul>	
+						</div>
+						<div class="compareTopCardRowC3"><%= link_to("SIGN UP", {:controller => 'partners', :action => 'go', :id => '58', :page=>@page}, :class => "compareTopCardApply", :target => "_blank") %></div>
+					</div>
+					<div class="compareTopCardRow">
+						<div class="compareTopCardRowC1"><%= image_tag("lp/prepaid/upside-visa-prepaid-card.gif") %></div>
+						<div class="compareTopCardRowC2">
+							<h3>UPside Visa® Prepaid Card</h3>
+							<ul>
+								<li>Low $0.99 monthly fee if you load $500/month.</li>
+								<li>Lower than average ATM withdrawal fees.</li>
+								<li>Receive cash back through a rewards program.</li>
+							</ul>	
+						</div>
+						<div class="compareTopCardRowC3"><%= link_to("SIGN UP", {:controller => 'partners', :action => 'go', :id => '80', :page=>@page}, :class => "compareTopCardApply", :target => "_blank") %></div>
+					</div>
+					<div class="compareTopCardRow">
+						<div class="compareTopCardRowC1"><%= image_tag("lp/prepaid/42_ACE_2010_Gunmetal_Visa_flat.jpeg") %></div>
+						<div class="compareTopCardRowC2">
+							<h3>ACE Elite™ Visa® Prepaid Card</h3>
+							<ul>
+								<li>Free withdrawals at ACE Stores with direct deposit.</li>
+								<li>Lower than average reload fees.</li>
+								<li>Free $10 purchase overspend cushion.</li>
+							</ul>	
+						</div>
+						<div class="compareTopCardRowC3"><%= link_to("SIGN UP", {:controller => 'partners', :action => 'go', :id => '53', :page=>@page}, :class => "compareTopCardApply", :target => "_blank") %></div>
+					</div>
+					<div class="compareTopCardRowLast">
+						<div class="compareTopCardRowC1"><%= image_tag("lp/prepaid/30_PayPal_MC_flat.jpg") %></div>
+						<div class="compareTopCardRowC2">
+							<h3>PayPal™ Prepaid MasterCard®</h3>
+							<ul>
+								<li>Lower monthly fees than most cards.</li>
+								<li>Lower than average reload fees.</li>
+								<li>Free $10 purchase overspend cushion.</li>
+							</ul>	
+						</div>
+						<div class="compareTopCardRowC3"><%= link_to("SIGN UP", {:controller => 'partners', :action => 'go', :id => '64', :page=>@page}, :class => "compareTopCardApply", :target => "_blank") %></div>
+					</div>
+					</div>
+				</div>
+			
+			<div class="lpCardDetails">
+				<div class="cardBestForBanner">Is <b>American Express</b> Best for Me?</div>
+				<div class="cardDetailsTable">
+					<div class="lpCardDetailsRow">
+						<h3>The <%= link_to("AMEX Prepaid Card", {:controller => 'partners', :action => 'go', :id => '46', :page=>@page}, :target => "_blank") %> is our top pick because:</h3>
+						<ul>
+							<li>Low transparent fees: no annual, monthly, customer service, overdraft, and transactions fees.</li>
+							<li>Purchase protection, merchant discounts, roadside assistance and emergency travel assistance.</li>
+						</ul>	
+						<p>However, there are a number of reasons why you might prefer a different card.</p>
+					</div>
+					<div class="lpCardDetailsRow">
+						<h3><%= image_tag("lp/prepaid/thepaydayhound-circlecross-icon.png", :size => "10x10") %> Make a lot of cash withdrawals from ATM's?</h3>
+						<p>The <%= link_to("Green Dot Gold", {:controller => 'partners', :action => 'go', :id => '58', :page=>@page}, :target => "_blank") %> or <%= link_to("ACE Elite", {:controller => 'partners', :action => 'go', :id => '53', :page=>@page}, :target => "_blank") %> Visa prepaid cards are good options having free ATM withdrawals.</p>
+						<ul>
+							<li>GreenDot has free withdrawals at over 20K MoneyPass network ATMs.</li>
+							<li>ACE Elite has free ATM withdrawals at Ace Stores.</li> 
+							<li>The American Express card only allows for one free ATM withdrawal per month.</li>
+						</ul>
+						<p><%= link_to("Sign Up for the Green Dot Visa >>", {:controller => 'partners', :action => 'go', :id => '58', :page=>@page}, :target => "_blank") %></p>
+						<p><%= link_to("Sign up for the ACE Elite Card >>", {:controller => 'partners', :action => 'go', :id => '53', :page=>@page}, :target => "_blank") %></a></p>
+					</div>
+					<div class="lpCardDetailsRowLast">
+						<h3><%= image_tag("lp/prepaid/thepaydayhound-circlecross-icon.png", :size => "10x10") %> Don't use direct deposit?</h3>
+						<p>The <%= link_to("ACE Elite", {:controller => 'partners', :action => 'go', :id => '53', :page=>@page}, :target => "_blank") %> and <%= link_to("PayPal Prepaid", {:controller => 'partners', :action => 'go', :id => '64', :page=>@page}, :target => "_blank") %> cards are good options for you as they have lower than average cash reload fees (as low as $2 at some locations).</p>
+						<p><%= link_to("Sign up for the ACE Elite Card >>", {:controller => 'partners', :action => 'go', :id => '53', :page=>@page}, :target => "_blank") %></p>
+						<p><%= link_to("Sign up for the PayPal Prepaid >>", {:controller => 'partners', :action => 'go', :id => '64', :page=>@page}, :target => "_blank") %></p>
+				</div>
+			</div>
+		</div>
+	 
+		</section>
+	 
+		<div class="lpFooter">
+			<div id="copyright">Copyright © 2012 The Payday Hound. All rights reserved.</div>
+			<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.
+			</div><br><a href="javascript:TogPrivacy()" id = "infoPrivacyFooter" >Privacy Policy and Terms of Use</a></div>	
+	    </div>
+	    <div id = "privacyFooter" style="overflow:hidden;display:none">
+				<%= render(:partial => "shared/privacy")%>
+				<br/>
+				<%= render(:partial => "shared/terms")%>
+	    </div>
+	  </div>  		
 
-<div class="topCardBanner">Sign Up for the <b>Top Prepaid Card</b>. No Credit Check!</div>
-<div class="topCardBox">
-	<div class="topCardBoxLeft">
-		<h1>Most Popular Prepaid Card</h1>
-		<h2>American Express® Prepaid Card</h2>
-		<ul>
-			<li>&nbsp;&nbsp;&nbsp;&nbsp;No monthly, activation, or transaction fees. No Credit Check!</li>
-			<li>&nbsp;&nbsp;&nbsp;&nbsp;Convenient cash reloads at locations such as 7-Elevens and Office Depots.</li>
-			<li>&nbsp;&nbsp;&nbsp;&nbsp;Free customer service calls, purchase protection & roadside assistance.</li>
-		</ul>
-		<div><a class="compareTopCardApplyTop" target="_blank" href="http://tools.thepaydayhound.com/partners/go/46?page=0008">SIGN UP <b>NOW</b></a></div>
+		<% #Google Code for Remarketing tag %>
+			<% #Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup %>
+			<script type="text/javascript">
+			/* <![CDATA[ */
+			var google_conversion_id = 1023523426;
+			var google_conversion_label = "bP5dCO7Q1wMQ4vSG6AM";
+			var google_custom_params = window.google_tag_params;
+			var google_remarketing_only = true;
+			/* ]]> */
+			</script>
+			<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+			</script>
+			<noscript>
+				<div style="display:inline;">
+					<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023523426/?value=0&amp;label=bP5dCO7Q1wMQ4vSG6AM&amp;guid=ON&amp;script=0"/>
+				</div>
+			</noscript>
+		<% # End Google remarketing code %>
 	</div>
-	<div class="topCardBoxRight"><%= image_tag("lp/prepaid/Amex-Prepaid-Card.png") %></div>	
-</div>
-
-<div class="lpBottomSection">
-	<div class="compareCards">
-	<div class="compareTopCardBanner">Compare <b>Top Prepaid Cards</b></div>
-		<div class="compareCardsTable">
-
-			<div class="compareTopCardRow">
-				<div class="compareTopCardRowC1"><%= image_tag("lp/prepaid/green-dot-prepaid-visa.jpg") %></div>
-				<div class="compareTopCardRowC2">
-					<h3>Green Dot® Gold PrePaid Visa® or MasterCard®</h3>
-					<ul>
-						<li>Free ATM withdrawals at over 20k MoneyPass ATMs.</li>
-						<li>No fees if you make 30 purchases/mth or load $1000.</li>
-						<li>Easy cash reloads with MoneyPak.</li>
-					</ul>	
-				</div>
-				<div class="compareTopCardRowC3"><a class="compareTopCardApply" target="_blank" href="http://tools.thepaydayhound.com/partners/go/58?page=0008">SIGN UP NOW</a></div>
-			</div>
-			<div class="compareTopCardRow">
-				<div class="compareTopCardRowC1"><%= image_tag("lp/prepaid/upside-visa-prepaid-card.gif") %></div>
-				<div class="compareTopCardRowC2">
-					<h3>UPside Visa® Prepaid Card</h3>
-					<ul>
-						<li>Low $0.99 monthly fee if you load $500/month.</li>
-						<li>Lower than average ATM withdrawal fees.</li>
-						<li>Receive cash back for points earned through rewards program.</li>
-					</ul>	
-				</div>
-				<div class="compareTopCardRowC3"><a class="compareTopCardApply" target="_blank" href="http://tools.thepaydayhound.com/partners/go/80?page=0008">SIGN UP NOW</a></div>
-			</div>
-			<div class="compareTopCardRow">
-				<div class="compareTopCardRowC1"><%= image_tag("lp/prepaid/42_ACE_2010_Gunmetal_Visa_flat.jpeg") %></div>
-				<div class="compareTopCardRowC2">
-					<h3>ACE Elite™ Visa® Prepaid Card</h3>
-					<ul>
-						<li>Free withdrawals at ACE Stores with direct deposit.</li>
-						<li>Lower than average reload fees (as low as $2 at some locations).</li>
-						<li>Free $10 purchase overspend cushion.</li>
-					</ul>	
-				</div>
-				<div class="compareTopCardRowC3"><a class="compareTopCardApply" target="_blank" href="http://tools.thepaydayhound.com/partners/go/53?page=0008">SIGN UP NOW</a></div>
-			</div>
-			<div class="compareTopCardRowLast">
-				<div class="compareTopCardRowC1"><%= image_tag("lp/prepaid/30_PayPal_MC_flat.jpg") %></div>
-				<div class="compareTopCardRowC2">
-					<h3>PayPal™ Prepaid MasterCard®</h3>
-					<ul>
-						<li>Lower monthly fees than most cards.</li>
-						<li>Lower than average reload fees (as low as $2 at some locations).</li>
-						<li>Free $10 purchase overspend cushion.</li>
-					</ul>	
-				</div>
-				<div class="compareTopCardRowC3"><a class="compareTopCardApply" target="_blank" href="http://tools.thepaydayhound.com/partners/go/64?page=0008">SIGN UP NOW</a></div>
-			</div>
-			</div>
-		</div>
-	
-	<div class="lpCardDetails">
-		<div class="cardBestForBanner">Is American Express Best for Me?</div>
-		<div class="cardDetailsTable">
-		<div class="lpCardDetailsRow">
-			<h3>The <a target="_blank" href="http://tools.thepaydayhound.com/partners/go/46?page=0008">AMEX Prepaid Card</a> is our top pick because:</h3>
-			<ul>
-				<li>Low transparent fees: no annual, monthly, customer service, overdraft, and transactions fees.</li>
-				<li>Purchase protection, merchant discounts, roadside assistance and emergency travel assistance.</li>
-			</ul>	
-		<p>However, there are a number of reasons why you might prefer a different card.</p>
-		</div>
-		<div class="lpCardDetailsRow">
-			<h3><%= image_tag("lp/prepaid/thepaydayhound-circlecross-icon.png", :size => "10x10") %> Make a lot of cash withdrawals from ATM's?</h3>
-			<p>The <a target="_blank" href="http://tools.thepaydayhound.com/partners/go/58?page=0008">GreenDot Gold</a> or <a target="_blank" href="http://tools.thepaydayhound.com/partners/go/53?page=0008">ACE Elite </a>Visa prepaid cards are good options having free ATM withdrawals.</p>
-			 	<ul>
-			 		<li>GreenDot has free withdrawals at over 20K MoneyPass network ATMs.</li>
-			 		<li>ACE Elite has free ATM withdrawals at Ace Stores.</li> 
-			 		<li>The American Express card only allows for one free ATM withdrawal per month.</li>
-			 	</ul>
-			<p><a target="_blank" href="http://tools.thepaydayhound.com/partners/go/58?page=0008">Sign up for the GreenDot VISA or MasterCard >></a></p>
-			<p><a target="_blank" href="http://tools.thepaydayhound.com/partners/go/53?page=0008">Sign up for the ACE Elite Card >></a></p>
-		</div>
-		<div class="lpCardDetailsRowLast">
-			<h3><%= image_tag("lp/prepaid/thepaydayhound-circlecross-icon.png", :size => "10x10") %> Don't use direct deposit?</h3>
-			<p>The <a target="_blank" href="http://tools.thepaydayhound.com/partners/go/53?page=0008">ACE Elite</a> and <a target="_blank" href="http://tools.thepaydayhound.com/partners/go/64?page=0008">PayPal Prepaid</a> cards are good options for you as they have lower than average cash reload fees (as low as $2 at some locations).</p>
-			<p><a target="_blank" href="http://tools.thepaydayhound.com/partners/go/53?page=0008">Sign up for the ACE Elite Card >></a></p>
-			<p><a target="_blank" href="http://tools.thepaydayhound.com/partners/go/64?page=0008">Sign up for the PayPal Prepaid MasterCard >></a></p>
-		</div>
-		</div>
-	</div>
-</div>
- 
-</section>
- 
-<!-- wrap everything between header and footer -->
-
-	<div class="lpFooter">
-		<div id="copyright">Copyright © 2012 The Payday Hound. All rights reserved.</div>
-		<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div><br><a target="_blank" href="http://tools.thepaydayhound.com/infos/privacy">Privacy Policy</a>	
-    </div>
-  </div>  	
-
-	<% #Google Code for Remarketing tag %>
-	<% #Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup %>
-	<script type="text/javascript">
-	/* <![CDATA[ */
-	var google_conversion_id = 1023523426;
-	var google_conversion_label = "bP5dCO7Q1wMQ4vSG6AM";
-	var google_custom_params = window.google_tag_params;
-	var google_remarketing_only = true;
-	/* ]]> */
-	</script>
-	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-	</script>
-	<noscript>
-	<div style="display:inline;">
-	<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023523426/?value=0&amp;label=bP5dCO7Q1wMQ4vSG6AM&amp;guid=ON&amp;script=0"/>
-	</div>
-	</noscript>
-	<% # End Google remarketing code %>
-
 </body>
