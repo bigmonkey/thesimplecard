@@ -24,7 +24,7 @@ class PartnersController < ApplicationController
         @page = "0000"
     end
     #See if the source is known if not assign it unknown
-    if Source.find_by_src_code(session[:src])
+    if Source.find_by_src_code(session[:src][0,4])
         @source = session[:src]
     else
         @source = "0000"
