@@ -4,7 +4,7 @@ class TopoffersController < ApplicationController
   
   before_filter :set_tracking
 
-  def prepaid_a0
+  def prepaid
   	@page="0010"
   end
 end
