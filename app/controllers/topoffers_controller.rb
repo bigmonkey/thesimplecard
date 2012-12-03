@@ -4,6 +4,10 @@ class TopoffersController < ApplicationController
   
   before_filter :set_tracking
 
+  def index
+  	render ('prepaid')
+  end	
+
   def prepaid
   	@page="0010"
   end

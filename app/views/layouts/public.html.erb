@@ -27,7 +27,7 @@
 	<link rel="alternate" type="application/rss+xml" title="The Payday Hound &raquo; Comments Feed" href="http://www.thepaydayhound.com/comments/feed/" />
 		
 	<%= stylesheet_link_tag    "application", :media => "all" %>
-  	<%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application" %>
 
 
 
@@ -59,7 +59,7 @@
 
 <div id="container">
 	<div id="mainHeaderOutter">
-	<header id="mainHeader">
+		<header id="mainHeader">
 		<div id="logo"><%= link_to(image_tag("thepaydayhound-logo.png", :alt => "logo" ), {:controller => 'homes', :action => 'index'})%></div>
 		<div id="socialmediaicons">
 			<%= link_to(image_tag("rss.png", :alt => "RSS Feed" ), "http://www.thepaydayhound.com/feed", :title => "The Payday Hound Feed") %>
@@ -101,7 +101,7 @@
 
 
 		</nav>
-	</header>
+		</header>
 	</div>
 <!-- everything between header and footer -->
 

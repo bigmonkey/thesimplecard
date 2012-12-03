@@ -3,7 +3,7 @@ class CreatePartners < ActiveRecord::Migration
     create_table :partners do |t|
 	  t.string "lender_link" 
 	  t.string "lender_tail", :limit => 25
-      t.timestamps
+    t.timestamps
     end
   end
 end
