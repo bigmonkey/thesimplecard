@@ -15,9 +15,9 @@ source 'https://rubygems.org'
 # 2)WEBSERVER: Heroku/unbuntu/Mac uses thin so need gem execjs, therubyracer, thin 
 # uncomment for ubuntu/thin and comment out for Windows
 
-# gem 'thin'
-# gem 'execjs'
-# gem 'therubyracer'
+ gem 'thin'
+ gem 'execjs'
+ gem 'therubyracer'
 
 
 # Gems used only for assets and not required
