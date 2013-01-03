@@ -17,7 +17,7 @@ source 'https://rubygems.org'
 
  gem 'thin'
  gem 'execjs'
- gem 'therubyracer'
+ gem 'therubyracer', '~> 0.10.2' #update to 0.11 crashes install
 
 
 # Gems used only for assets and not required
