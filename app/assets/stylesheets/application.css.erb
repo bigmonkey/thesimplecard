@@ -45,7 +45,7 @@ th {
 
 td {
   padding: 5px;
-	vertical-align: middle;
+
 	font-size: 0.9em;
 }
 
@@ -63,11 +63,10 @@ tr {
 #container {
 	min-height: 100%;
 	height: 100%;
-	margin-top: -110px;
 }
 
 h1, h2 {
-	color: #0E8B4D;
+	color: #0a1f8d;
 }
 
 h4 {
@@ -107,16 +106,17 @@ p {
 /*header*/
 
 #mainHeaderOutter {
-	border-top: 110px solid #eee;
+	border-top: 20px solid #eee;
 	border-bottom: 1px solid #d0d0d0;
 	-moz-box-shadow: 0 2px 3px -2px #ccc;
 	-webkit-box-shadow: 0 2px 3px -2px #ccc;
 	box-shadow: 0 2px 3px -2px #ccc;
 	background: #eee;
+	height: 55px;
 	}
 
 #mainHeader {
-	height: 85px;
+	height: 50px;
 	margin: 0 auto;
 	width: 980px;
 }
@@ -127,7 +127,7 @@ p {
 
 #socialmediaicons {
 	float: right;
-	padding: 25px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 
 
@@ -140,7 +140,7 @@ nav {
  
 nav ul, nav ul li {
 	list-style-type:none;
-	padding: 15px 0px 0px 25px;
+	padding: 10px 0px 0px 25px;
    	text-transform: uppercase;
 } 
 
@@ -148,7 +148,7 @@ nav ul li {
 	display: inline;
 }
 nav a, nav a:link, nav a:visited {
-	color: #0e8b4d;
+	color: #060b9a;
 }
 
 nav a:hover, nav a:active {
@@ -156,287 +156,6 @@ nav a:hover, nav a:active {
 	text-decoration: none;
 
 }
-
-/* --------------Dropdown Menu Navigation ----------- */
-.chromestyle{
-width: 99%;
-font-weight: bold;
-}
-
-.chromestyle:after{ /*Add margin between menu and rest of content in Firefox*/
-content: "."; 
-display: block; 
-height: 0; 
-clear: both; 
-visibility: hidden;
-}
-
-.chromestyle ul{
-border: 1px solid #BBB;
-width: 100%;
-padding: 4px 0;
-margin: 0;
-text-align: center; /*set value to "left", "center", or "right"*/
-}
-
-.chromestyle ul li{
-display: inline;
-}
-
-.chromestyle ul li a{
-color: #494949;
-padding: 4px 7px;
-margin: 0;
-text-decoration: none;
-border-right: 1px solid #DADADA;
-}
-
-.chromestyle ul li a:hover, .chromestyle ul li a.selected{ /*script dynamically adds a class of "selected" to the current active menu item*/
-}
-
-/* ######### Style for Drop Down Menu ######### */
-
-.dropmenudiv{
-position:absolute;
-top: 0;
-border: 1px solid #F0F0F0; /*THEME CHANGE HERE*/
-border-bottom-width: 0;
-font:normal 12px Verdana;
-line-height:18px;
-z-index:100;  
-background-color: #F0F0F0;
-width: 130px; /*width of dropdown box */
-visibility: hidden;
-}
-
-
-.dropmenudiv a{
-width: auto;
-display: block;
-text-indent: 3px;
-border-bottom: 1px solid #F0F0F0; /*THEME CHANGE HERE*/
-padding: 2px 0;
-text-decoration: none;
-font-weight: normal;
-color: black;
-}
-
-* html .dropmenudiv a{ /*IE only hack*/
-width: 100%;
-}
-
-.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
-background-color: #F0F0F0;
-}
-
-
-/* --------------end Dropdown Menu Navigation ----------- */
-
-
-/*homepagM*/
-
-#thePaydayHound {
-	float: left;
-	width: 650px;
-	height: 150px;
-	margin: 20px 0px 20px 20px;
-	border: 1.5px solid #A6C273;
-	border-radius: 7px 7px 7px 7px;
-	-moz-border-radius: 7px 7px 7px 7px;
-	-webkit-border-radius: 7px 7px 7px 7px;
-	box-shadow: 2px 2px 5px 0px #ddd;
-    -moz-box-shadow: 2px 2px 5px 0px #ddd;
-    -webkit-box-shadow: 2px 2px 5px 0px #ddd;
-    background: #ebfcd9;
-    background: linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
-    background: -moz-linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
-    background: -webkit-linear-gradient(bottom, #ebfcd9 25%, #fff 80%);
-}
-
-	#thePaydayHound h1 {
-	font-size: 1.5em;
-	}
-
-	#pdhSummary {
-    border-right: 2px solid #85B4C8;
-    float: left;
-    margin: 15px;
-    padding: 3px 15px 20px;
-    width: 55%;
-	}
-
-	#pdhSummary ul, #pdhSummary ul li {
-	font-size: 0.85em;
-    margin: 10px 0 0;
-    padding-left: 25px;
-    text-indent: -20px;
-	}
-
-	#homeQuotes {
-	text-align: right;
-	margin: 25px 30px;
-	}
-
-	.industryQuote {
-    font-size: 0.7em;
-    font-weight: bold;
-    margin: 20px 0 0;
-	}
-
-	.industryQuoteCite {
-		font-size: 0.6em;
-    font-style: italic;
-    margin: 0px 10px 0px 0px;
-    text-align: right;
-	}
-
-	#rankingReviews {
-    margin: 20px 0px 0px 50px;
-    padding: 0;
-    float: left;
-	}
-
-	.rank_row {
-	    clear: both;
-    	margin: 5px 0px 12px 0px;
-    	padding: 0;
-    	width: 100%;
-    	height: 18px;
-    	
-	}
-
-	.rankingReviewsButton {
-    	background: #ff9900;
-    	display: block;
-    	height: 16px;
-    	width: 75px;
-    	border-radius: 3px;
-    	webkit-border-radius: 3px;
-    	moz-border-radius: 3px;
-    	border: 1px solid #E58D1F;
-    	font-size: 0.7em;
-    	float: left;
-    	text-align: center;
-    	padding: 1px 0px 0px 0px;
-	}
-
-	.rankingReviewsButton:link, .rankingReviewsButton:visited {
-		color: #fff;
-		font-weight: bold;
-   	}
-
-	.rankingReviewsButton:hover {
-		color: #fff;
-		background: #F0A500;
-		box-shadow: 0 0 5px rgba(229, 141, 31, 0.75);
-		-webkit-box-shadow: 0 0 5px rgba(229, 141, 31, 0.75);
-		-moz-box-shadow: 0 0 5px rgba(229, 141, 31, 0.75);
-	}
-
-	.rankingReviewsType {
-    	float: left;
-    	margin: 0px;
-    	padding: 1px 0 0px 7px;
-    	text-align: left;
-    	font-size: .8em;
-	}
-
-	.applyDirecth2 {
-		margin: 5px 0px;
-	}	
-
-	#homeWhyPDH {
-		clear: both;
-		border-top: 1px solid #999999;
-		text-align: center;
-		font-size: 0.7em;
-		padding: 10px 0px 0px 0px;
-		margin: 0px 20px 20px 20px;
-	}
-
-		#homeWhyPDH ul, #homeWhyPDH ul li {
-		list-style-type:none;
-		display: inline;
-		padding: 10px 25px 0px 25px;
-		color: #fff;
-		}
-	
-	#homeWhyPDH a, #homeWhyPDH a:link, #homeWhyPDH a:visited{
-		color: #666;
-		text-decoration: none;
-	}
-	
-	#homeWhyPDH a:hover, #homeWhyPDH a:active {
-		color: #E58D1F;
-		text-decoration: none;
-	}
-
-#paydayIndustryNews {
-	background-color: #eee;
-    border-style: solid;
-    border-top: 4px solid #999;
-    float: left;
-    margin: 0px 20px 20px 20px;
-    padding: 0;
-    width: 295px;
-}
-
-#paydayIndustryNews h2, #homePDHResearch h2 {
-	color: #666;
-	font-size: 0.8em;
-	padding-top: 5px;
-	padding-bottom: 10px;
-}
-
-#paydayIndustryNews h2 {
-	border-bottom: 2px solid #ccc;
-	margin-bottom: 5px;
-}
-
-.homeResourceSummary {
-	font-size: 0.65em;
-    margin: 3px 0 5px;
-    padding: 0;
-}
-
-#homePDHResearch {
-	border-style: solid;
-    border-top: 4px solid #999999;
-    float: right;
-    font-size: inherit;
-    margin: 0px 0px 20px 0px;;
-    padding: 0;
-    width: 640px;
-}
-
-#homePDHResearch .homeResourceSummary {
-	float: left;
-}
-
-.homeResearchContent_lft {
-    float: left;
-    width: 48%;
-    border-top: 2px solid #ccc;
-	padding-top: 5px;
-    }
-
-.homeResearchContent_rt {
-    float: right;
-    width: 48%;
-    border-top: 2px solid #ccc;
-	padding-top: 5px;
-    }
-    
-.homeResearchArticle {
-	float: left;
-    width: 63%;
-    }
-.homeResearchMore {
-	clear: both;
-	font-size: 0.7em;
-    font-style: italic;
-    margin-bottom: 10px;
-	}
 
 /*sidebar*/
 
@@ -499,155 +218,6 @@ background-color: #F0F0F0;
 /* Find a Card */
  
 /* end */
-
-/*FindAPaydayLoan*/
-
-form {
-	padding: 0px 0px 20px 10px;
-    background: #666;
-    vertical-align: middle;
-    margin-bottom: 15px;
-    color: #fff;
-}
-
-form p {
-	margin: 2px 0px 0px 20px;
-}
-
-
-	.formLabel {
-		float: left;
-		font-size: 0.75em;
-		text-transform: uppercase;
-		font-weight: bold;
-	}
-
-	.formInput {
-		clear: both;
-		font-size: 0.7em;
-		padding: 5px 0px 0px 0px;
-	}
-
-	.formLabelDesc {
-		clear: both;
-		font-size: 0.6em;
-		font-style: italic;
-	}
-
-	.formSection {
-		clear: both;
-		padding: 10px 0px 5px 0px;
-		margin-left: 10px;
-	}
-
-	#state_id {
-		background: #fff;
-		width: 120px;
-		height: 22px;
-		border: 1px solid #ddd;
-		vertical-align: middle;
-		margin-left: 5px;
-	}
-
-	option {
-		font-size: 0.7em;
-		font-family: helvetica, arial, san-serif;
-	}
-
-	.findLoanButton {
-			background: #fff;
-    	height: 24px;
-    	line-height: 24px;
-    	width: 110px;
-    	margin: 10px 0px 0px 22px;
-    	border: 1px solid #555;
-    	color: #555;
-    	font-family: helvetica, arial, san-serif;
-    	font-size: 0.75em;
-    	cursor: pointer;
-    	cursor: hand;
-    	-webkit-border-radius: 3px;
-    	-moz-border-radius: 3px;
-    	border-radius: 3px;
-    	padding: 0px 0px 2px;
-
-	}
-
-	.findLoanButton:hover {
-		box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-		-webkit-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-		-moz-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-	}
-
-	form button {
-		width: 0px;
-		height: 0px;
-		border: 0px;
-		background: transparent;
-	}
-/*MatchingServicesBenefits*/
-	
-	.msBox {
-		background: #eee;
-		margin-top: 5px;
-		font-weight: bold;
-		height: 75px;
-		padding: 10px 0px 10px 10px;
-		border-radius: 5px 5px 5px 5px;
-		-moz-border-radius: 5px 5px 5px 5px;
-		-webkit-border-radius: 5px 5px 5px 5px;
-	}
-
-	.msBenefits {
-		padding: 10px 0px 0px;
-
-	}
-	
-	.msBenefitsLeft, .msBenefitsCenter, .msBenefitsRight, .msBenefitsLast {
-		color: #0E8B4D;
-		font-weight: bold;
-		background: #eee;
-		float: left;
-		margin: 0px 0px 0px 15px;
-	}
-
-	.msBenefitsLast {
-		text-align: center;
-		font-weight: normal;
-	}
-	
-	.msInstantDecision {
-		font-size: .9em;
-	}
-
-	.msBenefitsApply {
-		background-color: #E58D1F;
-    margin: 0px 0px 0px 0px;
-    text-align: center;
- 		font-weight: bold;
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    width: 140px;
-    border: 1px solid #e58019;
-    border-radius: 4px;
-    webkit-border-radius: 3px;
-    moz-border-radius: 3px;
-	}
-
-	.msBenefitsApply:link, .msBenefitsApply:visited {
-		color: #fff;
-	}	
-
-	.msBenefitsApply:hover {
-		font-weight: normal;
-		box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-		-webkit-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-		-moz-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-		color: #fff;
-	}
-
-
 
 
 /*LenderTableListing*/
@@ -769,6 +339,10 @@ td .instantDecision {
 	border-bottom: 1px solid #ddd;
 }
 
+.cardListing td {
+	vertical-align: middle;	
+}
+
 .cardInfo tr{
 	border: 0px solid #ddd;
 }
@@ -819,7 +393,7 @@ td .instantDecision {
 /* sets spacing for inside of table. Desc takes 100%, others are defined by width of inside text */
 .cardCost{
     font-size: 1.75em;
-    color:green;
+    color:#060B9A;
     width: 100px;
 }
 
@@ -851,7 +425,7 @@ td .instantDecision {
 
 .preCardCost{
     font-size: 1.75em;
-    color:green;
+    color: #060B9A;
     width: 90px;
 }
 
@@ -968,7 +542,7 @@ td .instantDecision {
 	padding: 0px;
 	border: 0px;
 	text-align: center;
-	color: green;
+	color: #0a1f8d;
 	font-size: 1em;
 	font-weight: bold;
 	background: #fff;
@@ -978,7 +552,7 @@ td .instantDecision {
 	padding: 0px;
 	border: 0px;
 	text-align: center;
-	color: green;
+	color: #0a1f8d;
 	font-size: 1em;
 	font-weight: bold;
 	background: #fff;
@@ -1101,7 +675,7 @@ td .instantDecision {
 /*redirect*/
 
 #redirect {
-    color: #0E8B4D;
+    color: #0a1f8d;
 	font-size: 1.0em;
 	font-weight: bold;
 	text-align: center;

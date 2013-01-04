@@ -8,7 +8,8 @@
 <aside id ="sidebar">
 
 		<%= render(:partial => "shared/securedfinder")%>
-    <%= render(:partial => "shared/sidebar")%>
+    <% # add back in for sidebar commentary %>
+    <% # render(:partial => "shared/sidebar")%>
 
 
 </aside>
@@ -16,7 +17,7 @@
 
 <section id="mainContent">
   <h1>Secured Credit Cards</h1> 
- 	<p>Secured credit cards can be a great way to build and repair credit ratings. To learn more visit <%= link_to('What is a Secured Card', "http://www.thepaydayhound.com/secured-credit-cards/") %> and <%= link_to('The Best Secured Cards.', "http://www.thepaydayhound.com/bad-credit-credit-card-secured-card/") %> Use our industry-first, Secured Card Cost Calculator to the left to help you find the secured card best for you.</p>
+ 	<p>Secured credit cards can be a great way to build and repair credit ratings. Use our industry-first, Secured Card Cost Calculator to the left to help you find the secured card best for you. Unlike calculators found on other sites designed for reward cards or other general cards this calculator is designed specifically for secured cards.</p>
 
   <span id = "securedCards" class = "jsData"><%= @secureds.size %></span>
   <span id = "duration" class = "jsData"><%= @duration %></span>
@@ -74,7 +75,7 @@
                           <div><%= raw(s.bullets) %></div>
                         </td>
                         <td>
-                          <table class = "cardFeatures">
+                          <table class = "cardCostBreak">
                             <tr>
                               <td><b>Minimum Deposit:</b></td>
                               <td><%= s.min_deposit %></td>

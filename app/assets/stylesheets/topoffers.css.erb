@@ -1,7 +1,7 @@
 /*LandingPage*/
 
 .lpBody {
-    background: #999;
+    background: #666;
     font-family: helvetica, arial, san-serif;
     color: #666;
 }
@@ -26,15 +26,15 @@
 	color: #fff;
 	padding: 5px 0px 0px;
 	border-radius: 3px;
-    background-image: url(<%= asset_path "lp/prepaid/lp-topbannner.png" %>);
-    background-repeat: no-repeat;
-    height: 40px;
-    text-shadow: 0 -1px #0e8b4d;
+  background-image: url(<%= asset_path "lp/topbannner.png" %>);
+  background-repeat: no-repeat;
+  height: 40px;
+  text-shadow: 0 -1px #0b215d;
 	}
 	
 .topCardBox {
 	height: 200px;
-    background-image: url(<%= asset_path "lp/prepaid/lp-topbox.png" %>);
+    background-image: url(<%= asset_path "lp/topbox.png" %>);
     background-repeat: no-repeat;
 }
 
@@ -55,9 +55,9 @@
 	border-radius: 3px;
 	padding: 5px 0px 0px;
 	height: 37px;
-	background-image: url(<%= asset_path "lp/prepaid/lp-comparebannner.png" %>);
+	background-image: url(<%= asset_path "lp/comparebannner.png" %>);
 	background-repeat: no-repeat;
-	text-shadow: 0 -1px #0e8b4d;
+	text-shadow: 0 -1px #0b215d;
 }
 
 .lpCardDetails {
@@ -90,9 +90,9 @@
 	border-radius: 3px;
 	padding: 5px 0px 0px;
 	height: 37px;
-	background-image: url(<%= asset_path "lp/prepaid/lp-detailsbannner.png" %>);
+	background-image: url(<%= asset_path "lp/detailsbannner.png" %>);
 	background-repeat: no-repeat;
-	text-shadow: 0 -1px #4169E1;
+	text-shadow: 0 -1px #5e5f61;
 }
 
 .lpCardDetailsRow ul, .lpCardDetailsRow ul li {
@@ -114,9 +114,10 @@
 }
 
 .topCardBoxLeft h2 {
-	font-size: 1em;
-	color: #4169E1;
+	font-size: .9em;
+	color: #0e8b4d;
 	margin-bottom: 5px;
+	font-weight: bold;
 }
 
 .topCardBoxLeft ul, .topCardBoxLeft ul li {
@@ -126,7 +127,7 @@
 
 .topCardBoxLeft ul li {
 	list-style-type: none;
-	background: url(<%= asset_path "check-mark.png", :size=> "15x12" %>) no-repeat left;
+	background: url(<%= asset_path "lp/check-mark.png", :size=> "15x12" %>) no-repeat left;
 	padding-left: 15px;
 }
 
@@ -164,7 +165,7 @@
 
 .compareTopCardRow h3, .compareTopCardRowLast h3 {
 	font-weight: bold;
-	color: #0e8b4d;
+	color: #203d8d;
 	font-size: 0.8em;
 }
 

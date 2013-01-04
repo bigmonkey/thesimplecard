@@ -4,12 +4,11 @@
 <head>
 
 
-
 	<% if content_for?(:seotags) %>
 	<%= yield :seotags %>
 	<% else %>
-	<title>The Payday Hound: In-depth Reviews of Alternative Financial Products</title>
-	<meta name="description" content="Detailed reviews and rankings of secured credit cards, pre-paid cards and payday loans. The Payday Hound is the only site to focus on the underbanked market."/>
+	<title>CardCred: Simply the Best Cards on the Street</title>
+	<meta name="description" content="We partner with the leading credit card sites to bring you the most popular and best credit cards."/>
 	<% end %>
 	<% if content_for?(:followtags) %>
 	<%= yield :followtags %>
@@ -17,88 +16,48 @@
 	<%= favicon_link_tag %>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<% #Add in during development test %>
-  <% # <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"> %>
+	<%  #Add in during development test %>
+  		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 		
-
-	<link rel="pingback" href="http://www.thepaydayhound.com/xmlrpc.php" />
-	<link rel="canonical" href="http://www.thepaydayhound.com/" />
-	<link rel="alternate" type="application/rss+xml" title="The Payday Hound &raquo; Feed" href="http://www.thepaydayhound.com/feed/" />
-	<link rel="alternate" type="application/rss+xml" title="The Payday Hound &raquo; Comments Feed" href="http://www.thepaydayhound.com/comments/feed/" />
-		
-	<%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-
-
-
-  	<%= csrf_meta_tags %>
-   	<!--[if lt IE 9]>
+  	<%= stylesheet_link_tag    "application", :media => "all" %>
+  	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+  	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<% # Google Analytics code for subdomain tracking %>
-	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-29737687-1']);
-	  _gaq.push(['_setDomainName', 'thepaydayhound.com']);
-	  _gaq.push(['_trackPageview']);	
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();	
-
-	</script>	
-	<% # End Google Analytics code for subdomain tracking %>
-
-
 </head>
-
 <body>
+
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MNHV"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MNHV');</script>
+	<!-- End Google Tag Manager -->
 
 <div id="container">
 	<div id="mainHeaderOutter">
 		<header id="mainHeader">
-		<div id="logo"><%= link_to(image_tag("thepaydayhound-logo.png", :alt => "logo" ), {:controller => 'homes', :action => 'index'})%></div>
-		<div id="socialmediaicons">
-			<%= link_to(image_tag("rss.png", :alt => "RSS Feed" ), "http://www.thepaydayhound.com/feed", :title => "The Payday Hound Feed") %>
-			<%= link_to(image_tag("facebook.png", :alt => "Facebook" ), "http://www.facebook.com/thepaydayhound", :title => "The Payday Hound Facebook Page") %>
-			<%= link_to(image_tag("twitter.png", :alt => "Twitter" ), "http://www.twitter.com/thepaydayhound", :title => "The Payday Hound Twitter Page") %>
-			<%= link_to(image_tag("googleplus.png", :alt => "Google +" ), "https://plus.google.com/114318301384219988110", :title => "The Payday Hound Google Page") %>
- 		</div>
+				<div id="logo"><%= link_to(image_tag("logo.png", :alt => "logo" ), homes_path)%></div>
+				<div id="socialmediaicons">
+					<%= link_to(image_tag("facebook.png", :alt => "Facebook" ), "http://www.facebook.com", :title => "CardCred Facebook Page") %>
+					<%= link_to(image_tag("twitter.png", :alt => "Twitter" ), "http://www.twitter.com/cardcred", :title => "CardCred Twitter Page") %>
+					<%= link_to(image_tag("googleplus.png", :alt => "Google +" ), "https://plus.google.com/", :title => "CardCred Google Page") %>
+ 				</div>
 
 		<nav>
-			<div id = "chromemenu">
+			<div>
 				<ul>
-					<li><%= link_to("Home", "http://www.thepaydayhound.com") %></li>
-					<li><%= link_to("Cards", secureds_path, :rel => "dropmenu1") %></li>
-				    <li><%= link_to("Loans", lenders_path, :rel => "dropmenu2") %></li>
+					<li><%= link_to("Home", homes_path) %></li>
+					<li><%= link_to("Secured Cards", secureds_path) %></li>
+				    <li><%= link_to("Prepaid Cards", prepaids_path) %></li>
 					<li><a href="http://www.thepaydayhound.com/resources/" >Resources</a></li>
 				</ul>	
 			</div>	
-
-
-			<!--credit card drop down menu -->                                                   
-			<div id="dropmenu1" class="dropmenudiv">
-			<%= link_to("Prepaid Cards", prepaids_path) %>	
-			<%= link_to("Secured Cards", secureds_path) %>
-			</div>
-
-			<!--payday loan drop down menu -->                                                   
-			<div id="dropmenu2" class="dropmenudiv">
-			<%= link_to("Apply Now", "https://thepaydayhound.com/payday-loan-apply/") %>
-			<%= link_to("Payday Loans", lenders_path) %>	
-			<%= link_to("Installment Loans", {:controller => 'lenders', :action => 'installment'}) %>
-			</div>
-
-
-			<script type="text/javascript">
-
-			cssdropdown.startchrome("chromemenu")
-
-			</script>
-
 
 		</nav>
 		</header>
@@ -108,38 +67,15 @@
 	<%= yield %>
 
 <!-- wrap everything between header and footer -->		
-	<footer>
-		<ul>
-			 <li><%= link_to("About Us", {:controller => 'infos', :action => 'about'}) %> | </li>
-			 <li><%= link_to("Contact Us", {:controller => 'infos', :action => 'contact'}) %> | </li>
-			 <li><%= link_to("Jobs", {:controller => 'infos', :action => 'jobs'}) %> | </li>
-			 <li><%= link_to("Press", {:controller => 'infos', :action => 'press'}) %> | </li>    			    
-			 <li><%= link_to("Privacy Policy", {:controller => 'infos', :action => 'privacy'}) %> | </li>    
-			 <li><%= link_to("Terms of Use", {:controller => 'infos', :action => 'terms'}) %></li> 	    
-		</ul>
-		<div id="copyright">Copyright © 2012 The Payday Hound. All rights reserved.</div>
-		 <div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, FDIC Insurance / NCUA Insurance status, credit card information, interest rates or other provider terms and conditions during the application process. The Payday Hound may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
-    </footer>
+		<footer>
+			<ul>
+				 <li><%= link_to("Contact Us", {:controller => 'infos', :action => 'contact'}) %> | </li> 				
+				 <li><%= link_to("Privacy Policy", {:controller => 'infos', :action => 'privacy'}) %> | </li>    
+				 <li><%= link_to("Terms of Use", {:controller => 'infos', :action => 'terms'}) %></li> 	  
+			</ul>
+			<div id="copyright">Copyright © 2012 Card Cred. All rights reserved.</div>
+		 	<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, FDIC Insurance / NCUA Insurance status, credit card information, interest rates or other provider terms and conditions during the application process. Card Cred may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.<div>	
+    	</footer>
 </div>  
-
-	<% #Google Code for Remarketing tag %>
-	<% #Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup %>
-	<script type="text/javascript">
-	/* <![CDATA[ */
-	var google_conversion_id = 1023523426;
-	var google_conversion_label = "bP5dCO7Q1wMQ4vSG6AM";
-	var google_custom_params = window.google_tag_params;
-	var google_remarketing_only = true;
-	/* ]]> */
-	</script>
-	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-	</script>
-	<noscript>
-	<div style="display:inline;">
-	<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023523426/?value=0&amp;label=bP5dCO7Q1wMQ4vSG6AM&amp;guid=ON&amp;script=0"/>
-	</div>
-	</noscript>
-	<% # End Google remarketing code %>
-	    	
 </body>
 </html>

@@ -3,15 +3,15 @@
 <% #This layout is for clicks to partners from the main site. It's tables and blog articles. %>
 
 <head>
-  <title>The Payday Hound: Payday Loan Reviews and Independent Rankings</title>
-	<meta name="description" content="Detailed, fair, independent reviews and rankings of payday and installment loans. The Payday Hound reviews more online payday loans than anyone else we know"/>
+  <title>CardCred: Simply the best cards on the street</title>
+  <meta name="description" content="We partner with the leading credit card sites to bring you the most popular and best credit cards"/>
   <meta name="robots" content="noindex, nofollow">  
 
   <script type='application/javascript'>
       setTimeout(function() {
         window.location.href= "<%= @lender_url.html_safe %>";
-	     }, 2*1000); 
-	</script>
+       }, 2*1000); 
+  </script>
 
 	<%= stylesheet_link_tag    "application", :media => "all" %>
   	<%= javascript_include_tag "application" %>
@@ -20,46 +20,22 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-  <% # Google Analytics code for subdomain tracking %>
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-29737687-1']);
-    _gaq.push(['_setDomainName', 'thepaydayhound.com']);
-    _gaq.push(['_trackPageview']);  
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })(); 
-
-  </script> 
-  <% # End Google Analytics code for subdomain tracking %>
-
  
 </head>
 <body>
+
+    <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MNHV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MNHV');</script>
+  <!-- End Google Tag Manager -->
+
 <%= yield %>
 
-<% # Google Code for Apply Conversion Page %>
-<script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 1023523426;
-var google_conversion_language = "en";
-var google_conversion_format = "3";
-var google_conversion_color = "ffffff";
-var google_conversion_label = "_GsBCIao0QIQ4vSG6AM";
-var google_conversion_value = 0;
-/* ]]> */
-</script>
-<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1023523426/?value=0&amp;label=_GsBCIao0QIQ4vSG6AM&amp;guid=ON&amp;script=0"/>
-</div>
-</noscript>
-<% #End Google Code for Apply Conversion Page %>
 
 </body>
 </html>
