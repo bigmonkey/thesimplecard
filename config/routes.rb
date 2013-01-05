@@ -1,5 +1,7 @@
 Pdh::Application.routes.draw do
 
+  get "bestoffers/nfl"
+
   get "topoffers/prepaid_a0"
 
  # get "secureds/index"

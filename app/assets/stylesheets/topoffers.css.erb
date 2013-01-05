@@ -1,7 +1,7 @@
 /*LandingPage*/
 
 .lpBody {
-    background: #666;
+    background: #ccc;
     font-family: helvetica, arial, san-serif;
     color: #666;
 }
@@ -45,7 +45,7 @@
 .compareCards {
 	width: 60%;
 	float: left;
-	height: 490px;
+	height: 360px;
 }
 
 .compareTopCardBanner {
@@ -63,7 +63,7 @@
 .lpCardDetails {
 	width: 39%;
 	float: right;
-	height: 490px;
+	height: 360px;
 }
 
 .lpCardDetailsRow {
@@ -142,7 +142,7 @@
 	border-radius: 3px;
 	margin-top: 3px;
 	margin-bottom: 20px;
-	height: 455px;
+	height: 325px;
 }
 
 .cardDetailsTable {
@@ -150,7 +150,7 @@
 	border-radius: 3px;
 	margin-top: 3px;
 	background-color: #EEE;
-	height: 455px;
+	height: 325px;
 }
 
 .cardDetailsTable p {
@@ -303,3 +303,191 @@
 #privacyFooter ul, #privacyFooter ol {
 	background: none;	
 }
+
+/*  NFL Landing Page */
+
+/* globalheader
+------------------------*/
+
+.nflBody h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,strong,th,figcaption { font-size: 1em; font-weight: normal; font-style: normal; }
+.nflBody fieldset,iframe { border: none; }
+.nflBody caption,th { text-align: left; }
+.nflBody table { border-collapse: collapse; border-spacing: 0; }
+.nflBody article,aside,footer,header,hgroup,nav,section,figure,figcaption { display: block; }
+
+
+/* globalheader
+------------------------*/
+.nflBody {
+	font: 0.75em/1.5 Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+	color: #000;
+	background: url(<%= asset_path "lp/nfl/nfl-bg.jpg" %>) 0 0 no-repeat fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.nflBody a {
+	color: #000;
+	text-decoration: none;
+	display: block;
+}
+.nflBody a:hover {
+	text-decoration: underline;
+}
+.nflBody a:focus {
+	outline: none;
+}
+.nflBody p {
+	font-size: 1em;
+}
+.nflBody hr {
+	border: 0 #ccc solid; border-top-width: 1px; clear:both; height: 0;
+}
+.nflBody h1, h2, h3, h4, h5, h6, ol, dl, pre, table, address, fieldset, p, hr {
+	margin-bottom: 0px;
+}
+
+.nflBody strong {
+	font-weight: bold;
+}
+
+
+/* content
+------------------------*/
+
+}
+#nflFloater { float:left; height:50%; margin-bottom:-375px;
+    width:1px; /* only for IE7 */
+}
+.nflMain {
+    clear: both; 
+    height: 751px; 
+    position: relative;
+}
+.nflContainer {
+
+}
+.nflPick {
+    top: 80px;
+    width: 940px;
+    margin: 0 auto;
+}
+.nflPick .nflMiddle {
+    background: url(<%= asset_path "lp/nfl/pick-bg.png" %>) repeat-y scroll left top transparent;
+    height: auto;
+    overflow: hidden;
+}
+.nflPick .nflTop {
+    background: url(<%= asset_path "lp/nfl/pick-top.png" %>) no-repeat scroll left top transparent;
+    display: block;
+    height: 72px;
+    margin-bottom: -20px;
+}
+.nflPick .nflBottom {
+	clear: both;
+    background: url(<%= asset_path "lp/nfl/pick-bottom.png" %>) no-repeat scroll left top transparent;
+    display: block;
+    height: 72px;
+    margin-top: -20px;
+}
+.nflPick .nflMiddle .nflCards {
+    background: url(<%= asset_path "lp/nfl/pick-cards.png" %>) no-repeat scroll left top transparent;
+    display: block;
+    height: 383px;
+    margin-left: 60px;
+    overflow: auto;
+    text-indent: -1000px;
+    width: 817px;
+}
+.nflPick .nflMiddle .nflCards .nflFirst.row .nflCard {
+    height: 85px;
+}
+.nflPick .nflMiddle .nflCards .nflRow .nflCard {
+    height: 81px;
+}
+.nflPick .nflMiddle .nflCards .nflFourth.nflRow .nflCard {
+    height: 135px;
+}
+.nflPick .nflMiddle .nflCards .nflCard {
+    float: left;
+    width: 102px;
+}
+.nflPick .nflMiddle .nflCards .nflCard:hover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    opacity: 0.5;
+    z-index: 1;
+}
+.nflPick .nflHeading {
+    font-size: 42px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.nflPick .nflHeading .nflFirst {
+    color: #F3791F;
+    position: relative;
+}
+.nflPick .nflHeading .nflSecond {
+    color: #000;
+    position: relative;
+}
+.nflPick .nflSubhead h2 {
+    color: #707070;
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.nflSubheadFirst {
+    color: #203D8D;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+/* Card Features and Rewards Section */
+.nflDescription {
+	margin-left: 110px;
+	float:left;
+}
+
+.nflFeatures {
+	margin: 0px 40px;
+	font-size: 1.167em;
+	width: 275px;
+	float: left;
+	border: 1px solid #06095c;
+  border-radius: 5px;
+  webkit-border-radius: 5px;
+  moz-border-radius: 5px;
+}
+
+.nflFeaturesDescription {
+    border-radius: 0px 0px 4px 4px;
+    webkit-border-radius: 0px 0px 4px 4px;
+    moz-border-radius: 0px 0px 4px 4px;
+}
+.nflFeaturesDescription ul {
+	height: 75px;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #444;
+	padding-top: 10px;
+	padding-left: 40px;
+	list-style-image: url(<%= asset_path "lp/check-mark.png" %>);
+}
+
+.nflFeaturesTitle{
+	font-weight: bold;
+	font-size: 1.3em;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background-color: #06095c;
+  border-radius: 4px 4px 0px 0px;
+  webkit-border-radius: 4px 4px 0px 0px;
+  moz-border-radius: 4px 4px 0px 0px;	
+  color: #eee;
+}
+/* END Card Features and Rewards Section */

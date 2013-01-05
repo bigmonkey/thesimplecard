@@ -1,4 +1,5 @@
 class TopoffersController < ApplicationController
+# use this controller for base landing page layout lp
 
   layout 'lp'
   
@@ -9,11 +10,17 @@ class TopoffersController < ApplicationController
   end	
 
   def badcredit
-  	@page="0010"
+  	@page="0012"
   end
 
   def prepaid
   	@page="0010"
   end
   	
+  def prepaid_b
+    @page="0013"
+  end
+  def nfl
+    @page="0011"
+  end
 end
