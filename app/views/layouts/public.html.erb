@@ -49,6 +49,7 @@
 				<%= link_to(image_tag("googleplus.png", :alt => "Google +" ), "https://plus.google.com/", :title => "CardCred Google Page") %>
 			</div>
 
+<<<<<<< HEAD
 			<nav>
 				<div>
 					<ul>
@@ -58,8 +59,19 @@
 						<li><a href="http://www.thepaydayhound.com/resources/" >Resources</a></li>
 					</ul>	
 				</div>		
-
 			</nav>
+=======
+		<nav>
+			<div>
+				<ul>
+					<li><%= link_to("Home", homes_path) %></li>
+					<li><%= link_to("Secured Cards", secureds_path) %></li>
+				    <li><%= link_to("Prepaid Cards", prepaids_path) %></li>
+				</ul>	
+			</div>	
+
+		</nav>
+>>>>>>> a2a8963254f5dff03fbe300a08cf09cd512421d3
 		</header>
 	</div>
 <!-- everything between header and footer -->
@@ -74,8 +86,8 @@
 				 <li><%= link_to("Terms of Use", {:controller => 'infos', :action => 'terms'}) %></li> 	  
 			</ul>
 			<div id="copyright">Copyright © 2013 Card Cred. All rights reserved.</div>
-		 	<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, FDIC Insurance / NCUA Insurance status, credit card information, interest rates or other provider terms and conditions during the application process. Card Cred may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.<div>	
-    	</footer>
+		 	<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, FDIC Insurance / NCUA Insurance status, credit card information, interest rates or other provider terms and conditions during the application process. Card Cred may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.</div>	
+    </footer>
 </div>  
 </body>
 </html>
