@@ -7,7 +7,7 @@
 
 <% end %>
 
-<div class="nflBody">
+<section class="nflBody">
 	<div id="nflFloater"></div>
 	<div class="nflMain">
 		<div class="nflContainer">
@@ -19,7 +19,7 @@
 						<h1><span class="nflFirst">32 Teams.</span> <span class="nflSecond">Only one matters.</span></h1>
 					</div>
 					<div class="nflSubhead">
-						<h2><span class="nflSubheadFirst">Click your team</span> and start exploring</h2>
+						<h2><span class="nflSubheadFirst">Click your team</span> to learn more</h2>
 					</div>
 				
 					<div class="nflCards">
@@ -91,7 +91,10 @@
 								</ul>
 							</div>	
 						</div>	
-				</div>
+					</div>
+					<div class="nflRewiewsLink"><br />
+						<%= link_to("Compare All Reward Cards", homes_path, :target => "_blank") %>
+					</div>
 			</div>
 				
 			<span class="nflBottom"></span>
@@ -113,4 +116,4 @@
 	    </div>
 		</div>	
 
-</div>
+</section>

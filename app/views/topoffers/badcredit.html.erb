@@ -9,33 +9,42 @@
 	<meta name="description" content="Compare the top Credit Cards for Bad Credit. Find and sign up for the one best for you. Get started now."/>
 <% end %>
 
-	<div id = "lpWrapper">	
+<div id = "lpWrapper">	
 
-		<header>
-			<div class = "lpHeader"><%= image_tag("logo-sm.png")%></div>
-		</header>
+	<header>
+		<div class = "lpHeader"><%= image_tag("logo-sm.png")%></div>
+		<div class = "lpTopLink"><%= link_to("See Full Ranking Table", secureds_path, :target => "_blank") %></div>		
+	</header>
 		
-		<section id="lpMainContent">	
+	<section id="lpMainContent">	
 
 		<div class="topCardBanner">Sign Up for the <b>Top Card for Bad Credit</b>. No Credit Requirements!</div>
 		<div class="topCardBox">
 			<div class="topCardBoxLeft">
 				<h1>Most Popular Secured Credit Card</h1>
-				<h2>First Progress Platinum Elite MasterCard® Secured Credit Card</h2>
+				<h2>First Progress Platinum Elite Secured Card</h2>
 				<ul>
-					<li>&nbsp;&nbsp;&nbsp;&nbsp;Low $29 Annual Fee. No Credit Requirements for Approval!</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;Low $29 Annual Fee. Bad Credit OK for Approval!</li>
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;Credit Card Secured by Fully-Refundable Deposit.</li>
-					<li>&nbsp;&nbsp;&nbsp;&nbsp;Monthly Reporting to all Three National Bureaus to Establish Credit History.</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;Build credit. Reporting to All Three National Bureaus.</li>
 				</ul>
 				<div><%= link_to("SIGN UP", {:controller => 'partners', :action => 'go', :id => '37', :page=>@page}, :class => "compareTopCardApplyTop", :target => "_blank") %></a></div>
 			</div>
-			<div class="topCardBoxRight"><%= image_tag("lp/badcredit/firstprogress.png") %></div>	
+			<div class="topCardBoxMiddle">
+				<%= link_to({:controller => 'partners', :action => 'go', :id => '37', :page=>@page}, :class => "topPickImage",:target => "_blank") do %>
+						
+								<div class="topPickText">2013<br />Top Pick</div>					
+						
+				<% end %>		
+				<div class="topCardBoxMiddleText"></div>					
+			</div>
+			<div class="topCardBoxRight"><%= link_to(image_tag("lp/badcredit/firstprogress.png"), {:controller => 'partners', :action => 'go', :id => '37', :page=>@page}, :target => "_blank") %></div>	
 		</div>		
 
 		<div class="lpBottomSection">	
 			<div class="compareCards">
 				<div class="compareTopCardBanner">Compare <b>Top Cards for Bad Credit</b></div>
-				<div class="compareCardsTable">	
+				<div class="compareCardsTable lpBadCredit">	
 					<div class="compareTopCardRow">
 						<div class="compareTopCardRowC1"><%= image_tag("secured/AppliedZero.gif") %></div>
 						<div class="compareTopCardRowC2">
@@ -78,7 +87,7 @@
 			
 			<div class="lpCardDetails">
 				<div class="cardBestForBanner">Is <b>First Progress</b> Best for Me?</div>
-				<div class="cardDetailsTable">
+				<div class="cardDetailsTable lpBadCredit">
 					<div class="lpCardDetailsRow">
 						<h3>The <%= link_to("First Progress Secured", {:controller => 'partners', :action => 'go', :id => '37', :page=>@page}, :target => "_blank") %> is our top pick because:</h3>
 						<ul>
@@ -88,12 +97,12 @@
 						<p>However, there are a number of reasons why you might prefer a different card.</p>
 					</div>
 					<div class="lpCardDetailsRow">
-						<h3><%= image_tag("lp/circlecross-icon.png", :size => "10x10") %> Carry a balance on your credit card?</h3>
+						<h3><%= image_tag("lp/CompareDesign/circlecross-icon.png", :size => "10x10") %> Carry a balance on your credit card?</h3>
 						<p>The <%= link_to("Applied Bank Platinum", {:controller => 'partners', :action => 'go', :id => '36', :page=>@page}, :target => "_blank") %> is a good option with 0% APR for life. It's a real credit card so builds credit and reports to the major bureaus.</p>
 						<p><%= link_to("Sign Up Applied Bank Platinum >>", {:controller => 'partners', :action => 'go', :id => '36', :page=>@page}, :target => "_blank") %></p>
 					</div>
 					<div class="lpCardDetailsRowLast">
-						<h3><%= image_tag("lp/circlecross-icon.png", :size => "10x10") %> Make cash withdrawals or low monthly fee?</h3>
+						<h3><%= image_tag("lp/CompareDesign/circlecross-icon.png", :size => "10x10") %> Make cash withdrawals or low monthly fee?</h3>
 						<p>The <%= link_to("ACE Elite", {:controller => 'partners', :action => 'go', :id => '53', :page=>@page}, :target => "_blank") %> is a great option as it has free cash withdrawals at ACE stores while the <%= link_to("UPside Visa Prepaid", {:controller => 'partners', :action => 'go', :id => '80', :page=>@page}, :target => "_blank") %> has a low monthly fee and rewards program.</p>
 						<p><%= link_to("Sign up for the ACE Elite Card >>", {:controller => 'partners', :action => 'go', :id => '53', :page=>@page}, :target => "_blank") %></p>
 						<p><%= link_to("Sign up for the UPside Prepaid Card >>", {:controller => 'partners', :action => 'go', :id => '80', :page=>@page}, :target => "_blank") %></p>
@@ -101,22 +110,8 @@
 			</div>
 		</div>
 	 
-		</section>
+	</section>
 	 
-		<div class="lpFooter">
-			<div id="copyright">Copyright © 2013 Card Cred. All rights reserved.</div>
-			<div id="disclaimer">*Disclaimer: We aim to keep information accurate and up to date, however we cannot make warranties regarding the accuracy of our information. Please verify state licensing, fees, interest rates, and other lending terms during the application process. Card Cred may be compensated if consumers choose to utilize some of the links located throughout the content on this site and generate sales for the said merchant.
-			</div><br><a href="javascript:TogPrivacy()" id = "infoPrivacyFooter" >Privacy Policy, Terms and Contact</a></div>	
-	    </div>
-	    <div id = "privacyFooter" style="overflow:hidden;display:none">
-				<%= render(:partial => "shared/contact")%>
-				<br/>
-				<%= render(:partial => "shared/privacy")%>
-				<br/>
-				<%= render(:partial => "shared/terms")%>
-
-				<p><a href="javascript:TogPrivacy()">Return to Top</a></p>
-
-	    </div>
-	  </div>  		
-	</div>
+  	<%= render(:partial => "shared/lpfooter")%> 	
+	
+</div>
