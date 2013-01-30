@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004212831) do
+ActiveRecord::Schema.define(:version => 20130129195942) do
 
   create_table "lenders", :force => true do |t|
     t.integer  "sniff_id"
@@ -187,6 +187,20 @@ ActiveRecord::Schema.define(:version => 20121004212831) do
     t.string   "state",      :limit => 15
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.string   "conversion_key", :limit => 20
+    t.string   "src_code",       :limit => 4
+    t.string   "page_code",      :limit => 4
+    t.string   "campaign",       :limit => 128
+    t.string   "ad_group"
+    t.string   "kw",             :limit => 80
+    t.string   "creative",       :limit => 25
+    t.string   "placement"
+    t.integer  "partner_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end

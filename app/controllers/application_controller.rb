@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   def set_tracking
   	!params[:src].nil? ? session[:src] = params[:src] : session[:src] = session[:src]
+    !params[:cpg].nil? ? session[:cpg] = params[:cpg] : session[:cpg] = session[:cpg]
+    !params[:adg].nil? ? session[:adg] = params[:adg] : session[:adg] = session[:adg]
+    !params[:k].nil? ? session[:k] = params[:k] : session[:k] = session[:k]
+    !params[:p].nil? ? session[:p] = params[:p] : session[:p] = session[:p]
+    !params[:c].nil? ? session[:c] = params[:c] : session[:c] = session[:c]
   end
 
   def set_secured_constants

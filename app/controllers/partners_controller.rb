@@ -11,7 +11,7 @@ class PartnersController < ApplicationController
     if l.lender_tail.nil?
       @lender_url = l.lender_link
     else
-      @lender_url = l.lender_link + l.lender_tail + @page + @source 
+      @lender_url = l.lender_link + l.lender_tail + @conversion_key
     end
   end  
 
@@ -33,8 +33,12 @@ class PartnersController < ApplicationController
     else
         @source = "0000"
     end
+    #sets a random number sent to affiliates as variable
+    @conversion_key=SecureRandom.hex(10)
+    #saves ad campaign data conveersion_key to database
+    Track.create(:src_code => @source, :page_code => @page, :campaign => session[:cpg], :ad_group => session[:adg], :kw => session[:k], :creative => session[:c], :placement => session[:p], :conversion_key => @conversion_key, :partner_id => params[:id])
     get_url
-    @lender_url
+    # @lender_url deleted this. not sure what it was doing.
     @lenders = Partner.all
   end
 
