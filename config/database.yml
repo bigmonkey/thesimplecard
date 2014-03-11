@@ -7,10 +7,10 @@ development:
   adapter: postgresql
   encoding: unicode
   reconnect: false
-  database: thesimplecard
+  database: <%= ENV['DB_NAME'] %>
   pool: 5
-  username: conway
-  password: pony
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
