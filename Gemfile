@@ -1,4 +1,5 @@
 source 'https://rubygems.org'	
+ ruby '2.0.0'
  gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -54,3 +55,4 @@ gem 'jquery-rails', '2.3.0'
 
 gem 'figaro', '0.7.0'  # used to conceal pw's and things. use rake figaro:heroku to push pw to heroku
 
+gem 'rails_12factor', '0.0.2', group: :production
