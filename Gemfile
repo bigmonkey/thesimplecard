@@ -1,5 +1,4 @@
-source 'https://rubygems.org'
-
+source 'https://rubygems.org'	
  gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -15,7 +14,7 @@ source 'https://rubygems.org'
 # 2)WEBSERVER: Heroku/unbuntu/Mac uses thin so need gem execjs, therubyracer, thin 
 # uncomment for ubuntu/thin and comment out for Windows
 
- gem 'thin'
+ gem 'unicorn'
  gem 'execjs'
  gem 'therubyracer', '~> 0.10.2' #update to 0.11 crashes install
 
@@ -52,3 +51,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem 'figaro', '0.7.0'  # used to conceal pw's and things. use rake figaro:heroku to push pw to heroku
+

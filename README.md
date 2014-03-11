@@ -1,8 +1,7 @@
-alpha version
+# Credit Card Finder Site
 
-base rails application. no css
+This site provides a credit card finder service. It makes finding a credit card simple -- find the simple card.
 
-database: pdh_development
-username: conway
+It helps users find cards based on different card types.
 
-added two gems to run in linux: therubyracer and exec js
+It also provides services to find secured credit cards and prepaid cards.
