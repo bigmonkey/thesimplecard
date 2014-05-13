@@ -1,35 +1,11 @@
 class InfosController < ApplicationController
- 	
-	layout 'public'
+
+  layout 'application'
 	
-  before_filter :set_tracking
   
-  def index
-    about
-    render('about')
-  end
-  def jobs
+  def welcome
+    user = User.find_by_email('conway@xerpi.com')
+    UserMailer.welcome_email(user).deliver
   end
 
-  def press
-  end
-
-  def about
-  end
-
-  def contact
-  end
-
-  def privacy
-  end
-
-  def terms
-  end
-
-  def why
-  end
-
-  def sitemap
-  end
-  
 end

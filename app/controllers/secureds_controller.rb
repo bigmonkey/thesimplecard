@@ -1,8 +1,7 @@
 class SecuredsController < ApplicationController
   
-  layout 'public'
-  
-  before_filter :set_tracking
+  layout 'application'
+
   before_filter :set_secured_constants
 
   def index
@@ -26,7 +25,6 @@ class SecuredsController < ApplicationController
         end
       end  
       @secureds = Secured.live.by_top_rank    
-  	  @page = "0005" #sets page for tracking to 'secured-cards'
   end
 
 end

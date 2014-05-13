@@ -1,8 +1,8 @@
 class HomesController < ApplicationController
-  layout 'public'    
 
-  before_filter :set_tracking
-  	
+  layout 'application'
+ 	
   def index
   end
+
 end

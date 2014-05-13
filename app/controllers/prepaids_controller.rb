@@ -1,8 +1,7 @@
 class PrepaidsController < ApplicationController
 
-  layout 'public'
-  
-  before_filter :set_tracking
+  layout 'application'
+
   before_filter :set_prepaid_constants
 
   def index
@@ -55,7 +54,6 @@ class PrepaidsController < ApplicationController
             end
       end  
       @prepaids = Prepaid.live.by_top_rank    
-  	  @page = "0008" #sets page for tracking to 'pre-paid-cards'
   end
 
 end
