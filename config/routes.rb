@@ -20,6 +20,7 @@ Pdh::Application.routes.draw do
  resources :prepaids
  resources :homes
  resources :cards
+ resources :my_cards
  resources :partners, only: [ :show ]
 
   # Non-RESTful Routes

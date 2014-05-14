@@ -8,6 +8,7 @@ class CreateMyCards < ActiveRecord::Migration
     	t.decimal "monthly_balance", precision: 7, scale: 2
     	t.decimal "credit_limit", precision: 7, scale: 2
     	t.decimal "monthly_spend", precision: 7, scale: 2
+      t.string "phone"
       t.timestamps
     end
   end

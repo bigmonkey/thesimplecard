@@ -1,0 +1,28 @@
+<% if @user.my_cards.nil? %>
+	<div>You have entered no cards.</div>
+<% else %>
+	<table>
+		<tr>
+			<th>Card Name</th>
+			<th>Phone</th>
+			<th>Credit Limit</th>
+			<th>Annual Fee</th>
+			<th>APR</th>
+			<th>Monthly Spend</th>
+			<th>Revolving Balance</th>
+			<th></th>
+		</tr>
+		<% @user.my_cards.each do |c| %>
+		<tr>
+			<td><%= c.card_name %></td>
+			<td><%= number_to_phone(c.phone) %></td>
+			<td><%= number_to_currency(c.credit_limit, precision:0) %></td>
+			<td><%= number_to_currency(c.annual_fee, precision:0) %></td>
+			<td><%= number_to_percentage(c.purchase_apr, precision:2) %></td>
+			<td><%= number_to_currency(c.monthly_spend, precision:0) %></td>
+			<td><%= number_to_currency(c.monthly_balance, precision:0) %></td>
+			<td><%= link_to('show', my_card_path(c)) %><%= link_to('edit', edit_my_card_path(c)) %></td>
+		</tr>	
+		<% end %>
+	</table>
+<% end %>

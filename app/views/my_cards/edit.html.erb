@@ -1,0 +1,8 @@
+
+<h1>Update your <%= @card.card_name %> card.</h1>
+<%= form_for(@card) do |f| %>
+	<%= f.label :card_name %>
+	<%= f.text_field :card_name %>
+
+	<%= f.submit "Save" %>
+<% end %>	

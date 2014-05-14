@@ -1,0 +1,28 @@
+<h1>Card Name: <%= @card.card_name.titleize %></h1>
+
+<table>
+	<tr>
+		<td>Customer Service:</td>
+		<td><%= number_to_phone(@card.phone)%></td>
+	</tr>
+	<tr>
+		<td>Credit Limit:</td>
+		<td><%= number_to_currency(@card.credit_limit, precision:0)%></td>
+	</tr>
+	<tr>
+		<td>Annual Fee:</td>
+		<td><%= number_to_currency(@card.annual_fee, precision:0)%></td>
+	</tr>
+	<tr>
+		<td>APR:</td>
+		<td><%= number_to_percentage(@card.purchase_apr, precision:2)%></td>
+	</tr>	
+	<tr>
+		<td>Monthly Spend:</td>
+		<td><%= number_to_currency(@card.monthly_spend, precision:0)%></td>
+	</tr>
+	<tr>
+		<td>Monthly Balance:</td>
+		<td><%= number_to_currency(@card.monthly_balance, precision:0)%></td>
+	</tr>				
+</table>

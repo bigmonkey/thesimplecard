@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140514071909) do
     t.decimal  "monthly_balance", precision: 7, scale: 2
     t.decimal  "credit_limit",    precision: 7, scale: 2
     t.decimal  "monthly_spend",   precision: 7, scale: 2
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
