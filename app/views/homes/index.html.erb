@@ -1,11 +1,20 @@
 <!-- custom body text -->
-<div id = "wrapper">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<div>The Simple Card</div>
+<div>We simplify credit cards</div>
+<div>Manage all your cards in one easy place</div>
+<div>Find new cards and receive alerts for better cards</div>
+
+<% if !user_signed_in? %>
+	<div><%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %></div>
+	<div><%= link_to "login", new_user_session_path, :class => 'navbar-link'  %></div>
 <% end %>
-</div>
+
+
+<% if user_signed_in? %>
+	<div class = "homeBoxNav"> <%= link_to('My Cards In', cards_path) %></div>
+<% else %>
+	<div class = "homeBoxNavSignedIn"> <%= link_to('My Cards Out', cards_path) %></div>
+<% end %>
+<div class = "homeBoxNav"> <%= link_to('All Cards', cards_path) %></div>
+<div class = "homeBoxNav"> <%= link_to('Secured', secureds_path) %></div>
+<div class = "homeBoxNav"> <%= link_to('Prepaid', prepaids_path) %></div>

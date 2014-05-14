@@ -1,0 +1,44 @@
+form input[type="submit"] {
+	font-size: 1em;
+	margin: 1em 0em;
+	background: $highColor;
+	border: none;
+	color: #fff;
+	height: 1.7em;
+	line-height: 1.7em;
+//	width: 12em;
+//	@include rounded(3px);
+	-webkit-appearance: none;
+}
+
+form input[type="submit"]:hover {
+//	background: $boxBackgroundVeryDark;
+	border: none;
+//	color: $pageBackground;
+	cursor: pointer;
+	cursor: hand;
+	-webkit-appearance: none;
+}
+
+form input {
+	color: $lightHighlight;
+	border: 1px solid #ddd;
+	border-radius: 0px; 
+	-moz-border-radius:0px; 
+	-webkit-border-radius:0px; 	
+}
+
+form {
+	margin: 1em 0em;
+}
+
+.deviseNotes {
+	width: 25em;
+	//padding: 2em 1em;
+	background: $softBackground;
+	margin: 0 auto;
+	p {
+		text-align: center;
+		margin-top: 2em;
+	}
+}

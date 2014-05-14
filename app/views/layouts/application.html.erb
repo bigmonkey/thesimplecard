@@ -42,33 +42,48 @@
 <div id="container">
 	<div id="mainHeaderOutter">
 		<header id="mainHeader">
-			<div id="logo"><span class = "title"><%= link_to('the simple card', homes_path)%></span><span class = "tag"> find your card</span></div>
-			<div id="socialmediaicons">
-				<%= link_to(image_tag("facebook.png", :alt => "Facebook" ), "http://www.facebook.com", :title => "CardCred Facebook Page") %>
-				<%= link_to(image_tag("twitter.png", :alt => "Twitter" ), "http://www.twitter.com/cardcred", :title => "CardCred Twitter Page") %>
-				<%= link_to(image_tag("googleplus.png", :alt => "Google +" ), "https://plus.google.com/", :title => "CardCred Google Page") %>
+			<div class = "userOptions">
+				<% if user_signed_in? %>
+				  <%= link_to 'profile', edit_user_registration_path, :class => 'navbar-link' %>
+				  <%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+				<% else %>
+				  <%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %>
+				  <%= link_to "login", new_user_session_path, :class => 'navbar-link'  %>
+				<% end %>
 			</div>
+			<div id="logo"><span class = "title"><%= link_to('the simple card', homes_path)%></span><span class = "tag"> find your card</span></div>
 
 			<nav>
 				<div>
 					<ul>
+					  <li><%= link_to("Prepaid", prepaids_path) %></li>
+						<li><%= link_to("Secured", secureds_path) %></li>
+						<li><%= link_to("All", cards_path) %></li>
+						<% if user_signed_in? %>
+						<li><%= link_to("My Cards", cards_path) %></li>
+						<% end %>
 						<li><%= link_to("Home", homes_path) %></li>
-						<li><%= link_to("Cards", cards_path) %></li>
-						<li><%= link_to("Secured Cards", secureds_path) %></li>
-					  	<li><%= link_to("Prepaid Cards", prepaids_path) %></li>
 					</ul>	
 				</div>		
 			</nav>
 		</header>
 	</div>
-<!-- everything between header and footer -->
+	<div id = "wrapper">
+	<!-- everything between header and footer -->
+  
+	<div class = "deviseNotes">
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-
+	</div>
 	<%= yield %>
-
+</div>
 <!-- wrap everything between header and footer -->		
 		<footer>
+			<div id="socialmediaicons">
+				<%= link_to(image_tag("facebook.png", :alt => "Facebook" ), "http://www.facebook.com", :title => "CardCred Facebook Page") %>
+				<%= link_to(image_tag("twitter.png", :alt => "Twitter" ), "http://www.twitter.com/cardcred", :title => "CardCred Twitter Page") %>
+				<%= link_to(image_tag("googleplus.png", :alt => "Google +" ), "https://plus.google.com/", :title => "CardCred Google Page") %>
+			</div>
 			<ul>
 				 <li><%= link_to("Contact Us", {controller: "/infos", action: "contact"}) %> | </li> 				
 				 <li><%= link_to("Privacy Policy", {:controller => '/infos', :action => 'privacy'}) %> | </li>    
