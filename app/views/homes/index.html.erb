@@ -1,20 +1,30 @@
 <!-- custom body text -->
-<div>The Simple Card</div>
-<div>We simplify credit cards</div>
-<div>Manage all your cards in one easy place</div>
-<div>Find new cards and receive alerts for better cards</div>
+<div class = "homeTagsBox">
+	<div class = "homeTags">We simplify credit cards</div>
+	<div class = "homeTags">Manage all your cards in one easy place</div>
+	<div class = "homeTags">Find new cards and receive alerts for better cards</div>
+</div>
 
+<div class = "homeUserOptions">
+	<% if !user_signed_in? %>
+		<div class = "homeSignUp"><%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %></div>
+		<div class = "homeLogin"><%= link_to "login", new_user_session_path, :class => 'navbar-link'  %></div>
+	<% end %>
+</div>
+
+<div class = "clearboth"></div>
+<div class = "homeBoxes">
+	<% if user_signed_in? %>
+		<div class = "homeBoxNav"> <%= link_to('my', cards_path) %></div>
+	<% else %>
+	<div class = "homeBoxNav" id = "homeBoxNavOut"><%= link_to('my*', cards_path) %></div>
+	<% end %>
+	<div class = "homeBoxNav"> <%= link_to('all', cards_path) %></div>
+	<div class = "homeBoxNav"> <%= link_to('secured', secureds_path) %></div>
+	<div class = "homeBoxNav"> <%= link_to('prepaid', prepaids_path) %></div>
+</div>
+
+<div class = "clearboth"></div>
 <% if !user_signed_in? %>
-	<div><%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %></div>
-	<div><%= link_to "login", new_user_session_path, :class => 'navbar-link'  %></div>
+<p class = "homeExplain">* login required</p>
 <% end %>
-
-
-<% if user_signed_in? %>
-	<div class = "homeBoxNav"> <%= link_to('My Cards In', cards_path) %></div>
-<% else %>
-	<div class = "homeBoxNavSignedIn"> <%= link_to('My Cards Out', cards_path) %></div>
-<% end %>
-<div class = "homeBoxNav"> <%= link_to('All Cards', cards_path) %></div>
-<div class = "homeBoxNav"> <%= link_to('Secured', secureds_path) %></div>
-<div class = "homeBoxNav"> <%= link_to('Prepaid', prepaids_path) %></div>

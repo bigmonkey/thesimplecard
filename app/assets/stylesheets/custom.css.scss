@@ -1,8 +1,12 @@
 $mainColor: #666;
+$softColor: #aaa;
 $logoColor: #E58D1F; // orange color
+$logoColorTint: #e79835; //orange tint
 $lightHighlight: #4169E1; //light blue
 $highColor: #3B5998; // blue
+$highColorTint: #4e69a2; // bluetint
 $softBackground: #EEEEEE; // light grey
+$softBackgroundTint: #d6d6d6;
 
 
 
@@ -79,7 +83,7 @@ a:hover, a:active {
 	text-decoration: none;
 }
 
-#clearboth {
+.clearboth, #clearboth {
 	clear: both;
 }
 
