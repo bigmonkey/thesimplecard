@@ -1,8 +1,36 @@
 
 <h1>Update your <%= @card.card_name %> card.</h1>
-<%= form_for(@card) do |f| %>
-	<%= f.label :card_name %>
-	<%= f.text_field :card_name %>
 
-	<%= f.submit "Save" %>
-<% end %>	
+<%= form_for(@card) do |f| %>
+	<div>
+		<%= f.label :card_name, 'Card Name' %><br>
+		<%= f.text_field :card_name, placeholder: 'XYZ Card' %>
+	</div>
+	<div>
+	<%= f.label :credit_limit, 'Credit Limit ($)' %><br>
+	<%= f.text_field :credit_limit, placeholder: '10,000' %>
+	</div>
+	<div>
+	<%= f.label :annual_fee, 'Annual Fee ($)' %><br>
+	<%= f.text_field :annual_fee, placeholder: '25' %>
+	</div>
+	<div>
+	<%= f.label :purchase_apr, 'APR (%)' %><br>
+	<%= f.text_field :purchase_apr, placeholder: '14.99' %>
+	</div>
+	<div>
+	<%= f.label :monthly_spend, 'Monthly Spend ($)' %><br>
+	<%= f.text_field :monthly_spend, placeholder: '5,000' %>
+	</div>
+	<div>
+	<%= f.label :monthly_balance, 'Monthly Balance ($)' %><br>
+	<%= f.text_field :monthly_balance, placeholder: '10,000' %>
+	</div>
+	<div>
+	<%= f.label :phone, "Phone Number" %><br>
+	<%= f.telephone_field :phone, placeholder: '123-456-7890' %>
+	</div>
+	<div>
+	<%= f.submit "Update" %>
+	</div>
+<% end %>

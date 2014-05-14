@@ -2,10 +2,6 @@
 
 <table>
 	<tr>
-		<td>Customer Service:</td>
-		<td><%= number_to_phone(@card.phone)%></td>
-	</tr>
-	<tr>
 		<td>Credit Limit:</td>
 		<td><%= number_to_currency(@card.credit_limit, precision:0)%></td>
 	</tr>
@@ -25,4 +21,8 @@
 		<td>Monthly Balance:</td>
 		<td><%= number_to_currency(@card.monthly_balance, precision:0)%></td>
 	</tr>				
+	<tr>
+		<td>Customer Service:</td>
+		<td><%= number_to_phone(@card.phone)%></td>
+	</tr>
 </table>
