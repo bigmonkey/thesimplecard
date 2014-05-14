@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512210849) do
+ActiveRecord::Schema.define(version: 20140514071909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,18 @@ ActiveRecord::Schema.define(version: 20140512210849) do
   end
 
   add_index "lenders_term_states", ["lender_id", "term_state_id"], name: "index_lenders_term_states_on_lender_id_and_term_state_id", using: :btree
+
+  create_table "my_cards", force: true do |t|
+    t.integer  "user_id"
+    t.string   "card_name"
+    t.decimal  "annual_fee",      precision: 5, scale: 2
+    t.decimal  "purchase_apr",    precision: 4, scale: 2
+    t.decimal  "monthly_balance", precision: 7, scale: 2
+    t.decimal  "credit_limit",    precision: 7, scale: 2
+    t.decimal  "monthly_spend",   precision: 7, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", force: true do |t|
     t.string   "page_name",  limit: 50
