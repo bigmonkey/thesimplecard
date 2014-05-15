@@ -17,7 +17,7 @@
 	<% if user_signed_in? %>
 		<div class = "homeBoxNav"> <%= link_to('my', my_cards_path) %></div>
 	<% else %>
-	<div class = "homeBoxNav" id = "homeBoxNavOut"><%= link_to('my*', new_user_session_path) %></div>
+	<div class = "homeBoxNav" id = "homeBoxNavOut"><%= link_to('my*', new_user_registration_path) %></div>
 	<% end %>
 	<div class = "homeBoxNav"> <%= link_to('all', cards_path) %></div>
 	<div class = "homeBoxNav"> <%= link_to('secured', secureds_path) %></div>
