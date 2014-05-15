@@ -133,12 +133,19 @@ p {
 }
 #logo { 
 	float: left;
-	line-height: 6em;
-	height: 6em;
-	.title {
+	line-height: 1.3em;
+	margin-top: .8em;
+	.the, .card {
 		a, a:link, a:visited {
-			font-family: arial;
-			font-size: 2em;
+			font-family: 'Special Elite',arial;
+			font-size: 1.5em;
+			color: $highColor;
+		}
+	}	
+	.simple {
+		a, a:link, a:visited {
+			font-family: 'Arvo',arial;
+			font-size: 3em;
 			color: $logoColor;
 		}
 	}
@@ -189,12 +196,12 @@ nav a:hover, nav a:active, nav li:hover, nav li:active {
 
 .criteria h2 {
 	background: #FFF;
-	color: #555;
+	color: $mainColor;
 	font-size: 1em;
-	font-weight: bold;
+	//font-weight: bold;
 	text-transform: none;
 	padding: 4px 0px;
-	border-top: 2px solid #666;
+	border-top: 2px solid $mainColor;
 	text-align: center;
 }
 
@@ -309,7 +316,7 @@ td .instantDecision {
     border: 1px solid #ddd;
     vertical-align: bottom;
     margin-bottom: 15px;
-    color: #555;
+    color: $mainColor;
     border-radius: 3px;
     webkit-border-radius: 3px;
     moz-border-radius: 3px;    
@@ -482,16 +489,12 @@ td .instantDecision {
 .cardApplyButton {
 	background-color: $logoColor;
   color: #fff;
-  font-weight: bold;
+  //font-weight: bold;
   margin: 0px 0px 5px 5px;
   display: block;
   height: 25px;
   line-height: 25px;
   width: 70px;
-  border: 1px solid $logoColor;
-  border-radius: 3px;
-  webkit-border-radius: 3px;
-  moz-border-radius: 3px;
   padding: 0px;
 }
 
@@ -500,11 +503,8 @@ td .instantDecision {
 }
 
 .cardApplyButton:hover {
-	box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-	-webkit-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-	-moz-box-shadow: 0 0 5px rgba(102, 102, 102, 0.6);
-	color: #fff;
 	font-weight: normal;
+	background: $logoColorTint;
 }
 /* end set spacing for inside of table */
 
@@ -616,21 +616,21 @@ td .instantDecision {
 
 	#mainContent h1 {
 		font-size: 1.6em;
-		font-weight: bold;
+		//font-weight: bold;
 	}
 
 	#mainContent h3 {
 		font-size: 1em;
 		color: #444;
 		margin-top: 15px;
-		font-weight: bold;
+		//font-weight: bold;
 	}
 
 	#mainContent h2, .arh {
 		font-size: 1.2em;
 		color: $logoColor;
 		margin-top: 15px;
-		font-weight: bold;
+		//font-weight: bold;
 	}
 	
 	#mainContent ul li, #mainContent ol li {
