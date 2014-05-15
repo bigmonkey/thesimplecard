@@ -1,29 +1,33 @@
-<% if @user.my_cards.nil? %>
-	<div>You have entered no cards.</div>
+<h1>My Cards: Summary</h1>
+<% if @user.my_cards.blank? %>
+	<p>You have entered no cards.</p>
+	<p>Enter your credit card summary information to help manage your cards. If you lose your card the contact number is readily available here. And if we find better offers we will let you know</p>
+	<p><%= link_to 'new card', new_my_card_path, class: 'myCardMods' %></p>
 <% else %>
-	<table>
+	<table class = "myCards">
 		<tr>
-			<th>Card Name</th>
-			<th>Credit Limit</th>
-			<th>Annual Fee</th>
-			<th>APR</th>
-			<th>Monthly Spend</th>
-			<th>Revolving Balance</th>
-			<th>Phone</th>			
-			<th>Actions</th>
+			<th class = "myCardsName">Name</th>
+			<th class = "myCardsStats">Limit</th>
+			<th class = "myCardsStats">Fee</th>
+			<th class = "myCardsStats">APR</th>
+			<th class = "myCardsStats">Spend</th>
+			<th class = "myCardsStats">Balance</th>
+			<th class = "myCardsPhone">Phone</th>			
+			<th class = "myCardsActions">Actions</th>
 		</tr>
 		<% @user.my_cards.each do |c| %>
 		<tr>
-			<td><%= c.card_name %></td>
+			<td class="myCardsName"><%= c.card_name %></td>
 			<td><%= number_to_currency(c.credit_limit, precision:0) %></td>
 			<td><%= number_to_currency(c.annual_fee, precision:0) %></td>
 			<td><%= number_to_percentage(c.purchase_apr, precision:2) %></td>
 			<td><%= number_to_currency(c.monthly_spend, precision:0) %></td>
 			<td><%= number_to_currency(c.monthly_balance, precision:0) %></td>
 			<td><%= number_to_phone(c.phone) %></td>
-			<td><%= link_to('edit', edit_my_card_path(c)) %> <%= link_to 'delete', c, method: :delete, data: {confirm: "You sure?" }%></td>
+			<td><%= link_to('edit', edit_my_card_path(c), class: 'myCardMods') %> <%= link_to 'delete', c, method: :delete, data: {confirm: "You sure?" }, class: 'myCardMods' %></td>
 		</tr>	
 		<% end %>
 	</table>
-	<%= link_to 'Add', new_my_card_path %>
+	<%= link_to('new card', new_my_card_path, class: 'myCardMods') %>
 <% end %>
+

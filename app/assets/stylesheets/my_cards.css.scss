@@ -1,3 +1,45 @@
-// Place all the styles related to the MyCards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+a.myCardMods, a.myCardMods:link, a.myCardMods:visited {
+	display: block;
+	color: #fff;
+	background: $highColor;
+	text-align: center;
+	width: 5em;
+	font-size: 1em;
+	height: 1.3em;
+	line-height: 1.3em;
+	float: left;
+	margin: .1em .5em;
+}
+
+a.myCardMods:hover, a.myCardMods:active {
+	background: $highColorTint
+}
+
+.myCards {
+	margin: 2em 0em;
+	th {
+		color: $secondHigh;
+		font-size: 1em;
+	}
+	th.myCardsName{
+		width: 12em;
+		text-align: left;
+	}
+	th.myCardsPhone {
+		width: 6em;
+	}
+	th.myCardsAction {
+		width: 6em;
+	}
+	th.myCardsStats{
+		width: 5.5em;
+		text-align: center;
+	}
+	td.myCardsName {
+		text-align: left;
+	}
+	td {
+		vertical-align: middle;
+		text-align: right;
+	}
+}
