@@ -190,7 +190,95 @@ nav a:hover, nav a:active, nav li:hover, nav li:active {
 
 }
 
+// homes //
 
+.homeTagsBox {
+	margin-top: 5em;
+}
+
+.homeTags {
+	text-align: center;
+	font-size: 1.5em;
+	color: $secondHigh;
+	margin: .5em 0em;
+}
+
+.homeUserOptions {
+	width: 20em;
+	margin: 4em auto;
+}
+
+.homeSignUp, .homeLogin {
+	text-align: center;
+	width: 7em;
+	font-size: 1.2em;
+	height: 2em;
+	line-height: 2em;	
+}
+.homeSignUp {
+	float: left;
+	background: $softBackground;
+	a, a:link, a:visited { 
+		color: $highColor;
+		display: block;
+	}
+	a:hover, a:active {
+		background: $softBackgroundTint;
+	}		
+}
+
+.homeLogin { 
+	float: right;
+	background: $logoColor;
+	a, a:link, a:visited { 
+		color: #fff;
+		display: block;
+	}
+	a:hover, a:active {
+		background: $logoColorTint;
+	}	
+}
+
+.homeBoxes {
+	width: 52em;
+	margin: 8em auto;
+}
+.homeBoxNav {
+	float: left;
+	margin: 0em 1.5em;
+	background: $highColor;
+	width: 10em;
+	height: 10em;
+	line-height: 10em;
+	text-align: center;
+	a, a:link, a:visited {
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		font-size: 2em;
+	}
+	a:hover, a:active {
+		color: #fff;
+		background: $highColorTint;
+	}
+
+}
+
+#homeBoxNavOut {
+	background: $softBackground;
+	a, a:link, a:visited { color: $softColor; }
+	a:hover, a:active {
+		background: $softBackgroundTint;
+	}			
+}
+
+.homeExplain {
+	width: 40em;
+	text-align: center;
+	margin: 2em auto;
+	color: $softColor;
+}
+// end homes //
 
 /*sidebar*/
 
