@@ -22,7 +22,7 @@ gem 'uglifier', '2.1.1'
 
 gem 'jquery-rails', '2.3.0'
 
-gem 'devise','3.2.4'
+gem 'devise','3.5.10'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
